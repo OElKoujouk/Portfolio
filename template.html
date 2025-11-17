@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Développeur Full-Stack</title>
+    <meta name="description" content="Portfolio professionnel d'un développeur Full-Stack spécialisé en React, Next.js et Salesforce">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0f0f23",
+                        secondary: "#1a1a2e",
+                        accent: {
+                            blue: "#00d9ff",
+                            purple: "#8b5cf6",
+                            pink: "#ec4899"
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        glow: {
+                            '0%': { 'box-shadow': '0 0 5px #00d9ff' },
+                            '100%': { 'box-shadow': '0 0 20px #00d9ff, 0 0 30px #00d9ff' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #00d9ff 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-primary text-white font-inter">
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full bg-primary/90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold gradient-text">DevPortfolio</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="text-gray-300 hover:text-accent-blue transition-colors duration-300">Accueil</a>
+                    <a href="#projets" class="text-gray-300 hover:text-accent-blue transition-colors duration-300">Projets</a>
+                    <a href="#apropos" class="text-gray-300 hover:text-accent-blue transition-colors duration-300">À propos</a>
+                    <a href="#contact" class="text-gray-300 hover:text-accent-blue transition-colors duration-300">Contact</a>
+                </div>
+                <button class="md:hidden text-gray-300">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="animate-fade-in">
+                <div class="w-32 h-32 mx-auto mb-8 rounded-full border-2 border-accent-blue overflow-hidden animate-glow">
+                    <img 
+                        src="https://picsum.photos/128?random=1" 
+                        alt="Photo de profil du développeur" 
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                    />
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
+                    Développeur <span class="gradient-text">Full-Stack</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto animate-slide-up">
+                    Je transforme des idées en <span class="text-accent-blue">expériences digitales</span> exceptionnelles avec React, Next.js & Salesforce
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+                    <button class="bg-accent-blue text-primary px-8 py-3 rounded-lg font-semibold hover:bg-accent-purple transition-all duration-300 transform hover:scale-105">
+                        Me contacter
+                    </button>
+                    <button class="border border-accent-blue text-accent-blue px-8 py-3 rounded-lg font-semibold hover:bg-accent-blue hover:text-primary transition-all duration-300">
+                        Voir mes projets
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projets" class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                Mes <span class="gradient-text">Projets</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projet 1 -->
+                <div class="bg-primary rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-800">
+                    <img 
+                        src="https://picsum.photos/400/250?random=2" 
+                        alt="Application e-commerce moderne" 
+                        class="w-full h-48 object-cover rounded-lg mb-4"
+                        loading="lazy"
+                    />
+                    <h3 class="text-xl font-semibold mb-2">Plateforme E-commerce</h3>
+                    <p class="text-gray-400 mb-4">Application e-commerce complète avec panier, paiement et dashboard admin.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-accent-blue/20 text-accent-blue px-3 py-1 rounded-full text-sm">Next.js</span>
+                        <span class="bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-sm">TypeScript</span>
+                        <span class="bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full text-sm">Stripe</span>
+                    </div>
+                    <button class="w-full bg-accent-blue text-primary py-2 rounded-lg font-semibold hover:bg-accent-purple transition-colors duration-300">
+                        Voir plus
+                    </button>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="bg-primary rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-800">
+                    <img 
+                        src="https://picsum.photos/400/250?random=3" 
+                        alt="Dashboard analytique" 
+                        class="w-full h-48 object-cover rounded-lg mb-4"
+                        loading="lazy"
+                    />
+                    <h3 class="text-xl font-semibold mb-2">Dashboard Analytics</h3>
+                    <p class="text-gray-400 mb-4">Tableau de bord en temps réel avec visualisation de données et rapports.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-accent-blue/20 text-accent-blue px-3 py-1 rounded-full text-sm">React</span>
+                        <span class="bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-sm">Salesforce</span>
+                        <span class="bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full text-sm">Chart.js</span>
+                    </div>
+                    <button class="w-full bg-accent-blue text-primary py-2 rounded-lg font-semibold hover:bg-accent-purple transition-colors duration-300">
+                        Voir plus
+                    </button>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="bg-primary rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-800">
+                    <img 
+                        src="https://picsum.photos/400/250?random=4" 
+                        alt="Application mobile" 
+                        class="w-full h-48 object-cover rounded-lg mb-4"
+                        loading="lazy"
+                    />
+                    <h3 class="text-xl font-semibold mb-2">App Mobile Social</h3>
+                    <p class="text-gray-400 mb-4">Réseau social mobile avec fonctionnalités de messagerie et partage.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-accent-blue/20 text-accent-blue px-3 py-1 rounded-full text-sm">React Native</span>
+                        <span class="bg-accent-purple/20 text-accent-purple px-3 py-1 rounded-full text-sm">Firebase</span>
+                        <span class="bg-accent-pink/20 text-accent-pink px-3 py-1 rounded-full text-sm">Node.js</span>
+                    </div>
+                    <button class="w-full bg-accent-blue text-primary py-2 rounded-lg font-semibold hover:bg-accent-purple transition-colors duration-300">
+                        Voir plus
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="apropos" class="py-20 bg-primary">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    À propos de <span class="gradient-text">moi</span>
+                </h2>
+                <p class="text-gray-300 text-lg mb-6">
+                    Développeur Full-Stack passionné avec 5 ans d'expérience dans la création d'applications web modernes et performantes. Spécialisé dans les écosystèmes JavaScript et Salesforce.
+                </p>
+                <p class="text-gray-300 text-lg mb-8">
+                    J'aime résoudre des problèmes complexes et créer des expériences utilisateur exceptionnelles qui allient performance et design.
+                </p>
+
+                <h3 class="text-2xl font-semibold mb-4">Compétences</h3>
+                <div class="flex flex-wrap gap-3 mb-8">
+                    <span class="skill-badge bg-accent-blue/20 text-accent-blue px-4 py-2 rounded-lg">React</span>
+                    <span class="skill-badge bg-accent-purple/20 text-accent-purple px-4 py-2 rounded-lg">Next.js</span>
+                    <span class="skill-badge bg-accent-pink/20 text-accent-pink px-4 py-2 rounded-lg">TypeScript</span>
+                    <span class="skill-badge bg-accent-blue/20 text-accent-blue px-4 py-2 rounded-lg">Salesforce</span>
+                    <span class="skill-badge bg-accent-purple/20 text-accent-purple px-4 py-2 rounded-lg">Node.js</span>
+                    <span class="skill-badge bg-accent-pink/20 text-accent-pink px-4 py-2 rounded-lg">MongoDB</span>
+                    <span class="skill-badge bg-accent-blue/20 text-accent-blue px-4 py-2 rounded-lg">Tailwind CSS</span>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold mb-6">Expérience Professionnelle</h3>
+                <div class="space-y-6">
+                    <div class="border-l-2 border-accent-blue pl-6">
+                    <h4 class="text-xl font-semibold text-accent-blue">Développeur Full-Stack Senior</h4>
+                    <p class="text-gray-400">TechCorp • 2022 - Présent</h4>
+                    <p class="text-gray-300 mt-2">Lead technique sur des projets React/Next.js et intégrations Salesforce.</p>
+                </div>
+                <div class="border-l-2 border-accent-purple pl-6">
+                    <h4 class="text-xl font-semibold text-accent-purple">Développeur Full-Stack</h4>
+                    <p class="text-gray-400">StartUp Innov • 2020 - 2022</p>
+                    <p class="text-gray-300 mt-2">Développement d'applications web et mobiles avec React Native.</p>
+                </div>
+                <div class="border-l-2 border-accent-pink pl-6">
+                    <h4 class="text-xl font-semibold text-accent-pink">Développeur Frontend</h4>
+                    <p class="text-gray-400">WebAgency • 2019 - 2020</p>
+                    <p class="text-gray-300 mt-2">Création d'interfaces utilisateur responsive et accessibles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="py-20 bg-secondary">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+                Travaillons <span class="gradient-text">ensemble</span>
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Contactez-moi</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Nom</label>
+                            <input type="text" id="name" class="w-full bg-primary border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-blue transition-colors duration-300" placeholder="Votre nom">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full bg-primary border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-blue transition-colors duration-300" placeholder="votre@email.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full bg-primary border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-blue transition-colors duration-300" placeholder="Votre message..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-accent-blue text-primary py-3 rounded-lg font-semibold hover:bg-accent-purple transition-colors duration-300">
+                                Envoyer le message
+                            </button>
+                    </form>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-2xl font-semibold mb-6">Réseaux sociaux</h3>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 text-2xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 text-2xl">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 text-2xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8 p-6 bg-primary rounded-lg border border-gray-700">
+                        <h4 class="text-lg font-semibold mb-2">Disponible pour</h4>
+                        <ul class="text-gray-300 space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-code text-accent-blue mr-3"></i>
+                            Développement de projets web
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-mobile-alt text-accent-purple mr-3"></i>
+                            Applications mobiles
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-cogs text-accent-pink mr-3"></i>
+                            Intégrations Salesforce
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary border-t border-gray-800 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">
+                &copy; 2024 Portfolio Développeur Full-Stack. Tous droits réservés.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Simulate form submission
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Envoi en cours...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    submitBtn.textContent = 'Message envoyé !';
+                    setTimeout(() => {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        contactForm.reset();
+                    }, 2000);
+                }, 1000);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+            }
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
