@@ -3,10 +3,9 @@
 Portfolio multi-page construit avec Next.js 14 (App Router) et Tailwind CSS. Le site adopte un theme sombre neon bleu/violet et se compose de pages autonomes: Accueil, Projets, fiches detaillees, A propos et Contact. Les composants sont mutualises et les contenus clefs sont centralises pour faciliter la maintenance.
 
 ## Pages principales
-- **`/` Accueil**: hero compact (portrait local, CTA Mes projets/Me contacter) + badges de competences et cartes "Ce que je fais" (3 offres de service).
+- **`/` Accueil**: hero compact (portrait local, CTA Mes projets/Me contacter/Télécharger mon CV), badges de competences, cartes "Ce que je fais" (3 offres de service), bandeau "Projet primé" pointant vers NavZen et la section A propos complete (intro, expertises, timeline).
 - **`/projets`**: grille responsive qui consomme `data/projects.ts` et affiche des cartes cliquables (image Next, description courte, stack).
 - **`/projets/[slug]`**: fiche auto-generee (metadata + `generateStaticParams`) avec problematique, stack, workflows optionnels, solution detaillee et galerie (images ou iframe YouTube) alimentees par `demoMedia`.
-- **`/apropos`**: sections narratives, badges d'expertises, timeline d'experiences, projet NavZen et mention de la passion pour la moto GSX-R 750 K6. Bouton de telechargement du CV (`public/assets/CV-Omar.pdf`).
 - **`/contact`**: formulaire client (`useFormState`) + server action `sendContact` qui envoie via Resend, liens sociaux et bloc "Disponible pour : projets web, applications mobiles, integrations Salesforce".
 
 ## Stack et dependances clefs
@@ -23,7 +22,6 @@ app/
   page.tsx            # Accueil
   projets/page.tsx    # grille
   projets/[slug]/page.tsx
-  apropos/page.tsx
   contact/page.tsx
   contact/actions.ts  # server action Resend
 components/

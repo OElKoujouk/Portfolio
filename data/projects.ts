@@ -1,4 +1,4 @@
-export type DemoMedia = {
+﻿export type DemoMedia = {
   type: "image" | "video";
   src: string;
   title?: string;
@@ -16,6 +16,8 @@ export type Project = {
   solution: string;
   link?: string;
   demoMedia?: DemoMedia[];
+  workflowsTitle?: string;
+  workflowsIntro?: string;
   workflows?: {
     name: string;
     description: string;
@@ -25,8 +27,121 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "rivalytics-intelligence-api",
-    title: "Rivalytics - Intelligence API",
+    slug: "navzen-projet-prime",
+    title: "🏆 NavZen – Projet primé ETNA",
+    description:
+      "Lauréat du prix \"Meilleure idée de l’année\" : appli mobile de navigation intérieure qui mixe React Native, Rust et Unity.",
+    longDescription:
+      "Projet de fin d'études ETNA récompensé par un jury professionnel pour son approche hybride hardware/software. NavZen combine une appli React Native pour guider les visiteurs, un moteur de calcul Rust pour la trilatération BLE et une carte 3D Unity embarquée. L'ensemble est orchestré via une API Symfony qui centralise bâtiments, points d'intérêt et profils utilisateurs.",
+    stack: ["Rust", "React Native", "Unity", "Symfony", "BLE", "API REST"],
+    image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80",
+    problem:
+      "Les visiteurs perdent du temps à s'orienter dans les bâtiments vastes et aucun outil ne proposait une navigation indoor précise ni un back-office simple à administrer.",
+    solution:
+      "Conception d'une solution temps réel : appli mobile (auth, recherche de bâtiments/POI), moteur Rust pour calculer le chemin via trilatération BLE, rendu 3D interactif Unity intégré dans l'app et API Symfony/REST pour gérer l'inventaire des bâtiments, des points d'intérêt et des balises.",
+    demoMedia: [
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80",
+        title: "Prototype NavZen",
+        description: "Écrans React Native avec la carte Unity embarquée."
+      }
+    ]
+  },
+  {
+    slug: "quickgpt-suite-salesforce",
+    title: "QuickGPT – Suite d’assistants Salesforce",
+    description:
+      "Pack de composants LWC/Apex (Chat, Génération, Correction, Social) branchés sur OpenAI pour assister les équipes directement dans Salesforce.",
+    longDescription:
+      "QuickGPT regroupe cinq composants Salesforce centrés IA, chacun accessible depuis l’interface Lightning.\n\nLa suite s’appuie sur un socle commun (OpenAiHandler pour sécuriser les appels OpenAI, LogUtils pour tracer les échanges, PromptGPT__c pour stocker les prompts multilingues) et expose des use cases précis : dialogue direct avec GPT, génération de messages commerciaux, réécriture d’activités, correction libre et production de contenus social media.",
+    stack: ["Salesforce", "LWC", "Apex", "OpenAI", "PromptGPT__c", "LogUtils"],
+    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=900&q=80",
+    problem:
+      "Les équipes commerciales/support avaient besoin d’assistants IA directement dans Salesforce pour éviter les copier/coller vers des outils externes et garder la traçabilité CRM.",
+    solution:
+      "1. Déployer un socle commun (OpenAiHandler + LogUtils + PromptGPT__c) pour mutualiser les appels API, les logs et les prompts.\n\n2. Construire cinq modules spécialisés : qGPT-Chat pour converser avec GPT, qGPT-GenerateText pour suggérer des messages LinkedIn/Emails depuis un Lead, qGPT-ImproveActivities pour réécrire les comptes-rendus Task/Event, qGPT-TextCorrector pour corriger tout texte libre et qGPT-Social pour générer posts LinkedIn/blog + images DALL·E.\n\n3. Exposer ces modules dans un pack App Builder afin que les équipes puissent les activer par objet/process sans code supplémentaire.",
+    workflowsTitle: "Modules QuickGPT",
+    workflowsIntro:
+      "Chaque composant répond à un moment clé du cycle commercial ou support tout en partageant le même socle Apex/Prompts/Logs.",
+    workflows: [
+      {
+        name: "qGPT-Chat",
+        description:
+          "Interface LWC simulant une messagerie : historique, rôles user/assistant, labels multilingues et réponses immédiates de GPT dans Salesforce.",
+        tech: ["LWC", "OpenAiHandler", "LogUtils"]
+      },
+      {
+        name: "qGPT-GenerateText",
+        description:
+          "Composant déployé sur les Leads pour générer des messages LinkedIn ou emails personnalisés en choisissant le canal, le ton et la langue via PromptGPT__c.",
+        tech: ["PromptGPT__c", "Lead UI", "Apex"]
+      },
+      {
+        name: "qGPT-ImproveActivities",
+        description:
+          "Bouton Task/Event qui reformule automatiquement les comptes-rendus avec un style professionnel grâce à des prompts préconfigurés.",
+        tech: ["Task/Event", "OpenAI", "Apex"]
+      },
+      {
+        name: "qGPT-TextCorrector",
+        description:
+          "Éditeur universel où l’utilisateur colle son texte pour obtenir une correction ou une reformulation selon un ton défini (formel, direct, interne…).",
+        tech: ["Reusable LWC", "PromptGPT__c"]
+      },
+      {
+        name: "qGPT-Social",
+        description:
+          "Assistant marketing pour générer des posts LinkedIn/blog et des visuels DALL·E en fusionnant automatiquement les données CRM grâce à des balises dynamiques.",
+        tech: ["DALL·E", "ContentGPT__c", "Merge Tags"]
+      }
+    ],
+    demoMedia: [
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=900&q=80",
+        title: "Dashboard QuickGPT",
+        description: "Vue des composants LWC intégrés aux fiches Salesforce (Chat, Generate, Improve, TextCorrector, Social)."
+      },
+      {
+        type: "video",
+        src: "https://www.youtube.com/embed/1H-vSHVOxo8",
+        title: "Workflow QuickGPT",
+        description: "Démonstration : question qGPT-Chat, génération LinkedIn, amélioration d’activité et post social."
+      }
+    ]
+  },
+  {
+    slug: "refonte-wordpress",
+    title: "Refonte WordPress & intégration Agentforce",
+    description:
+      "Refonte du site WordPress (Elementor) de Dev First avec un agent Agentforce brandé Salesforce intégré côté front.",
+    longDescription:
+      "Refonte complète de dev-first.com sous WordPress + Elementor puis intégration d'un agent conversationnel Agentforce relié à Salesforce. Le bot récupère la base de connaissances Trailhead/FAQ, respecte le branding (logo, couleurs, avatar) et expose des topics/actions personnalisés (prise de RDV, push de leads). L'objectif est de transformer une vitrine classique en un outil de génération de business traçable dans Salesforce avec suivi des conversations.",
+    stack: ["WordPress", "Elementor", "Salesforce", "Agentforce", "JavaScript"],
+    image: "https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=900&q=80",
+    problem:
+      "Dev First disposait d'un site vitrine peu interactif et aucune capture conversationnelle des prospects malgré son écosystème Salesforce.",
+    solution:
+      "Création de pages Elementor optimisées SEO + ajout d'un widget Agentforce connecté à Salesforce (topics, actions custom, branding complet). L'agent répond instantanément, peut créer des leads, prendre des rendez-vous ou pousser une documentation contextualisée, tout en loggant chaque conversation côté CRM.",
+    demoMedia: [
+      {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80",
+        title: "Agentforce intégré",
+        description: "Vue du widget Agentforce brandé Dev First sur la landing Elementor."
+      },
+      {
+        type: "video",
+        src: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        title: "Démonstration WordPress + Agentforce",
+        description: "Parcours complet : question client, création de lead, logging dans Salesforce."
+      }
+    ]
+  },
+  {
+    slug: "rivalytics-api",
+    title: "Rivalytics - Veille concurrentielle",
     description:
       "Plateforme Node.js qui centralise l'authentification, la veille LinkedIn/YouTube et la gestion des cibles pour les equipes marketing.",
     longDescription:
@@ -39,7 +154,7 @@ export const projects: Project[] = [
       "Apify",
       "YouTube API"
     ],
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/Rivalytics/rivalytics-titre.png",
     problem:
       "L'equipe marketing n'avait aucun service fiable pour agreger en continu les posts LinkedIn et YouTube de leurs concurrents ni controler les acces utilisateurs.",
     solution:
@@ -47,15 +162,21 @@ export const projects: Project[] = [
     demoMedia: [
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80",
-        title: "Console Rivalytics",
-        description: "Vue interne consommant les endpoints /api pour LinkedIn & YouTube."
+        src: "/assets/Rivalytics/rivalytics-1.png",
+        title: "Tableau de bord – Recherche Rivalytics",
+        description: "Vue synthétique des performances LinkedIn de Dev First : publications, engagement et fréquence."
       },
       {
-        type: "video",
-        src: "https://www.youtube.com/embed/V5F8kB0Kq6w",
-        title: "Scraping flow",
-        description: "Capture video montrant la collecte et la mise a jour du cache."
+        type: "image",
+        src: "/assets/Rivalytics/rivalytics-2.png",
+        title: "Insights de performance",
+        description: "Visualisation de l’engagement par plateforme, évolution des publications et meilleur contenu identifié."
+      },
+      {
+        type: "image",
+        src: "/assets/Rivalytics/rivalytics-3.png",
+        title: "Contenus publiés – Historique LinkedIn",
+        description: "Liste chronologique des posts LinkedIn analysés avec leurs dates et niveaux d’engagement."
       }
     ]
   },

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Activity, Flame, Download } from "lucide-react";
 
 const introSections = [
@@ -5,8 +6,8 @@ const introSections = [
     title: "Ce que je fais",
     icon: Activity,
     paragraphs: [
-      "Formé à ETNA Paris et EPITECH, je construis des architectures fiables en Next.js, React Native et Salesforce. J'aime connecter produit, métier et automatisation pour fluidifier les roadmaps.",
-      "J'orchestration les workflows : intégrations API, scripts SFDX, CI/CD et monitoring pour garder la maîtrise jusqu'au déploiement."
+      "Formé à l'ETNA Paris et à EPITECH, je construis des architectures fiables en Next.js, React Native et Salesforce. J'aime connecter produit, métier et automatisation pour fluidifier les roadmaps.",
+      "Je pilote les workflows : intégrations API, scripts SFDX, CI/CD et monitoring pour garder la maîtrise jusqu'au déploiement."
     ]
   },
   {
@@ -45,7 +46,7 @@ const experiences = [
     period: "Avril 2024 - Novembre 2025",
     highlights: [
       "Features Apex & LWC sur mesure pour les équipes sales.",
-      "Extension Chrome LinkedIn → Salesforce pour synchroniser les leads.",
+      "Extension Chrome LinkedIn ↔ Salesforce pour synchroniser les leads.",
       "Refonte de dev-first.com avec branchements services Salesforce.",
       "Configuration Agentforce (Topics, Actions, Web To Lead) + automatisations SFDX.",
       "Intégration d'API externes (OpenAI) et mentoring Trailhead."
@@ -64,9 +65,13 @@ const experiences = [
 ];
 
 const navZenProject = {
-  title: "Projet NavZen — Fin d'études ETNA",
+  title: "🏆Projet NavZen — Fin d'études ETNA",
+  award: {
+    label: "Lauréat “Meilleure projet de l’année”",
+    description: "Prix décerné par un jury professionnel pour l’innovation et l’impact produit."
+  },
+  highlightIntro: "Développement d’une application mobile de navigation intérieure : React Native, auth, recherche, BLE.",
   highlights: [
-    "Application de navigation intérieure React Native (auth, recherche, BLE).",
     "Algorithme de trilatération en Rust et calcul de chemin indoor.",
     "Backend Symfony/API REST et intégration Unity 3D immersive."
   ]
@@ -105,14 +110,6 @@ export default function AboutSection() {
               Les technos qui composent mon stack quotidien entre React, Salesforce et automatisation.
             </p>
           </div>
-          <a
-            href="/assets/CV-Omar.pdf"
-            download
-            className="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500/80 via-accent-blue to-indigo-500 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-primary shadow-xl shadow-cyan-500/25 transition hover:-translate-y-1 hover:shadow-cyan-400/40"
-          >
-            <Download className="h-4 w-4" />
-            Télécharger mon CV
-          </a>
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {skillGroups.map((group) => (
@@ -161,6 +158,25 @@ export default function AboutSection() {
           <p className="text-xs uppercase tracking-[0.45em] text-accent-blue">Projet d&apos;école</p>
           <h2 className="mt-3 text-2xl font-semibold text-white">{navZenProject.title}</h2>
           <div className="mt-6 space-y-4 text-sm text-gray-300">
+            <div className="rounded-2xl border border-accent-blue/30 bg-accent-blue/5 p-4 text-white shadow-2xl shadow-cyan-500/10 transition hover:border-accent-blue/60 hover:shadow-cyan-500/30">
+              <div className="flex flex-col gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-cyan-200">Projet primé - Distinction</p>
+                  <p className="mt-2 text-base font-semibold text-white">{navZenProject.award.label}</p>
+                  <p className="mt-1 text-sm text-cyan-100">{navZenProject.award.description}</p>
+                </div>
+                <Link
+                  href="/projets/navzen-projet-prime"
+                  className="inline-flex items-center justify-center rounded-full border border-accent-blue/60 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-accent-blue transition hover:border-accent-blue hover:bg-accent-blue/10"
+                >
+                  Voir le projet
+                </Link>
+              </div>
+            </div>
+            <p className="flex items-start gap-2 text-base text-gray-100">
+              <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400" />
+              <span>{navZenProject.highlightIntro}</span>
+            </p>
             {navZenProject.highlights.map((item) => (
               <p key={item} className="flex items-start gap-2">
                 <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400" />
@@ -173,3 +189,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

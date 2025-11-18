@@ -1,5 +1,7 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
+import Link from "next/link";
 import Hero from "@/components/Hero";
+import AboutSection from "@/components/AboutSection";
 
 export const metadata: Metadata = {
   title: "Accueil"
@@ -58,6 +60,22 @@ export default function HomePage() {
               <p className="mt-2 text-sm text-gray-300">{item.description}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="space-y-10 rounded-3xl border border-white/5 bg-white/5 p-6 text-gray-200 shadow-2xl shadow-black/20 lg:p-10">
+        <header className="w-full text-center">
+          <p className="text-xs uppercase tracking-[0.45em] text-accent-blue">Profil</p>
+          <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">
+            Développeur Full-Stack & Salesforce
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-base text-gray-300">
+            J&apos;aide les équipes produit à assembler architectures web/mobile et écosystème Salesforce, en priorisant la
+            lisibilité du code, l&apos;automatisation et la fiabilité des mises en production.
+          </p>
+        </header>
+        <div className="mx-auto max-w-6xl">
+          <AboutSection />
         </div>
       </section>
     </div>

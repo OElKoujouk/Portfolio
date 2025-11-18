@@ -1,11 +1,18 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getProjectBySlug, getProjectSlugs } from "@/data/projects";
+import ProjectMediaGallery from "@/components/ProjectMediaGallery";
 
 type ProjectPageProps = {
   params: { slug: string };
 };
+
+const splitIntoParagraphs = (text?: string) =>
+  text
+    ?.split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean) ?? [];
 
 export function generateStaticParams() {
   return getProjectSlugs().map((slug) => ({ slug }));
@@ -29,12 +36,19 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
     notFound();
   }
 
+  const descriptionParagraphs = splitIntoParagraphs(project.longDescription);
+  const solutionParagraphs = splitIntoParagraphs(project.solution);
+
   return (
     <article className="space-y-10">
       <header className="space-y-4">
         <p className="text-xs uppercase tracking-[0.4em] text-accent-blue">Projet</p>
         <h1 className="text-3xl font-semibold text-white">{project.title}</h1>
-        <p className="text-gray-300">{project.longDescription}</p>
+        <div className="space-y-3 text-gray-300">
+          {descriptionParagraphs.map((paragraph, index) => (
+            <p key={`desc-${index}`}>{paragraph}</p>
+          ))}
+        </div>
       </header>
 
       <div className="overflow-hidden rounded-3xl border border-white/5 bg-white/5">
@@ -49,11 +63,11 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
 
       <div className="grid gap-6 lg:grid-cols-[2fr,1fr]">
         <div className="rounded-3xl border border-white/5 bg-white/5 p-6">
-          <h2 className="text-2xl font-semibold text-white">Problematique</h2>
+          <h2 className="text-2xl font-semibold text-white">Problématique</h2>
           <p className="mt-3 text-gray-300">{project.problem}</p>
         </div>
         <div className="rounded-3xl border border-white/5 bg-white/5 p-6">
-          <h2 className="text-2xl font-semibold text-white">Stack utilisee</h2>
+          <h2 className="text-2xl font-semibold text-white">Stack utilisée</h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {project.stack.map((tech) => (
               <span key={tech} className="badge">
@@ -68,7 +82,7 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               rel="noreferrer"
               className="mt-6 inline-flex items-center text-sm font-semibold text-accent-blue"
             >
-              Voir la demo
+              Voir la démo
             </a>
           )}
         </div>
@@ -76,9 +90,10 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
 
       {project.workflows && project.workflows.length > 0 && (
         <section className="rounded-3xl border border-white/5 bg-white/5 p-6">
-          <h2 className="text-2xl font-semibold text-white">Workflows cles</h2>
+          <h2 className="text-2xl font-semibold text-white">{project.workflowsTitle ?? "Workflows clés"}</h2>
           <p className="mt-3 text-sm text-gray-400">
-            Suite coordonnee de scenarios n8n couvrant ideation, production et prospection.
+            {project.workflowsIntro ??
+              "Suite coordonnée de scénarios couvrant les étapes essentielles du produit présenté."}
           </p>
           <div className="mt-6 space-y-5">
             {project.workflows.map((flow) => (
@@ -103,47 +118,18 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
       )}
 
       <section className="rounded-3xl border border-white/5 bg-white/5 p-6">
-        <h2 className="text-2xl font-semibold text-white">Solutions & resultats</h2>
-        <p className="mt-3 text-gray-300">{project.solution}</p>
+        <h2 className="text-2xl font-semibold text-white">Solutions & résultats</h2>
+        <div className="mt-3 space-y-3 text-gray-300">
+          {solutionParagraphs.map((paragraph, index) => (
+            <p key={`solution-${index}`}>{paragraph}</p>
+          ))}
+        </div>
       </section>
 
       {project.demoMedia && project.demoMedia.length > 0 && (
         <section className="rounded-3xl border border-white/5 bg-white/5 p-6">
-          <h2 className="text-2xl font-semibold text-white">Demo</h2>
-          <p className="mt-3 text-sm text-gray-400">
-            Quelques extraits visuels pour {project.title} : captures et walkthroughs.
-          </p>
-          <div className="mt-6 grid gap-6 lg:grid-cols-2">
-            {project.demoMedia.map((media) => (
-              <div key={media.src} className="space-y-3 rounded-2xl border border-white/5 bg-black/20 p-4">
-                <div className="relative w-full overflow-hidden rounded-xl border border-white/10">
-                  {media.type === "image" ? (
-                    <div className="relative h-56 w-full">
-                      <Image
-                        src={media.src}
-                        alt={media.title || project.title}
-                        fill
-                        sizes="(min-width: 1024px) 40vw, 100vw"
-                        className="object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="relative h-56 w-full">
-                      <iframe
-                        src={media.src}
-                        title={media.title || "Demo video"}
-                        className="h-full w-full"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                      />
-                    </div>
-                  )}
-                </div>
-                {media.title && <h3 className="text-lg font-semibold text-white">{media.title}</h3>}
-                {media.description && <p className="text-sm text-gray-300">{media.description}</p>}
-              </div>
-            ))}
-          </div>
+          <h2 className="text-2xl font-semibold text-white">Démo</h2>
+          <ProjectMediaGallery items={project.demoMedia} projectTitle={project.title} />
         </section>
       )}
     </article>
