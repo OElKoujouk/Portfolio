@@ -114,7 +114,7 @@ export async function sendContact(
       from: CONTACT_FROM,
       to: CONTACT_TO,
       subject,
-      reply_to: [{ email, name: fullName }],
+      replyTo: replyToHeader,
       text: [
         subject,
         "",
@@ -125,10 +125,6 @@ export async function sendContact(
         message
       ].join("\n"),
       html,
-      headers: {
-        "X-Entity-Ref-ID": `portfolio-contact-${Date.now()}`,
-        "Reply-To": replyToHeader
-      }
     });
 
     return {

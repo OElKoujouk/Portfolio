@@ -1,75 +1,84 @@
-# Portfolio Next.js — Omar El Koujouk
+ï»¿# Portfolio Next.js - Omar El Koujouk
 
-Portfolio multi-page construit avec Next.js 14 (App Router), Tailwind CSS et TypeScript. Le design adopte une atmosphère sombre aux accents néon bleu/violet, avec une navigation claire entre les pages Accueil, Projets, À propos et Contact.
+Portfolio multi-page construit avec Next.js 14 (App Router) et Tailwind CSS. Le site adopte un theme sombre neon bleu/violet et se compose de pages autonomes: Accueil, Projets, fiches detaillees, A propos et Contact. Les composants sont mutualises et les contenus clefs sont centralises pour faciliter la maintenance.
 
-## Pages
-- **Accueil (`/`)** : hero compact avec présentation, photo distante, CTA vers les autres pages.
-- **Projets (`/projets`)** : grille responsive alimentée par `data/projects.ts` (images, stack, description).
-- **À propos (`/apropos`)** : récit détaillé, badges de compétences, timeline d’expériences et focus sur la passion GSX-R 750 K6.
-- **Contact (`/contact`)** : formulaire accessible, liens sociaux et bloc “Disponible pour : projets web, applications mobiles, intégrations Salesforce”.
+## Pages principales
+- **`/` Accueil**: hero compact (portrait local, CTA Mes projets/Me contacter) + badges de competences et cartes "Ce que je fais" (3 offres de service).
+- **`/projets`**: grille responsive qui consomme `data/projects.ts` et affiche des cartes cliquables (image Next, description courte, stack).
+- **`/projets/[slug]`**: fiche auto-generee (metadata + `generateStaticParams`) avec problematique, stack, workflows optionnels, solution detaillee et galerie (images ou iframe YouTube) alimentees par `demoMedia`.
+- **`/apropos`**: sections narratives, badges d'expertises, timeline d'experiences, projet NavZen et mention de la passion pour la moto GSX-R 750 K6. Bouton de telechargement du CV (`public/assets/CV-Omar.pdf`).
+- **`/contact`**: formulaire client (`useFormState`) + server action `sendContact` qui envoie via Resend, liens sociaux et bloc "Disponible pour : projets web, applications mobiles, integrations Salesforce".
 
-## Stack & fonctionnalités
-- Next.js 14 (App Router) + React + TypeScript
-- Tailwind CSS configuré pour le thème dark neon
-- Composants fonctionnels modulaires (`/components`)
-- Données centralisées (`/data/projects.ts`)
-- SEO de base via `metadata` par page, accessibilité (skip-link, labels), animations douces
-- Prêt pour Vercel (rendu statique, aucune config supplémentaire)
+## Stack et dependances clefs
+- Next.js 14 App Router, React 18, TypeScript.
+- Tailwind CSS, `tailwind-merge`, `clsx`, helper `cn` (`lib/utils.ts`).
+- `react-icons` (CTA Contact), `lucide-react` (A propos), `resend` pour l'envoi des emails, `pdfkit` pret pour les exports, `Inter` via `next/font`.
+- Node >= 18.18.0 (cf. `package.json`).
 
-## Structure
+## Structure du repo
 ```
 app/
-  layout.tsx
-  globals.css
-  page.tsx
-  projets/page.tsx
+  layout.tsx          # metadata globale, skip-link, Header/Footer
+  globals.css         # theming, classes utilitaires card/badge
+  page.tsx            # Accueil
+  projets/page.tsx    # grille
+  projets/[slug]/page.tsx
   apropos/page.tsx
   contact/page.tsx
+  contact/actions.ts  # server action Resend
 components/
-  Header.tsx
-  Footer.tsx
-  Hero.tsx
-  ProjectCard.tsx
-  ProjectsGrid.tsx
-  AboutSection.tsx
-  ContactForm.tsx
-  ...
-data/
-  projects.ts
-public/
-  (assets à ajouter si besoin)
+  Header.tsx, Footer.tsx, Hero.tsx, ProjectCard.tsx,
+  ProjectsGrid.tsx, AboutSection.tsx, ContactForm.tsx
+data/projects.ts      # base projets + helpers getProjectBySlug/Slugs
+lib/utils.ts          # helper cn
+public/assets/omar.jpg, CV-Omar.pdf
 ```
 
-## Démarrage
-```bash
-npm install
-npm run dev
-```
-Ouvrir http://localhost:3000.
+## Design & UX
+- Theme sombre "glass": couleurs `primary`, `secondary`, `accent.*` definies dans `tailwind.config.js`.
+- Classes utilitaires `card` et `badge` dans `globals.css`, bruit de fond `grain`, animations `fade-in`, `slide-up`, `glow`.
+- Navigation sticky, skip-link accessible, formulaires etiquettes + focus states, composants responsives (grid/flex).
 
-## Scripts
+## Donnees & contenus
+- Tous les projets sont definis dans `data/projects.ts` (props `slug`, `stack`, `problem`, `solution`, `demoMedia`, `workflows`).
+- Les cartes de la grille utilisent automatiquement ces donnees; ajouter un projet suffit a alimenter `/projets` et `/projets/[slug]`.
+- Portrait local et CV sont servis depuis `public/assets`.
+
+## Variables d'environnement
+Configurer Resend pour activer le formulaire de contact :
+| Variable | Description |
+| --- | --- |
+| `RESEND_API_KEY` | Cle privee Resend. |
+| `RESEND_FROM_EMAIL` | ExpÃ©diteur (ex: "Portfolio - Omar <sender@example.com>"). |
+| `CONTACT_RECIPIENT_EMAIL` | Adresse de reception des messages. |
+
+Un exemple `.env` est fourni. Sans ces variables, `sendContact` renvoie une erreur controlee (message utilisateur + log serveur).
+
+## Scripts npm
 | Script | Description |
 | --- | --- |
-| `npm run dev` | Mode développement avec HMR |
-| `npm run build` | Build de production prêt pour Vercel |
-| `npm start` | Lance le serveur Next.js en production |
-| `npm run lint` | Vérifie la qualité du code via ESLint |
+| `npm run dev` | Lance Next.js en mode developpement (http://localhost:3000). |
+| `npm run build` | Compile l'application pour la production. |
+| `npm start` | Lance le serveur Next.js en mode production. |
+| `npm run lint` | Lint avec ESLint/Next. |
 
-## Déploiement Vercel
-1. Connecter ce dépôt sur Vercel.
-2. Commande de build : `npm run build` (détection automatique).
-3. Output : `.next` (par défaut). Rien d’autre à configurer.
+## Mise en route
+1. `npm install`
+2. Creer `.env.local` (copier l'exemple) et definir les variables Resend.
+3. `npm run dev` puis ouvrir http://localhost:3000.
+
+## Deploiement Vercel
+1. Connecter le repo sur Vercel.
+2. Build command : `npm run build` (detectee automatiquement).
+3. Output : `.next`. Ajouter les variables d'environnement dans l'onglet Project Settings > Environment Variables.
 
 ## Personnalisation
-- Projets : modifier `data/projects.ts` (textes, images, stack, liens).
-- Couleurs / animations : ajuster `tailwind.config.js` et `app/globals.css`.
-- Assets locaux : ajouter vos images dans `public/` puis mettre à jour les composants.
+- Mettre a jour les projets dans `data/projects.ts` (textes, workflows, medias, stack, liens).
+- Remplacer le portrait/CV dans `public/assets` pour les afficher instantanement.
+- Ajuster le theme via `tailwind.config.js` et `app/globals.css`.
 
 ## Contact
-- Email : omar.lbn@outlook.com
-- LinkedIn : https://www.linkedin.com/
-- GitHub : https://github.com/
+- Email: omar.lbn@outlook.com
+- LinkedIn: https://www.linkedin.com/in/omar-el-koujouk-2580371a7/
 
-Ajoutez vos propres liens lorsque vous êtes prêt à le publier.
-
-
+Mettez vos liens definitifs avant publication.
