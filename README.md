@@ -43,14 +43,16 @@ public/assets/omar.jpg, CV-Omar.pdf
 - Portrait local et CV sont servis depuis `public/assets`.
 
 ## Variables d'environnement
-Configurer Resend pour activer le formulaire de contact :
+Configurer Resend et reCAPTCHA pour activer le formulaire de contact :
 | Variable | Description |
 | --- | --- |
 | `RESEND_API_KEY` | Cle privee Resend. |
 | `RESEND_FROM_EMAIL` | Expéditeur (ex: "Portfolio - Omar <sender@example.com>"). |
 | `CONTACT_RECIPIENT_EMAIL` | Adresse de reception des messages. |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Cle publique Google reCAPTCHA (widget v2). |
+| `RECAPTCHA_SECRET_KEY` | Cle serveur utilisee pour verifier les tokens reCAPTCHA. |
 
-Un exemple `.env` est fourni. Sans ces variables, `sendContact` renvoie une erreur controlee (message utilisateur + log serveur).
+Un exemple `.env` est fourni. Sans ces variables, `sendContact` renvoie une erreur controlee (message utilisateur + log serveur). Si reCAPTCHA est absent, le formulaire affiche un avertissement et bloque l'envoi.
 
 ## Scripts npm
 | Script | Description |

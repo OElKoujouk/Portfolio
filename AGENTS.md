@@ -51,8 +51,9 @@ Portfolio Next.js 14 multi-page en production. L'interface applique un theme som
 - CV distribue via `/assets/CV-Omar.pdf`.
 
 ## Formulaire & variables d'environnement
+- `ContactForm` embarque reCAPTCHA v2 (widget Google). Le site requiert `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` (front) et `RECAPTCHA_SECRET_KEY` (verification server) en plus de Resend.
 - `sendContact` necessite `RESEND_API_KEY`, `RESEND_FROM_EMAIL`, `CONTACT_RECIPIENT_EMAIL`.
-- Sans configuration Resend, l'action renvoie une erreur controlee et loggue la cause cote serveur.
+- Sans configuration Resend ou reCAPTCHA, l'action renvoie une erreur controlee et loggue la cause cote serveur.
 - `.env` d'exemple est present a la racine (ne jamais pousser les vraies valeurs).
 
 ## Regles de contribution
