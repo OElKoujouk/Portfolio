@@ -118,7 +118,7 @@ export default function ContactForm() {
           <div className="g-recaptcha" data-sitekey={recaptchaSiteKey} />
         ) : (
           <p className="text-sm text-amber-400">
-            reCAPTCHA n'est pas configuré, les envois ne seront pas protégés contre le spam.
+            reCAPTCHA n&apos;est pas configuré, les envois ne seront pas protégés contre le spam.
           </p>
         )}
         <SubmitButton />
