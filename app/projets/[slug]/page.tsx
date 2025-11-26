@@ -75,18 +75,22 @@ export default function ProjectDetailPage({ params }: ProjectPageProps) {
               </span>
             ))}
           </div>
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 inline-flex items-center text-sm font-semibold text-accent-blue"
-            >
-              Voir la démo
-            </a>
-          )}
         </div>
       </div>
+
+      {project.link && (
+        <div className="rounded-3xl border border-white/5 bg-white/5 p-6">
+          <h2 className="text-2xl font-semibold text-white">Redirection</h2>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-blue/60 px-4 py-2 text-sm font-semibold text-accent-blue transition hover:border-accent-blue hover:bg-accent-blue/10"
+          >
+            {project.link}
+          </a>
+        </div>
+      )}
 
       {project.workflows && project.workflows.length > 0 && (
         <section className="rounded-3xl border border-white/5 bg-white/5 p-6">

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState, useCallback, useMemo, useEffect } from "react";
 import Image from "next/image";
@@ -15,13 +15,16 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
   const [activeIndex, setActiveIndex] = useState(0);
 
   const activeItem = useMemo(() => items[activeIndex], [items, activeIndex]);
+  const isImageMedia = activeItem?.type === "image";
 
   const openGallery = useCallback((index: number) => {
     setActiveIndex(index);
     setIsOpen(true);
   }, []);
 
-  const closeGallery = useCallback(() => setIsOpen(false), []);
+  const closeGallery = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   const showNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % items.length);
@@ -138,16 +141,22 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
           >
             →
           </button>
+
           <div className="w-full max-w-5xl space-y-4 text-gray-200">
-            <div className="relative h-[70vh] w-full overflow-hidden rounded-3xl border border-white/20 bg-black/50">
-              {activeItem.type === "image" ? (
-                <Image
-                  src={activeItem.src}
-                  alt={activeItem.title || projectTitle}
-                  fill
-                  sizes="100vw"
-                  className="object-contain"
-                />
+            <div className="relative h-[75vh] w-full overflow-hidden rounded-3xl border border-white/20 bg-black/50">
+              {isImageMedia ? (
+                <div className="relative flex h-full w-full items-center justify-center">
+                  <Image
+                    src={activeItem.src}
+                    alt={activeItem.title || projectTitle}
+                    width={1920}
+                    height={1080}
+                    sizes="100vw"
+                    className="h-full w-full select-none object-contain"
+                    draggable={false}
+                    priority
+                  />
+                </div>
               ) : (
                 <iframe
                   src={activeItem.src}
@@ -158,6 +167,7 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
                 />
               )}
             </div>
+
             {(activeItem.title || activeItem.description) && (
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                 {activeItem.title && <h3 className="text-lg font-semibold text-white">{activeItem.title}</h3>}

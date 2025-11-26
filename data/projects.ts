@@ -34,7 +34,7 @@ export const projects: Project[] = [
     longDescription:
       "Projet de fin d'études ETNA récompensé par un jury professionnel pour son approche hybride hardware/software. NavZen combine une appli React Native pour guider les visiteurs, un moteur de calcul Rust pour la trilatération BLE et une carte 3D Unity embarquée. L'ensemble est orchestré via une API Symfony qui centralise bâtiments, points d'intérêt et profils utilisateurs.",
     stack: ["Rust", "React Native", "Unity", "Symfony", "BLE", "API REST"],
-    image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1800&q=80",
     problem:
       "Les visiteurs perdent du temps à s'orienter dans les bâtiments vastes et aucun outil ne proposait une navigation indoor précise ni un back-office simple à administrer.",
     solution:
@@ -42,7 +42,7 @@ export const projects: Project[] = [
     demoMedia: [
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80",
+        src: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1800&q=80",
         title: "Prototype NavZen",
         description: "Écrans React Native avec la carte Unity embarquée."
       }
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     longDescription:
       "QuickGPT regroupe cinq composants Salesforce centrés IA, chacun accessible depuis l’interface Lightning.\n\nLa suite s’appuie sur un socle commun (OpenAiHandler pour sécuriser les appels OpenAI, LogUtils pour tracer les échanges, PromptGPT__c pour stocker les prompts multilingues) et expose des use cases précis : dialogue direct avec GPT, génération de messages commerciaux, réécriture d’activités, correction libre et production de contenus social media.",
     stack: ["Salesforce", "LWC", "Apex", "OpenAI", "PromptGPT__c", "LogUtils"],
-    image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/quickgpt/quickgpt.png",
     problem:
       "Les équipes commerciales/support avaient besoin d’assistants IA directement dans Salesforce pour éviter les copier/coller vers des outils externes et garder la traçabilité CRM.",
     solution:
@@ -99,15 +99,75 @@ export const projects: Project[] = [
     demoMedia: [
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=900&q=80",
-        title: "Dashboard QuickGPT",
-        description: "Vue des composants LWC intégrés aux fiches Salesforce (Chat, Generate, Improve, TextCorrector, Social)."
+        src: "/assets/quickgpt/chat.png",
+        title: "Composant qGPT-Chat",
+        description: "Interface de chat LWC avec historique des messages et réponses GPT en temps réel."
       },
       {
-        type: "video",
-        src: "https://www.youtube.com/embed/1H-vSHVOxo8",
-        title: "Workflow QuickGPT",
-        description: "Démonstration : question qGPT-Chat, génération LinkedIn, amélioration d’activité et post social."
+        type: "image",
+        src: "/assets/quickgpt/generateText-1.png",
+        title: "Composant qGPT-GenerateText",
+        description: "Génération de messages LinkedIn ou emails depuis un Lead avec choix du ton et de la langue."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/generateText-2.png",
+        title: "Composant qGPT-GenerateText",
+        description: "Génération de messages LinkedIn ou emails depuis un Lead avec choix du ton et de la langue."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/generateText-3.png",
+        title: "Composant qGPT-GenerateText",
+        description: "Génération de messages LinkedIn ou emails depuis un Lead avec choix du ton et de la langue."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/improveActivities-1.png",
+        title: "Composant qGPT-ImproveActivities",
+        description: "Reformulation automatique des comptes-rendus avec un style professionnel."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/improveActivities-2.png",
+        title: "Composant qGPT-ImproveActivities",
+        description: "Reformulation automatique des comptes-rendus avec un style professionnel."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/corrector-1.png",
+        title: "Composant qGPT-TextCorrector",
+        description: "Éditeur universel pour correction et reformulation de texte selon un ton défini."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/corrector-2.png",
+        title: "Composant qGPT-TextCorrector",
+        description: "Éditeur universel pour correction et reformulation de texte selon un ton défini."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/social-1.png",
+        title: "Composant qGPT-Social",
+        description: "Assistant marketing pour générer des posts LinkedIn/blog et des visuels DALL·E en fusionnant les données CRM."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/social-2.png",
+        title: "Composant qGPT-Social",
+        description: "Assistant marketing pour générer des posts LinkedIn/blog et des visuels DALL·E en fusionnant les données CRM."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/social-3.png",
+        title: "Composant qGPT-Social",
+        description: "Assistant marketing pour générer des posts LinkedIn/blog et des visuels DALL·E en fusionnant les données CRM."
+      },
+      {
+        type: "image",
+        src: "/assets/quickgpt/social-4.png",
+        title: "Composant qGPT-Social",
+        description: "Assistant marketing pour générer des posts LinkedIn/blog et des visuels DALL·E en fusionnant les données CRM."
       }
     ]
   },
@@ -119,7 +179,8 @@ export const projects: Project[] = [
     longDescription:
       "Refonte complète de dev-first.com sous WordPress + Elementor puis intégration d'un agent conversationnel Agentforce relié à Salesforce. Le bot récupère la base de connaissances Trailhead/FAQ, respecte le branding (logo, couleurs, avatar) et expose des topics/actions personnalisés (prise de RDV, push de leads). L'objectif est de transformer une vitrine classique en un outil de génération de business traçable dans Salesforce avec suivi des conversations.",
     stack: ["WordPress", "Elementor", "Salesforce", "Agentforce", "JavaScript"],
-    image: "https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/wordpress/devfirst.png",
+    link: "https://www.dev-first.com/",
     problem:
       "Dev First disposait d'un site vitrine peu interactif et aucune capture conversationnelle des prospects malgré son écosystème Salesforce.",
     solution:
@@ -127,15 +188,15 @@ export const projects: Project[] = [
     demoMedia: [
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=900&q=80",
+        src: "/assets/wordpress/site.png",
         title: "Agentforce intégré",
-        description: "Vue du widget Agentforce brandé Dev First sur la landing Elementor."
+        description: "Site WordPress Dev First avec l'agent Agentforce en bas à droite."
       },
       {
-        type: "video",
-        src: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        title: "Démonstration WordPress + Agentforce",
-        description: "Parcours complet : question client, création de lead, logging dans Salesforce."
+        type: "image",
+        src: "/assets/wordpress/agentforce.png",
+        title: "Interface Agentforce",
+        description: "Vue agrandie de l'agent Agentforce avec branding Dev First et options de conversation."
       }
     ]
   },
@@ -155,6 +216,7 @@ export const projects: Project[] = [
       "YouTube API"
     ],
     image: "/assets/Rivalytics/rivalytics-titre.png",
+    link: "https://rivalytics-1197d4646b8a.herokuapp.com/",
     problem:
       "L'equipe marketing n'avait aucun service fiable pour agreger en continu les posts LinkedIn et YouTube de leurs concurrents ni controler les acces utilisateurs.",
     solution:
@@ -195,7 +257,7 @@ export const projects: Project[] = [
       "chrome.scripting",
       "Fetch API"
     ],
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/extension/extension.png",
     problem:
       "Les SDR passaient plusieurs minutes a copier/coller les infos LinkedIn dans Salesforce et perdaient souvent des champs (email, localisation, civilite).",
     solution:
@@ -203,15 +265,9 @@ export const projects: Project[] = [
     demoMedia: [
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=900&q=80",
+        src: "/assets/extension/capture.png",
         title: "Bouton capture LinkedIn",
         description: "CTA insere dans la top-card LinkedIn pour lancer la creation Salesforce."
-      },
-      {
-        type: "video",
-        src: "https://www.youtube.com/embed/6ZgQ3G1S3wE",
-        title: "Demo workflow",
-        description: "Video montrant le scraping, la popup et l'ouverture de la page Salesforce avec defaultFieldValues."
       }
     ]
   },
@@ -230,7 +286,7 @@ export const projects: Project[] = [
       "OpenAI",
       "Google Custom Search"
     ],
-    image: "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=900&q=80",
+    image: "/assets/n8n/logo.png",
     problem:
       "La team content devait jongler entre Drive, Notion, prompts OpenAI et feuilles Google pour ideer, produire et suivre les posts LinkedIn tout en nourrissant la prospection.",
     solution:
@@ -270,15 +326,27 @@ export const projects: Project[] = [
     demoMedia: [
       {
         type: "image",
-        src: "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=900&q=80",
-        title: "Dashboard n8n",
-        description: "Vue des 5 workflows actifs relies a Notion, Drive, Sheets et OpenAI."
+        src: "/assets/n8n/1-ideation-drive-notion.png",
+        title: "1 - Ideation Drive -> Notion",
+        description: "Surveillance d’un dossier Drive, analyse des fichiers et creation d’idees de posts dans Notion."
       },
       {
-        type: "video",
-        src: "https://www.youtube.com/embed/GVusbNITEVY",
-        title: "Walkthrough multi-workflows",
-        description: "Demonstration complete du pipeline ideation -> post -> image -> prospection -> multi agents."
+        type: "image",
+        src: "/assets/n8n/2-ameliorer-post-notion.png",
+        title: "2 - Ameliorer un post depuis Notion",
+        description: "Trigger Notion, prompt long-form copywriting et insertion du post final dans la page."
+      },
+      {
+        type: "image",
+        src: "/assets/n8n/3-automatisation-image-to-notion.png",
+        title: "3 - Generer des visuels DALL·E",
+        description: "Pages Notion cochees 'Generer Image Post' -> request DALL·E 3 -> injection du visuel en file dans Notion."
+      },
+      {
+        type: "image",
+        src: "/assets/n8n/3-automatisation-image-to-notion.png",
+        title: "LinkedIn Scraper",
+        description: "Chat Trigger -> Google Custom Search -> push dans Google Sheets 'Donnee LinkedIn Scrapee'."
       }
     ]
   }
@@ -291,3 +359,4 @@ export function getProjectBySlug(slug: string) {
 export function getProjectSlugs() {
   return projects.map((project) => project.slug);
 }
+
