@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Discutons de vos projets web, mobiles ou intégrations Salesforce."
+  description: "Discutons de vos projets web, mobiles ou intégrations Salesforce. Réponse sous 24h."
 };
 
 const availability = [
@@ -19,9 +19,7 @@ export default function ContactPage() {
       <header className="w-full">
         <p className="text-xs uppercase tracking-[0.4em] text-accent-blue">Contact</p>
         <h1 className="mt-3 text-3xl font-semibold text-white">Parlons de votre prochain projet</h1>
-        <p className="mt-4 text-gray-300">
-          Réponse sous 24h. Je suis disponible pour des missions à distance.
-        </p>
+        <p className="mt-4 text-gray-300">Réponse sous 24h. Je suis disponible pour des missions à distance.</p>
       </header>
 
       <div className="grid gap-8 lg:grid-cols-2">

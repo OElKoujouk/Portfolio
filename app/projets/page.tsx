@@ -3,7 +3,7 @@ import ProjectsGrid from "@/components/ProjectsGrid";
 
 export const metadata: Metadata = {
   title: "Projets",
-  description: "Sélection de projets Next.js, React et intégrations Salesforce."
+  description: "Sélection de projets Next.js, React, intégrations Salesforce et automatisations livrés récemment."
 };
 
 export default function ProjectsPage() {

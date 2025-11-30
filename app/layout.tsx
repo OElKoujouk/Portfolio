@@ -3,18 +3,19 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio.example.com"),
+  metadataBase: new URL("https://omar-elkoujouk.fr"),
   title: {
-    default: "Omar El Koujouk — Portfolio",
+    default: "Omar El Koujouk - Portfolio",
     template: "%s | Omar El Koujouk"
   },
   description: "Développeur Full-Stack spécialisé en Next.js, React et intégrations Salesforce.",
   openGraph: {
-    title: "Omar El Koujouk — Portfolio",
+    title: "Omar El Koujouk - Portfolio",
     description: "Solutions web modernes, performantes et accessibles.",
     type: "website"
   }
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="container mx-auto px-6">{children}</div>
           </main>
           <Footer />
+          <Analytics />
         </div>
       </body>
     </html>
