@@ -47,7 +47,7 @@ export default function HomePage() {
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl font-semibold text-white">Ce que je fais</h2>
           <p className="text-sm text-gray-400">
-            J'accompagne les équipes produit en combinant design system, architecture logicielle et automatisation.
+            J&apos;accompagne les équipes produit en combinant design system, architecture logicielle et automatisation.
           </p>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
@@ -65,8 +65,8 @@ export default function HomePage() {
           <p className="text-xs uppercase tracking-[0.45em] text-accent-blue">Profil</p>
           <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Développeur Full-Stack & Salesforce</h2>
           <p className="mx-auto mt-4 max-w-3xl text-base text-gray-300">
-            J'aide les équipes produit à assembler architectures web/mobile et écosystème Salesforce, en priorisant la
-            lisibilité du code, l'automatisation et la fiabilité des mises en production.
+            J&apos;aide les équipes produit à assembler architectures web/mobile et écosystème Salesforce, en priorisant la
+            lisibilité du code, l&apos;automatisation et la fiabilité des mises en production.
           </p>
         </header>
         <div className="mx-auto max-w-6xl">

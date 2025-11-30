@@ -62,4 +62,5 @@ Portfolio Next.js 14 multi-page en production. L'interface applique un thème so
 - Centraliser les contenus (projets, assets, textes) dans les fichiers prévus (`data`, `public`).
 - Maintenir `AGENTS.md` et `README.md` synchronisés après toute évolution majeure du code ou du périmètre.
 
+- Lint : `react/no-unescaped-entities` actif. Echapper les apostrophes en JSX (`J'&apos;...`, `l'&apos;...`) ou utiliser des guillemets doubles.
 Fin du contexte.
