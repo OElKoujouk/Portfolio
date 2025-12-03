@@ -14,9 +14,10 @@ const personJsonLd = {
   name: "Omar El Koujouk",
   url: "https://omar-elkoujouk.fr",
   jobTitle: "Développeur de Solutions Digitales",
+  image: "https://omar-elkoujouk.fr/assets/omar.jpg",
   description:
     "Portfolio d'Omar El Koujouk, Développeur de Solutions Digitales : expériences web performantes et applications sur mesure.",
-  sameAs: ["https://www.linkedin.com/in/omar-elkoujouk", "https://github.com/omar-elkoujouk"]
+  sameAs: ["https://www.linkedin.com/in/omar-el-koujouk-2580371a7/", "https://omar-elkoujouk.fr"]
 };
 
 export const metadata: Metadata = {
