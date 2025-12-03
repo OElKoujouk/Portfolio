@@ -1,22 +1,25 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 
 export const metadata: Metadata = {
   title: "Accueil",
-  description: "Développeur Full-Stack spécialisé Next.js / Salesforce : projets web, mobiles et intégrations sur mesure."
+  description:
+    "Omar El Koujouk, Développeur de Solutions Digitales, crée des expériences web performantes et des applications sur mesure."
 };
 
 const skillBadges = ["Next.js", "React", "Salesforce", "Tailwind CSS", "TypeScript"];
 
 const offerings = [
   {
-    title: "Développement Web",
-    description: "Applications Next.js optimisées pour la performance, le SEO et la scalabilité, du design system à la mise en production."
+    title: "Développement web",
+    description:
+      "Applications Next.js optimisées pour la performance, le SEO et la scalabilité, du design system au déploiement en production."
   },
   {
     title: "Intégrations Salesforce",
-    description: "Connecteurs sur mesure, automatisations Apex et synchronisations temps réel entre Salesforce et vos outils existants."
+    description:
+      "Connecteurs sur mesure, automatisations Apex et synchronisations temps réel entre Salesforce et vos outils existants."
   },
   {
     title: "Applications mobiles",
@@ -63,7 +66,7 @@ export default function HomePage() {
       <section className="space-y-10 rounded-3xl border border-white/5 bg-white/5 p-6 text-gray-200 shadow-2xl shadow-black/20 lg:p-10">
         <header className="w-full text-center">
           <p className="text-xs uppercase tracking-[0.45em] text-accent-blue">Profil</p>
-          <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">Développeur Full-Stack & Salesforce</h2>
+          <h2 className="mt-4 text-3xl font-semibold text-white sm:text-4xl">D\u00e9veloppeur Full-Stack & Salesforce</h2>
           <p className="mx-auto mt-4 max-w-3xl text-base text-gray-300">
             J&apos;aide les équipes produit à assembler architectures web/mobile et écosystème Salesforce, en priorisant la
             lisibilité du code, l&apos;automatisation et la fiabilité des mises en production.

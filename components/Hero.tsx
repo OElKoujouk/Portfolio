@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { Download } from "lucide-react";
 
@@ -7,11 +7,12 @@ export default function Hero() {
     <section className="relative overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-secondary/80 to-primary px-6 py-12 shadow-2xl shadow-black/30">
       <div className="grid gap-8 md:grid-cols-[auto,260px] md:items-center">
         <div>
-          <p className="text-xs uppercase tracking-[0.4em] text-accent-blue">Développeur Full-Stack & Salesforce</p>
-          <h1 className="mt-4 text-3xl font-semibold text-white md:text-4xl">Omar El Koujouk</h1>
+          <p className="text-xs uppercase tracking-[0.4em] text-accent-blue">Développeur de solutions digitales & Salesforce</p>
+          <h1 className="mt-4 text-3xl font-semibold text-white md:text-4xl">
+            Omar El Koujouk, développeur de solutions digitales sur mesure
+          </h1>
           <p className="mt-4 w-full text-base text-gray-300">
-            Spécialisé en Next.js, React et intégrations Salesforce. Je conçois des expériences numériques performantes pour
-            les entreprises ambitieuses.
+            Développeur de Solutions Digitales spécialisé en Next.js, React et intégrations Salesforce, je conçois et déploie des expériences web performantes pour les équipes ambitieuses.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
@@ -38,7 +39,7 @@ export default function Hero() {
         </div>
         <div className="justify-self-center">
           <div className="relative h-48 w-48 overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:h-56 md:w-56">
-            <Image src="/assets/omar.jpg" alt="Portrait d'Omar" fill sizes="160px" className="object-cover" priority />
+            <Image src="/assets/omar.jpg" alt="Portrait d&apos;Omar" fill sizes="160px" className="object-cover" priority />
           </div>
         </div>
       </div>

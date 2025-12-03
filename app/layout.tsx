@@ -1,4 +1,5 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -7,16 +8,29 @@ import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Omar El Koujouk",
+  url: "https://omar-elkoujouk.fr",
+  jobTitle: "Développeur de Solutions Digitales",
+  description:
+    "Portfolio d'Omar El Koujouk, Développeur de Solutions Digitales : expériences web performantes et applications sur mesure.",
+  sameAs: ["https://www.linkedin.com/in/omar-elkoujouk", "https://github.com/omar-elkoujouk"]
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://omar-elkoujouk.fr"),
   title: {
-    default: "Omar El Koujouk - Portfolio",
+    default: "Portfolio d'Omar El Koujouk | Développeur de Solutions Digitales",
     template: "%s | Omar El Koujouk"
   },
-  description: "Développeur Full-Stack spécialisé en Next.js, React et intégrations Salesforce.",
+  description:
+    "Portfolio d'Omar El Koujouk, Développeur de Solutions Digitales : expériences web performantes et applications sur mesure.",
   openGraph: {
-    title: "Omar El Koujouk - Portfolio",
-    description: "Solutions web modernes, performantes et accessibles.",
+    title: "Portfolio d'Omar El Koujouk | Développeur de Solutions Digitales",
+    description:
+      "Portfolio d'Omar El Koujouk : solutions web modernes, performantes et accessibles, portées par un développeur de solutions digitales.",
     type: "website"
   }
 };
@@ -24,6 +38,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className="bg-primary">
+      <head>
+        <Script id="jsonld-person" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify(personJsonLd)}
+        </Script>
+      </head>
       <body className={`${inter.variable} bg-primary text-white`}>
         <div className="grain" aria-hidden="true" />
         <a href="#content" className="skip-link">
