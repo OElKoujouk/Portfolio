@@ -9,7 +9,7 @@ const openai = createOpenAI({
 
 export async function POST(_req: NextRequest) {
   const result = await embed({
-    model: openai("text-embedding-3-small"),
+    model: openai.embedding("text-embedding-3-small"),
     value: "Sunny day at the beach",
   });
 
