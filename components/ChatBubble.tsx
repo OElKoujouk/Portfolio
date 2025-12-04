@@ -18,6 +18,17 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
     transport: new DefaultChatTransport({ api: "/api/chat" })
   });
 
+  const getMessageText = (message: (typeof messages)[number]) =>
+    message.parts
+      .map((part) => {
+        if ("text" in part && typeof part.text === "string") {
+          return part.text;
+        }
+        return "";
+      })
+      .filter(Boolean)
+      .join("\n");
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -68,7 +79,7 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
                     : "mr-auto border border-white/5 bg-white/5 text-gray-100"
                 }`}
               >
-                {message.content}
+                {getMessageText(message)}
               </div>
             ))}
 
