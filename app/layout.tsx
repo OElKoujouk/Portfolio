@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import ChatBubble from "@/components/ChatBubble";
+// import ChatBubble from "@/components/ChatBubble";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -64,8 +64,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <Analytics />
           <SpeedInsights />
-          {/* Keep component available but disable rendering */}
-          {false && <ChatBubble />}
+          {/*
+            ChatBubble rendu inutilisé pour l'instant.
+            Remettre l'import et le JSX ci-dessous quand le chatbot sera réactivé.
+          */}
+          {/* <ChatBubble /> */}
         </div>
       </body>
     </html>

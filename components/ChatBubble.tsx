@@ -1,3 +1,4 @@
+/*
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -66,7 +67,7 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
           <div ref={scrollRef} className="flex max-h-[420px] flex-col gap-3 overflow-y-auto px-4 py-3 text-sm">
             {messages.length === 0 && (
               <div className="rounded-2xl border border-white/5 bg-white/5 px-3 py-2 text-gray-300">
-                Posez vos questions sur mon parcours, mes projets, ma stack ou mes choix techniques. Je rÃ©ponds en streaming.
+                Posez vos questions sur mon parcours, mes projets, ma stack ou mes choix techniques. Je réponds en streaming.
               </div>
             )}
 
@@ -85,7 +86,7 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
 
             {error && (
               <div className="rounded-2xl border border-red-500/40 bg-red-500/10 px-3 py-2 text-red-200">
-                Une erreur est survenue. RÃ©essaie dans un instant.
+                Une erreur est survenue. Réessaie dans un instant.
               </div>
             )}
           </div>
@@ -123,3 +124,7 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
     </>
   );
 }
+*/
+
+// Chatbot momentanément désactivé
+export {};
