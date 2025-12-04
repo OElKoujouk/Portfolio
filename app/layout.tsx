@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import ChatBubble from "@/components/ChatBubble";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -14,26 +15,31 @@ const personJsonLd = {
   "@type": "Person",
   name: "Omar El Koujouk",
   url: "https://omar-elkoujouk.fr",
-  jobTitle: "Développeur de Solutions Digitales",
+  jobTitle: "Développeur Full-Stack & Salesforce",
   image: "https://omar-elkoujouk.fr/assets/omar.jpg",
   description:
-    "Portfolio d'Omar El Koujouk, Développeur de Solutions Digitales : expériences web performantes et applications sur mesure.",
+    "Omar El Koujouk. Développeur Full-Stack & Salesforce. Spécialisé en Next.js, React et intégrations Salesforce.",
   sameAs: ["https://www.linkedin.com/in/omar-el-koujouk-2580371a7/", "https://omar-elkoujouk.fr"]
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://omar-elkoujouk.fr"),
   title: {
-    default: "Portfolio d'Omar El Koujouk | Développeur de Solutions Digitales",
+    default: "Omar El Koujouk | Développeur Full-Stack & Salesforce",
     template: "%s | Omar El Koujouk"
   },
   description:
-    "Portfolio d'Omar El Koujouk, Développeur de Solutions Digitales : expériences web performantes et applications sur mesure.",
+    "Omar El Koujouk. Développeur Full-Stack & Salesforce. Spécialisé en Next.js, React et intégrations Salesforce.",
   openGraph: {
-    title: "Portfolio d'Omar El Koujouk | Développeur de Solutions Digitales",
+    title: "Omar El Koujouk | Développeur Full-Stack & Salesforce",
     description:
-      "Portfolio d'Omar El Koujouk : solutions web modernes, performantes et accessibles, portées par un développeur de solutions digitales.",
+      "Développeur Full-Stack & Salesforce. Omar El Koujouk. Spécialisé en Next.js, React et intégrations Salesforce.",
     type: "website"
+  },
+  icons: {
+    icon: "/assets/logo.png",
+    shortcut: "/assets/logo.png",
+    apple: "/assets/logo.png"
   }
 };
 
@@ -58,8 +64,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <Analytics />
           <SpeedInsights />
+          {/* Keep component available but disable rendering */}
+          {false && <ChatBubble />}
         </div>
       </body>
     </html>
   );
 }
+
+
+
+
