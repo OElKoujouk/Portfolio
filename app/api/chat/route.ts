@@ -1,4 +1,4 @@
-/*
+ï»¿/*
 import { embed } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 import type { NextRequest } from "next/server";
@@ -18,16 +18,9 @@ export async function POST(_req: NextRequest) {
 }
 */
 
-// export async function POST() {
-//   return Response.json(
-//     { message: "Chatbot dï¿½sactivï¿½ temporairement." },
-//     { status: 503 }
-//   );
-// }
-
 export async function POST() {
   return Response.json(
-    { message: "Chatbot désactivé temporairement." },
+    { message: "Chatbot desactive temporairement." },
     { status: 503 }
   );
 }
