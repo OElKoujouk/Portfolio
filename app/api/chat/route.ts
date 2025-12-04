@@ -24,3 +24,10 @@ export async function POST(_req: NextRequest) {
 //     { status: 503 }
 //   );
 // }
+
+export async function POST() {
+  return Response.json(
+    { message: "Chatbot désactivé temporairement." },
+    { status: 503 }
+  );
+}
