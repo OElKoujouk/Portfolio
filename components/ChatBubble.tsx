@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Send, MessageCircle, X } from "lucide-react";
 import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport } from "ai";
 
 type ChatBubbleProps = {
   defaultOpen?: boolean;
@@ -14,7 +15,7 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   const { messages, sendMessage, status, error, clearError } = useChat({
-    api: "/api/chat"
+    transport: new DefaultChatTransport({ api: "/api/chat" })
   });
 
   useEffect(() => {
