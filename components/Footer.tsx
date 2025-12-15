@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
+import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -12,17 +13,37 @@ export default function Footer() {
           </p>
           <p className="text-gray-500 text-xs">Basé en Ile-de-France · Disponible en présentiel et distanciel.</p>
         </div>
-        <div className="flex items-center gap-4">
-          <a
-            href="https://www.linkedin.com/in/omar-el-koujouk-2580371a7/"
-            target="_blank"
-            rel="noreferrer"
-            className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 transition-all duration-300 hover:border-accent-blue/60 hover:bg-accent-blue/10 hover:text-accent-blue hover:shadow-lg hover:shadow-accent-blue/20"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedin className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-            <span className="hidden sm:inline">LinkedIn</span>
-          </a>
+        <div className="flex flex-col items-center gap-2 md:items-end">
+          <div className="flex items-center gap-3 flex-wrap justify-center md:justify-end">
+            <a
+              href="mailto:omar.lbn@outlook.com"
+              className="group flex items-center gap-2 text-gray-400 transition-all duration-300 hover:text-accent-blue"
+              aria-label="Email"
+            >
+              <Mail className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+              <span className="text-xs">omar.lbn@outlook.com</span>
+            </a>
+            <span className="text-gray-600 hidden sm:inline">·</span>
+            <a
+              href="tel:+33783115973"
+              className="group flex items-center gap-2 text-gray-400 transition-all duration-300 hover:text-accent-blue"
+              aria-label="Téléphone"
+            >
+              <Phone className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+              <span className="text-xs">+33 7 83 11 59 73</span>
+            </a>
+            <span className="text-gray-600 hidden sm:inline">·</span>
+            <a
+              href="https://www.linkedin.com/in/omar-el-koujouk-2580371a7/"
+              target="_blank"
+              rel="noreferrer"
+              className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 transition-all duration-300 hover:border-accent-blue/60 hover:bg-accent-blue/10 hover:text-accent-blue hover:shadow-lg hover:shadow-accent-blue/20"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+              <span className="hidden sm:inline">LinkedIn</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

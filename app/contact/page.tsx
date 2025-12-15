@@ -1,6 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { FaLinkedin, FaCode, FaMobileAlt, FaCogs } from "react-icons/fa";
-import { Mail, Clock } from "lucide-react";
+import { Mail, Clock, Phone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -39,17 +39,31 @@ export default function ContactPage() {
           <div className="card group">
             <div className="flex items-center gap-2 mb-4">
               <Mail className="h-4 w-4 text-accent-blue" />
-              <p className="text-sm uppercase tracking-[0.4em] text-accent-blue font-semibold">Réseau</p>
+              <p className="text-sm uppercase tracking-[0.4em] text-accent-blue font-semibold">Contact</p>
             </div>
-            <div className="mt-4 flex gap-4">
+            <div className="mt-4 space-y-3">
+              <a
+                href="mailto:omar.lbn@outlook.com"
+                className="group/link inline-flex items-center gap-3 w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-gray-200 transition-all duration-300 hover:border-accent-blue/60 hover:bg-accent-blue/10 hover:text-accent-blue hover:shadow-lg hover:shadow-accent-blue/20 hover:scale-[1.02]"
+              >
+                <Mail className="h-4 w-4 transition-transform duration-300 group-hover/link:scale-110" />
+                <span>omar.lbn@outlook.com</span>
+              </a>
+              <a
+                href="tel:+33783115973"
+                className="group/link inline-flex items-center gap-3 w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-gray-200 transition-all duration-300 hover:border-accent-blue/60 hover:bg-accent-blue/10 hover:text-accent-blue hover:shadow-lg hover:shadow-accent-blue/20 hover:scale-[1.02]"
+              >
+                <Phone className="h-4 w-4 transition-transform duration-300 group-hover/link:scale-110" />
+                <span>+33 7 83 11 59 73</span>
+              </a>
               <a
                 href="https://www.linkedin.com/in/omar-el-koujouk-2580371a7/"
                 target="_blank"
                 rel="noreferrer"
-                className="group/link inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-gray-200 transition-all duration-300 hover:border-accent-blue/60 hover:bg-accent-blue/10 hover:text-accent-blue hover:shadow-lg hover:shadow-accent-blue/20 hover:scale-105"
+                className="group/link inline-flex items-center gap-3 w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-medium text-gray-200 transition-all duration-300 hover:border-accent-blue/60 hover:bg-accent-blue/10 hover:text-accent-blue hover:shadow-lg hover:shadow-accent-blue/20 hover:scale-[1.02]"
               >
                 <FaLinkedin className="h-4 w-4 transition-transform duration-300 group-hover/link:scale-110" />
-                LinkedIn
+                <span>LinkedIn</span>
               </a>
             </div>
           </div>
