@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import { Code, Zap, Rocket } from "lucide-react";
