@@ -37,9 +37,13 @@ export const metadata: Metadata = {
     type: "website"
   },
   icons: {
-    icon: "/assets/logo.ico",
-    shortcut: "/assets/logo.png",
-    apple: "/assets/logo.png"
+    icon: [
+      { url: "https://omar-elkoujouk.fr/favicon.ico", sizes: "any" },
+      { url: "https://omar-elkoujouk.fr/assets/logo.png", type: "image/png", sizes: "32x32" },
+      { url: "https://omar-elkoujouk.fr/assets/logo.png", type: "image/png", sizes: "192x192" }
+    ],
+    shortcut: "https://omar-elkoujouk.fr/favicon.ico",
+    apple: "https://omar-elkoujouk.fr/assets/logo.png"
   }
 };
 
