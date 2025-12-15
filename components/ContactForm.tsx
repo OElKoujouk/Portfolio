@@ -17,9 +17,21 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="w-full rounded-xl bg-accent-blue/90 py-3 text-sm font-semibold uppercase tracking-widest text-primary transition hover:bg-accent-blue disabled:opacity-60"
+      className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-accent-blue via-accent-blue/90 to-accent-purple py-3 text-sm font-semibold uppercase tracking-widest text-primary shadow-lg shadow-accent-blue/30 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-accent-blue/50 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 shine-effect"
     >
-      {pending ? "Envoi en cours..." : "Envoyer le message"}
+      <span className="relative z-10 flex items-center justify-center gap-2">
+        {pending ? (
+          <>
+            <svg className="h-4 w-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+            </svg>
+            Envoi en cours...
+          </>
+        ) : (
+          "Envoyer le message"
+        )}
+      </span>
     </button>
   );
 }
@@ -57,7 +69,7 @@ export default function ContactForm() {
               name="lastName"
               type="text"
               required
-              className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent-blue"
+              className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-accent-blue focus:bg-white/10 focus:shadow-lg focus:shadow-accent-blue/20"
               placeholder="Ex : Julien"
             />
           </div>
@@ -70,7 +82,7 @@ export default function ContactForm() {
               name="firstName"
               type="text"
               required
-              className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent-blue"
+              className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-accent-blue focus:bg-white/10 focus:shadow-lg focus:shadow-accent-blue/20"
               placeholder="Ex : Dupont"
             />
           </div>
@@ -79,40 +91,40 @@ export default function ContactForm() {
           <label htmlFor="email" className="text-sm uppercase tracking-wide text-gray-400">
             Email
           </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent-blue"
-            placeholder="vous@email.com"
-          />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-accent-blue focus:bg-white/10 focus:shadow-lg focus:shadow-accent-blue/20"
+              placeholder="vous@email.com"
+            />
         </div>
         <div>
           <label htmlFor="phone" className="text-sm uppercase tracking-wide text-gray-400">
             Téléphone
           </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            required
-            className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent-blue"
-            placeholder="+33 6 12 34 56 78"
-          />
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
+              className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-accent-blue focus:bg-white/10 focus:shadow-lg focus:shadow-accent-blue/20"
+              placeholder="+33 6 12 34 56 78"
+            />
         </div>
         <div>
           <label htmlFor="message" className="text-sm uppercase tracking-wide text-gray-400">
             Message
           </label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            rows={5}
-            className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none focus:border-accent-blue"
-            placeholder="Parlez-moi de votre projet..."
-          />
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows={5}
+              className="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition-all duration-300 placeholder:text-gray-500 focus:border-accent-blue focus:bg-white/10 focus:shadow-lg focus:shadow-accent-blue/20 resize-none"
+              placeholder="Parlez-moi de votre projet..."
+            />
         </div>
         {recaptchaSiteKey ? (
           <div className="g-recaptcha" data-sitekey={recaptchaSiteKey} />

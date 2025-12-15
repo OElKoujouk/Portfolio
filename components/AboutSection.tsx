@@ -88,9 +88,13 @@ export default function AboutSection() {
           >
             <div className="absolute inset-0 opacity-0 blur-3xl transition duration-500 group-hover:opacity-50 group-hover:bg-accent-blue/25" />
             <div className="relative space-y-4">
-              <div className="flex items-center gap-3 text-accent-blue">
-                <Icon className="h-5 w-5" />
-                <h2 className="text-xl font-semibold text-white">{title}</h2>
+              <div className="flex items-center gap-3">
+                <div className="rounded-lg bg-gradient-to-br from-accent-blue/20 to-accent-purple/20 p-2">
+                  <Icon className="h-5 w-5 text-accent-blue transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3" />
+                </div>
+                <h2 className="text-xl font-bold text-white transition-colors duration-300 group-hover:text-accent-blue">
+                  {title}
+                </h2>
               </div>
               {paragraphs.map((text) => (
                 <p key={text} className="max-w-3xl text-base leading-relaxed text-gray-200">
@@ -105,21 +109,27 @@ export default function AboutSection() {
       <div className="card px-8 py-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <h2 className="text-2xl font-semibold text-white">Expertises techniques</h2>
-            <p className="mt-2 max-w-2xl text-sm text-gray-400">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="h-1 w-8 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full" />
+              <h2 className="text-2xl font-bold text-white">Expertises techniques</h2>
+            </div>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-gray-400">
               Les technos qui composent mon stack quotidien entre React, Salesforce et automatisation.
             </p>
           </div>
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {skillGroups.map((group) => (
-            <div key={group.label} className="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <p className="text-sm uppercase tracking-widest text-cyan-300">{group.label}</p>
-              <div className="mt-3 flex flex-wrap gap-3">
+          {skillGroups.map((group, index) => (
+            <div
+              key={group.label}
+              className="group rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-black/20 p-5 transition-all duration-300 hover:border-accent-blue/30 hover:bg-gradient-to-br hover:from-accent-blue/10 hover:to-black/30"
+            >
+              <p className="text-sm uppercase tracking-widest font-semibold text-accent-blue mb-4">{group.label}</p>
+              <div className="flex flex-wrap gap-3">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-sm text-cyan-100 transition hover:border-cyan-300/70"
+                    className="badge"
                   >
                     {item}
                   </span>
@@ -132,8 +142,11 @@ export default function AboutSection() {
 
       <div className="space-y-8">
         <div className="card p-8">
-          <p className="text-xs uppercase tracking-[0.45em] text-accent-blue">Parcours</p>
-          <h2 className="mt-3 text-2xl font-semibold text-white">Expériences professionnelles</h2>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-1 w-8 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full" />
+            <p className="text-xs uppercase tracking-[0.45em] text-accent-blue font-semibold">Parcours</p>
+          </div>
+          <h2 className="text-2xl font-bold text-white">Expériences professionnelles</h2>
           <div className="mt-8 space-y-8">
             {experiences.map(({ role, company, period, highlights }) => (
               <article key={role} className="relative border-l border-white/10 pl-6">
@@ -155,8 +168,11 @@ export default function AboutSection() {
         </div>
 
         <div className="card bg-gradient-to-br from-white/10 via-transparent to-white/5 p-8">
-          <p className="text-xs uppercase tracking-[0.45em] text-accent-blue">Projet d&apos;école</p>
-          <h2 className="mt-3 text-2xl font-semibold text-white">{navZenProject.title}</h2>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="h-1 w-8 bg-gradient-to-r from-accent-purple to-accent-pink rounded-full" />
+            <p className="text-xs uppercase tracking-[0.45em] text-accent-blue font-semibold">Projet d&apos;école</p>
+          </div>
+          <h2 className="text-2xl font-bold text-white">{navZenProject.title}</h2>
           <div className="mt-6 space-y-4 text-sm text-gray-300">
             <div className="rounded-2xl border border-accent-blue/30 bg-accent-blue/5 p-4 text-white shadow-2xl shadow-cyan-500/10 transition hover:border-accent-blue/60 hover:shadow-cyan-500/30">
               <div className="flex flex-col gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">

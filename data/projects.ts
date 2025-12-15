@@ -349,6 +349,98 @@ export const projects: Project[] = [
         description: "Chat Trigger -> Google Custom Search -> push dans Google Sheets 'Donnee LinkedIn Scrapee'."
       }
     ]
+  },
+  {
+    slug: "gestion-stock-multi-tenant",
+    title: "Application de gestion de stock multi-tenant",
+    description:
+      "Système complet de gestion de stock multi-établissements avec architecture Express/Prisma et interface Next.js 16. Gestion des rôles, permissions granulaires, workflows de validation et CI/CD Docker.",
+    longDescription:
+      "Application de gestion de stock conçue pour gérer plusieurs établissements de manière isolée (multi-tenant). Le système permet de suivre les articles, catégories, mouvements de stock, demandes internes et commandes fournisseurs avec un système de rôles et permissions avancé.\n\nL'architecture sépare clairement le backend (Express + TypeScript, Prisma + MySQL) et le frontend (Next.js 16 + React 19). Chaque établissement dispose de son propre espace de données isolé, avec des rôles hiérarchiques : superadmin (gestion globale), admin (gestion d'établissement), responsable (validation des demandes) et agent (création de demandes).\n\nLe système inclut un workflow complet de gestion des demandes internes avec validation, un système de commandes fournisseurs avec réception, et une traçabilité complète via les mouvements de stock. La sécurité est assurée par JWT, middleware d'authentification et permissions granulaires stockées en JSON.",
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Express",
+      "Prisma",
+      "MySQL",
+      "JWT",
+      "Tailwind CSS v4",
+      "Docker",
+      "CI/CD"
+    ],
+    image: "/assets/gestion-stock/connexion.png",
+    problem:
+      "Les établissements avaient besoin d'un système centralisé pour gérer leurs stocks tout en conservant une isolation complète des données entre sites. Les solutions existantes ne permettaient pas une gestion multi-tenant avec des rôles et permissions granulaires, ni un workflow de validation des demandes adapté aux besoins métier.",
+    solution:
+      "Conception d'une architecture multi-tenant avec isolation des données par établissement via Prisma. Implémentation d'un système de rôles hiérarchique (superadmin, admin, responsable, agent) avec permissions JSON granulaires. Création d'un workflow de demandes internes avec validation par les responsables, gestion des commandes fournisseurs avec réception et mise à jour automatique des stocks via les mouvements. L'interface Next.js offre une expérience utilisateur moderne avec navigation par sections selon le rôle, tandis que le backend Express expose une API REST sécurisée avec middleware d'authentification et de tenant.",
+    workflowsTitle: "Modules principaux",
+    workflowsIntro:
+      "L'application se structure autour de plusieurs modules métier, chacun adapté aux besoins spécifiques des différents rôles utilisateurs.",
+    workflows: [
+      {
+        name: "Gestion multi-établissements",
+        description:
+          "Le superadmin peut créer et gérer plusieurs établissements, chacun avec son propre espace de données isolé. Chaque établissement possède ses propres articles, catégories, utilisateurs, fournisseurs et mouvements de stock.",
+        tech: ["Prisma", "Multi-tenant", "Middleware tenant"]
+      },
+      {
+        name: "Gestion des stocks",
+        description:
+          "Les admins et responsables peuvent créer des articles, les organiser en catégories, définir des seuils d'alerte et suivre les quantités en temps réel. Les mouvements de stock (entrées/sorties) sont tracés avec utilisateur, date et commentaire.",
+        tech: ["Prisma", "MySQL", "Mouvements de stock"]
+      },
+      {
+        name: "Workflow de demandes internes",
+        description:
+          "Les agents créent des demandes de produits avec référence unique. Les responsables peuvent valider, modifier ou refuser ces demandes. La validation déclenche automatiquement des mouvements de sortie de stock pour les articles préparés.",
+        tech: ["Workflow", "Validation", "Mouvements automatiques"]
+      },
+      {
+        name: "Commandes fournisseurs",
+        description:
+          "Les admins et responsables créent des commandes auprès des fournisseurs avec statut (en cours, reçue). La réception d'une commande génère automatiquement des mouvements d'entrée de stock pour tous les articles commandés.",
+        tech: ["Commandes", "Fournisseurs", "Réception automatique"]
+      },
+      {
+        name: "Gestion des utilisateurs et permissions",
+        description:
+          "Système de permissions granulaires stocké en JSON permettant de définir précisément les droits de chaque utilisateur (lecture, écriture, suppression par module). Les admins peuvent activer/désactiver des comptes et assigner des rôles.",
+        tech: ["Permissions JSON", "Rôles", "Activation/désactivation"]
+      }
+    ],
+    demoMedia: [
+      {
+        type: "image",
+        src: "/assets/gestion-stock/dashboard.png",
+        title: "Vue d'ensemble du dashboard",
+        description: "Interface principale avec sidebar et navigation par sections selon le rôle utilisateur."
+      },
+      {
+        type: "image",
+        src: "/assets/gestion-stock/produits.png",
+        title: "Gestion des produits et stocks",
+        description: "Interface de gestion des articles avec catégories, quantités, seuils d'alerte et filtres avancés."
+      },
+      {
+        type: "image",
+        src: "/assets/gestion-stock/demande-agent.png",
+        title: "Création de demande (vue agent)",
+        description: "Formulaire de création de demande avec sélection d'articles, quantités et système de favoris."
+      },
+      {
+        type: "image",
+        src: "/assets/gestion-stock/validation-responsable.png",
+        title: "Validation des demandes (vue responsable)",
+        description: "Interface de validation avec liste des demandes, détails des articles et actions de validation/modification/refus."
+      },
+      {
+        type: "image",
+        src: "/assets/gestion-stock/commandes-fournisseurs.png",
+        title: "Gestion des commandes fournisseurs",
+        description: "Création et suivi des commandes fournisseurs avec catalogue, sélection d'articles et processus de réception."
+      }
+    ]
   }
 ];
 

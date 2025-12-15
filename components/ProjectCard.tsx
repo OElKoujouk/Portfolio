@@ -1,38 +1,51 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import type { Project } from "@/data/projects";
 
 export default function ProjectCard({ project }: { project: Project }) {
   return (
     <Link
       href={`/projets/${project.slug}`}
-      className="card group flex h-full flex-col no-underline outline-none transition focus-visible:ring-2 focus-visible:ring-accent-blue/70"
+      className="card group flex h-full flex-col no-underline outline-none transition-all duration-500 focus-visible:ring-2 focus-visible:ring-accent-blue/70"
       aria-label={`Découvrir ${project.title}`}
     >
-      <div className="relative mb-4 h-40 w-full overflow-hidden rounded-2xl">
+      <div className="relative mb-4 h-40 w-full overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-white/5 to-transparent">
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         <Image
           src={project.image}
           alt={project.title}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="object-cover transition duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 group-hover:scale-110"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-0" />
       </div>
 
-      <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+      <h3 className="text-lg font-bold text-white transition-colors duration-300 group-hover:text-accent-blue">
+        {project.title}
+      </h3>
 
-      <p className="mt-3 flex-1 text-sm text-gray-300">{project.description}</p>
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-300 line-clamp-3">
+        {project.description}
+      </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
-        {project.stack.map((tech) => (
-          <span key={tech} className="badge">
+        {project.stack.slice(0, 4).map((tech) => (
+          <span key={tech} className="badge text-xs">
             {tech}
           </span>
         ))}
+        {project.stack.length > 4 && (
+          <span className="badge text-xs opacity-60">
+            +{project.stack.length - 4}
+          </span>
+        )}
       </div>
 
-      <span className="mt-6 inline-flex items-center text-sm font-semibold text-accent-blue">
-        Voir les détails →
+      <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-blue transition-all duration-300 group-hover:gap-3">
+        Voir les détails
+        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
       </span>
     </Link>
   );
