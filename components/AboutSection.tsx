@@ -14,8 +14,7 @@ const introSections = [
     title: "Ce qui m'inspire",
     icon: Flame,
     paragraphs: [
-      "La GSX-R 750 K6 m'apprend la précision : réglages, anticipation et contrôle sont les mêmes réflexes que j'applique au code.",
-      "Je reste curieux des technos émergentes (BLE, Unity 3D, Rust) pour injecter de la créativité et proposer des expériences immersives."
+      "Passionné de moto et de mécanique, j'aime comprendre le fonctionnement des systèmes, optimiser les performances et résoudre des problèmes techniques. Cette approche méthodique se retrouve dans ma façon de développer."
     ]
   }
 ];
@@ -27,11 +26,11 @@ const skillGroups = [
   },
   {
     label: "Automatisation",
-    items: ["CI/CD", "Intégrations API", "Scripts SFDX", "BLE / Rust"]
+    items: ["CI/CD", "Intégrations API", "Scripts SFDX"]
   },
   {
     label: "Back-end",
-    items: ["Node.js / Express", "Symfony & PHP", "APIs REST"]
+    items: ["Node.js / Express", "Symfony & PHP", "APIs REST", "Prisma + MySQL"]
   },
   {
     label: "Front-end",

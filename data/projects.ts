@@ -54,28 +54,28 @@ export const projects: Project[] = [
     description:
       "Pack de composants LWC/Apex (Chat, Génération, Correction, Social) branchés sur OpenAI pour assister les équipes directement dans Salesforce.",
     longDescription:
-      "QuickGPT regroupe cinq composants Salesforce centrés IA, chacun accessible depuis l’interface Lightning.\n\nLa suite s’appuie sur un socle commun (OpenAiHandler pour sécuriser les appels OpenAI, LogUtils pour tracer les échanges, PromptGPT__c pour stocker les prompts multilingues) et expose des use cases précis : dialogue direct avec GPT, génération de messages commerciaux, réécriture d’activités, correction libre et production de contenus social media.",
-    stack: ["Salesforce", "LWC", "Apex", "OpenAI", "PromptGPT__c", "LogUtils"],
+      "QuickGPT regroupe cinq composants Salesforce centrés IA, chacun accessible depuis l’interface Lightning.\n\nLa suite s’appuie sur un socle commun (OpenAiHandler pour sécuriser les appels OpenAI) et expose des use cases précis : dialogue direct avec GPT, génération de messages commerciaux, réécriture d’activités, correction libre et production de contenus social media.",
+    stack: ["Salesforce", "LWC", "Apex", "OpenAI"],
     image: "/assets/quickgpt/quickgpt.png",
     problem:
       "Les équipes commerciales/support avaient besoin d’assistants IA directement dans Salesforce pour éviter les copier/coller vers des outils externes et garder la traçabilité CRM.",
     solution:
-      "1. Déployer un socle commun (OpenAiHandler + LogUtils + PromptGPT__c) pour mutualiser les appels API, les logs et les prompts.\n\n2. Construire cinq modules spécialisés : qGPT-Chat pour converser avec GPT, qGPT-GenerateText pour suggérer des messages LinkedIn/Emails depuis un Lead, qGPT-ImproveActivities pour réécrire les comptes-rendus Task/Event, qGPT-TextCorrector pour corriger tout texte libre et qGPT-Social pour générer posts LinkedIn/blog + images DALL·E.\n\n3. Exposer ces modules dans un pack App Builder afin que les équipes puissent les activer par objet/process sans code supplémentaire.",
+      "1. Déployer un socle commun (OpenAiHandler) pour mutualiser les appels API.\n\n2. Construire cinq modules spécialisés : qGPT-Chat pour converser avec GPT, qGPT-GenerateText pour suggérer des messages LinkedIn/Emails depuis un Lead, qGPT-ImproveActivities pour réécrire les comptes-rendus Task/Event, qGPT-TextCorrector pour corriger tout texte libre et qGPT-Social pour générer posts LinkedIn/blog + images DALL·E.\n\n3. Exposer ces modules dans un pack App Builder afin que les équipes puissent les activer par objet/process sans code supplémentaire.",
     workflowsTitle: "Modules QuickGPT",
     workflowsIntro:
-      "Chaque composant répond à un moment clé du cycle commercial ou support tout en partageant le même socle Apex/Prompts/Logs.",
+      "Chaque composant répond à un moment clé du cycle commercial ou support tout en partageant le même socle Apex/Prompts.",
     workflows: [
       {
         name: "qGPT-Chat",
         description:
           "Interface LWC simulant une messagerie : historique, rôles user/assistant, labels multilingues et réponses immédiates de GPT dans Salesforce.",
-        tech: ["LWC", "OpenAiHandler", "LogUtils"]
+        tech: ["LWC", "OpenAiHandler"]
       },
       {
         name: "qGPT-GenerateText",
         description:
-          "Composant déployé sur les Leads pour générer des messages LinkedIn ou emails personnalisés en choisissant le canal, le ton et la langue via PromptGPT__c.",
-        tech: ["PromptGPT__c", "Lead UI", "Apex"]
+          "Composant déployé sur les Leads pour générer des messages LinkedIn ou emails personnalisés en choisissant le canal, le ton et la langue.",
+        tech: ["Lead UI", "Apex"]
       },
       {
         name: "qGPT-ImproveActivities",
@@ -87,13 +87,13 @@ export const projects: Project[] = [
         name: "qGPT-TextCorrector",
         description:
           "Éditeur universel où l’utilisateur colle son texte pour obtenir une correction ou une reformulation selon un ton défini (formel, direct, interne…).",
-        tech: ["Reusable LWC", "PromptGPT__c"]
+        tech: ["Reusable LWC"]
       },
       {
         name: "qGPT-Social",
         description:
           "Assistant marketing pour générer des posts LinkedIn/blog et des visuels DALL·E en fusionnant automatiquement les données CRM grâce à des balises dynamiques.",
-        tech: ["DALL·E", "ContentGPT__c", "Merge Tags"]
+        tech: ["DALL·E"]
       }
     ],
     demoMedia: [
@@ -370,6 +370,7 @@ export const projects: Project[] = [
       "CI/CD"
     ],
     image: "/assets/gestion-stock/connexion.png",
+    link: "https://logifly.fr",
     problem:
       "Les établissements avaient besoin d'un système centralisé pour gérer leurs stocks tout en conservant une isolation complète des données entre sites. Les solutions existantes ne permettaient pas une gestion multi-tenant avec des rôles et permissions granulaires, ni un workflow de validation des demandes adapté aux besoins métier.",
     solution:

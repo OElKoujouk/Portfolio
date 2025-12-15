@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Développeur Full-Stack spécialisé Next.js / Salesforce : projets web, mobiles et intégrations sur mesure."
 };
 
-const skillBadges = ["Next.js", "React", "Salesforce", "Tailwind CSS", "TypeScript"];
+const skillBadges = ["Next.js", "React", "Salesforce", "Tailwind CSS", "TypeScript", "Prisma + MySQL"];
 
 const offerings = [
   {
