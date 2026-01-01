@@ -6,7 +6,7 @@ import { Download } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
 export default function Hero() {
-  const { t, locale } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <section className="group relative overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-secondary/80 via-secondary/60 to-primary px-6 py-12 shadow-2xl shadow-black/30 transition-all duration-700 hover:border-accent-blue/30">
@@ -39,7 +39,7 @@ export default function Hero() {
               {t.hero.contactBtn}
             </Link>
             <a
-              href={locale === "fr" ? "/assets/CV-Omar.pdf" : "/assets/CV-Omar-EN.pdf"}
+              href="/assets/CV-Omar.pdf"
               download
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500/90 via-accent-blue to-indigo-500/90 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-primary shadow-xl shadow-cyan-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-400/40"
             >
