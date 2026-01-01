@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
-import LanguageSwitcher from "./LanguageSwitcher";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 const navHrefs = ["/", "/projets", "/contact"] as const satisfies Route[];
 

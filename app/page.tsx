@@ -1,7 +1,7 @@
 "use client";
 
-import Hero from "@/components/Hero";
-import AboutSection from "@/components/AboutSection";
+import Hero from "@/components/home/Hero";
+import AboutSection from "@/components/home/AboutSection";
 import { Code, Zap, Rocket } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 

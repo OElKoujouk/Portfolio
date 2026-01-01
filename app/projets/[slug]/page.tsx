@@ -1,7 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getProjectBySlug, getProjectSlugs } from "@/data/projects";
-import ProjectDetailClient from "@/components/ProjectDetailClient";
+import ProjectDetailClient from "@/components/projects/ProjectDetailClient";
 
 type ProjectPageProps = {
   params: { slug: string };

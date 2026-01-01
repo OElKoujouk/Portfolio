@@ -5,7 +5,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { useLanguage } from "@/lib/i18n";
-import ProjectMediaGallery from "@/components/ProjectMediaGallery";
+import ProjectMediaGallery from "@/components/projects/ProjectMediaGallery";
 import { getProjectBySlug } from "@/data/projects";
 
 type ProjectDetailClientProps = {

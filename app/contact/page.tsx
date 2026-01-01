@@ -2,7 +2,7 @@
 
 import { FaLinkedin, FaCode, FaMobileAlt, FaCogs } from "react-icons/fa";
 import { Mail, Clock, Phone } from "lucide-react";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/contact/ContactForm";
 import { useLanguage } from "@/lib/i18n";
 
 export default function ContactPage() {

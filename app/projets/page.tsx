@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import ProjectsGrid from "@/components/ProjectsGrid";
+import ProjectsGrid from "@/components/projects/ProjectsGrid";
 import { useLanguage } from "@/lib/i18n";
 
 export default function ProjectsPage() {

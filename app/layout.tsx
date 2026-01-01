@@ -2,12 +2,12 @@
 import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LanguageProvider } from "@/lib/i18n";
-// import ChatBubble from "@/components/ChatBubble";
+// import ChatBubble from "@/components/chat/ChatBubble";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
