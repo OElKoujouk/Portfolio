@@ -1,23 +1,8 @@
-import Link from "next/link";
-import { Activity, Flame, Download } from "lucide-react";
+"use client";
 
-const introSections = [
-  {
-    title: "Ce que je fais",
-    icon: Activity,
-    paragraphs: [
-      "Formé à l'ETNA Paris et à EPITECH, je construis des architectures fiables en Next.js, React Native et Salesforce. J'aime connecter produit, métier et automatisation pour fluidifier les roadmaps.",
-      "Je pilote les workflows : intégrations API, scripts SFDX, CI/CD et monitoring pour garder la maîtrise jusqu'au déploiement."
-    ]
-  },
-  {
-    title: "Ce qui m'inspire",
-    icon: Flame,
-    paragraphs: [
-      "Passionné de moto et de mécanique, j'aime comprendre le fonctionnement des systèmes, optimiser les performances et résoudre des problèmes techniques. Cette approche méthodique se retrouve dans ma façon de développer."
-    ]
-  }
-];
+import Link from "next/link";
+import { Activity, Flame } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 const skillGroups = [
   {
@@ -38,45 +23,14 @@ const skillGroups = [
   }
 ];
 
-const experiences = [
-  {
-    role: "Développeur Salesforce (CDD)",
-    company: "Dev First",
-    period: "Avril 2024 - Novembre 2025",
-    highlights: [
-      "Features Apex & LWC sur mesure pour les équipes sales.",
-      "Extension Chrome LinkedIn ↔ Salesforce pour synchroniser les leads.",
-      "Refonte de dev-first.com avec branchements services Salesforce.",
-      "Configuration Agentforce (Topics, Actions, Web To Lead) + automatisations SFDX.",
-      "Intégration d'API externes (OpenAI) et mentoring Trailhead."
-    ]
-  },
-  {
-    role: "Administrateur infrastructures sécurisées (CDD)",
-    company: "KeopsConcept",
-    period: "Mars 2023 - Janvier 2024",
-    highlights: [
-      "Interface PHP avec les machines de production.",
-      "Génération automatique de fichiers DXF depuis les données métier.",
-      "Optimisation du code pour réduire les erreurs et accélérer les procédés."
-    ]
-  }
-];
-
-const navZenProject = {
-  title: "🏆Projet NavZen — Fin d'études ETNA",
-  award: {
-    label: "Lauréat “Meilleure projet de l’année”",
-    description: "Prix décerné par un jury professionnel pour l’innovation et l’impact produit."
-  },
-  highlightIntro: "Développement d’une application mobile de navigation intérieure : React Native, auth, recherche, BLE.",
-  highlights: [
-    "Algorithme de trilatération en Rust et calcul de chemin indoor.",
-    "Backend Symfony/API REST et intégration Unity 3D immersive."
-  ]
-};
-
 export default function AboutSection() {
+  const { t } = useLanguage();
+
+  const introSections = t.about.introSections.map((section, index) => ({
+    ...section,
+    icon: index === 0 ? Activity : Flame
+  }));
+
   return (
     <section className="space-y-12">
       <div className="grid gap-6 lg:grid-cols-2">
@@ -110,15 +64,15 @@ export default function AboutSection() {
           <div>
             <div className="flex items-center gap-3 mb-3">
               <div className="h-1 w-8 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full" />
-              <h2 className="text-2xl font-bold text-white">Expertises techniques</h2>
+              <h2 className="text-2xl font-bold text-white">{t.about.skillsTitle}</h2>
             </div>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-gray-400">
-              Les technos qui composent mon stack quotidien entre React, Salesforce et automatisation.
+              {t.about.skillsSubtitle}
             </p>
           </div>
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {skillGroups.map((group, index) => (
+          {skillGroups.map((group) => (
             <div
               key={group.label}
               className="group rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-black/20 p-5 transition-all duration-300 hover:border-accent-blue/30 hover:bg-gradient-to-br hover:from-accent-blue/10 hover:to-black/30"
@@ -143,11 +97,11 @@ export default function AboutSection() {
         <div className="card p-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-1 w-8 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full" />
-            <p className="text-xs uppercase tracking-[0.45em] text-accent-blue font-semibold">Parcours</p>
+            <p className="text-xs uppercase tracking-[0.45em] text-accent-blue font-semibold">{t.about.experienceLabel}</p>
           </div>
-          <h2 className="text-2xl font-bold text-white">Expériences professionnelles</h2>
+          <h2 className="text-2xl font-bold text-white">{t.about.experienceTitle}</h2>
           <div className="mt-8 space-y-8">
-            {experiences.map(({ role, company, period, highlights }) => (
+            {t.about.experiences.map(({ role, company, period, highlights }) => (
               <article key={role} className="relative border-l border-white/10 pl-6">
                 <span className="absolute -left-2 top-1 h-3 w-3 rounded-full bg-accent-blue shadow-[0_0_12px_rgba(0,217,255,0.8)]" />
                 <p className="text-xs uppercase tracking-widest text-gray-400">{period}</p>
@@ -169,30 +123,30 @@ export default function AboutSection() {
         <div className="card bg-gradient-to-br from-white/10 via-transparent to-white/5 p-8">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-1 w-8 bg-gradient-to-r from-accent-purple to-accent-pink rounded-full" />
-            <p className="text-xs uppercase tracking-[0.45em] text-accent-blue font-semibold">Projet d&apos;école</p>
+            <p className="text-xs uppercase tracking-[0.45em] text-accent-blue font-semibold">{t.about.projectLabel}</p>
           </div>
-          <h2 className="text-2xl font-bold text-white">{navZenProject.title}</h2>
+          <h2 className="text-2xl font-bold text-white">{t.about.navZenProject.title}</h2>
           <div className="mt-6 space-y-4 text-sm text-gray-300">
             <div className="rounded-2xl border border-accent-blue/30 bg-accent-blue/5 p-4 text-white shadow-2xl shadow-cyan-500/10 transition hover:border-accent-blue/60 hover:shadow-cyan-500/30">
               <div className="flex flex-col gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left">
                 <div>
-                  <p className="text-xs uppercase tracking-[0.35em] text-cyan-200">Projet primé - Distinction</p>
-                  <p className="mt-2 text-base font-semibold text-white">{navZenProject.award.label}</p>
-                  <p className="mt-1 text-sm text-cyan-100">{navZenProject.award.description}</p>
+                  <p className="text-xs uppercase tracking-[0.35em] text-cyan-200">{t.about.navZenProject.awardLabel}</p>
+                  <p className="mt-2 text-base font-semibold text-white">{t.about.navZenProject.awardTitle}</p>
+                  <p className="mt-1 text-sm text-cyan-100">{t.about.navZenProject.awardDescription}</p>
                 </div>
                 <Link
                   href="/projets/navzen-projet-prime"
                   className="inline-flex items-center justify-center rounded-full border border-accent-blue/60 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-accent-blue transition hover:border-accent-blue hover:bg-accent-blue/10"
                 >
-                  Voir le projet
+                  {t.about.navZenProject.viewProject}
                 </Link>
               </div>
             </div>
             <p className="flex items-start gap-2 text-base text-gray-100">
               <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400" />
-              <span>{navZenProject.highlightIntro}</span>
+              <span>{t.about.navZenProject.highlightIntro}</span>
             </p>
-            {navZenProject.highlights.map((item) => (
+            {t.about.navZenProject.highlights.map((item) => (
               <p key={item} className="flex items-start gap-2">
                 <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400" />
                 <span>{item}</span>
@@ -204,4 +158,3 @@ export default function AboutSection() {
     </section>
   );
 }
-

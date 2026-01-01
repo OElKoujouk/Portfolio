@@ -6,17 +6,22 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/i18n";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-const navLinks = [
-  { label: "Accueil", href: "/" },
-  { label: "Projets", href: "/projets" },
-  { label: "Contact", href: "/contact" }
-] as const satisfies { label: string; href: Route }[];
+const navHrefs = ["/", "/projets", "/contact"] as const satisfies Route[];
 
 export default function Header() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t } = useLanguage();
+
+  const navLinks = [
+    { label: t.nav.home, href: navHrefs[0] },
+    { label: t.nav.projects, href: navHrefs[1] },
+    { label: t.nav.contact, href: navHrefs[2] },
+  ];
 
   useEffect(() => {
     setIsOpen(false);
@@ -51,38 +56,44 @@ export default function Header() {
             </span>
           </span>
         </Link>
-        <nav className="hidden items-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "group relative text-sm font-medium uppercase tracking-wide transition-all duration-300",
-                pathname === link.href
-                  ? "text-white"
-                  : "text-gray-400 hover:text-white"
-              )}
-            >
-              {link.label}
-              {pathname === link.href && (
-                <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-gradient-to-r from-accent-blue to-accent-purple animate-slide-right" />
-              )}
-              {pathname !== link.href && (
-                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-accent-blue transition-all duration-300 group-hover:w-full" />
-              )}
-            </Link>
-          ))}
-        </nav>
-        <button
-          type="button"
-          className="relative z-10 rounded-lg p-2 text-white transition-all duration-300 hover:bg-white/10 hover:scale-110 md:hidden"
-          onClick={() => setIsOpen((prev) => !prev)}
-          aria-expanded={isOpen}
-          aria-controls="mobile-menu"
-          aria-label="Ouvrir le menu"
-        >
-          {isOpen ? <FiX size={20} /> : <FiMenu size={20} />}
-        </button>
+        <div className="hidden items-center gap-6 md:flex">
+          <nav className="flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "group relative text-sm font-medium uppercase tracking-wide transition-all duration-300",
+                  pathname === link.href
+                    ? "text-white"
+                    : "text-gray-400 hover:text-white"
+                )}
+              >
+                {link.label}
+                {pathname === link.href && (
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-full bg-gradient-to-r from-accent-blue to-accent-purple animate-slide-right" />
+                )}
+                {pathname !== link.href && (
+                  <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-accent-blue transition-all duration-300 group-hover:w-full" />
+                )}
+              </Link>
+            ))}
+          </nav>
+          <LanguageSwitcher />
+        </div>
+        <div className="flex items-center gap-3 md:hidden">
+          <LanguageSwitcher />
+          <button
+            type="button"
+            className="relative z-10 rounded-lg p-2 text-white transition-all duration-300 hover:bg-white/10 hover:scale-110"
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+            aria-label="Ouvrir le menu"
+          >
+            {isOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+          </button>
+        </div>
       </div>
       {isOpen && (
         <nav

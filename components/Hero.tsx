@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Sparkles } from "lucide-react";
+import { Download } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Hero() {
+  const { t, locale } = useLanguage();
+
   return (
     <section className="group relative overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-secondary/80 via-secondary/60 to-primary px-6 py-12 shadow-2xl shadow-black/30 transition-all duration-700 hover:border-accent-blue/30">
       {/* Effets de lumière animés */}
@@ -13,50 +18,46 @@ export default function Hero() {
 
       <div className="relative z-10 grid gap-8 md:grid-cols-[auto,260px] md:items-center">
         <div className="space-y-6 animate-fade-in">
-          <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-accent-blue animate-pulse-slow" />
-            <p className="text-xs uppercase tracking-[0.4em] text-accent-blue font-medium">Développeur Full-Stack & Salesforce</p>
-          </div>
+          <p className="text-xs uppercase tracking-[0.4em] text-accent-blue font-medium">{t.hero.role}</p>
           <h1 className="text-3xl font-bold text-white md:text-5xl lg:text-6xl leading-tight">
             <span className="text-gradient">Omar El Koujouk</span>
           </h1>
           <p className="mt-4 w-full text-base md:text-lg text-gray-300 leading-relaxed max-w-2xl">
-            Spécialisé en Next.js, React et intégrations Salesforce. Je conçois des expériences numériques performantes pour
-            les entreprises ambitieuses.
+            {t.hero.intro}
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
               href="/projets"
               className="group/btn relative overflow-hidden rounded-full bg-gradient-to-r from-accent-blue via-accent-blue/90 to-accent-purple px-6 py-3 text-sm font-semibold uppercase tracking-wide text-primary shadow-lg shadow-accent-blue/30 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-accent-blue/50 shine-effect"
             >
-              <span className="relative z-10">Mes projets</span>
+              <span className="relative z-10">{t.hero.projectsBtn}</span>
             </Link>
             <Link
               href="/contact"
               className="rounded-full border-2 border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white backdrop-blur-sm transition-all duration-300 hover:border-accent-blue/60 hover:bg-accent-blue/10 hover:text-accent-blue hover:shadow-lg hover:shadow-accent-blue/20"
             >
-              Me contacter
+              {t.hero.contactBtn}
             </Link>
             <a
-              href="/assets/CV-Omar.pdf"
+              href={locale === "fr" ? "/assets/CV-Omar.pdf" : "/assets/CV-Omar-EN.pdf"}
               download
               className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500/90 via-accent-blue to-indigo-500/90 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-primary shadow-xl shadow-cyan-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-400/40"
             >
               <Download className="h-4 w-4" />
-              Télécharger mon CV
+              {t.hero.downloadCV}
             </a>
           </div>
         </div>
         <div className="justify-self-center animate-slide-left">
           <div className="relative h-48 w-48 overflow-hidden rounded-3xl border-2 border-white/10 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl transition-all duration-500 md:h-64 md:w-64 group-hover:border-accent-blue/40 group-hover:shadow-[0_0_30px_rgba(0,217,255,0.3)]">
             <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 via-transparent to-accent-purple/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-            <Image 
-              src="/assets/omar.jpg" 
-              alt="Portrait d'Omar" 
-              fill 
-              sizes="(max-width: 768px) 192px, 256px" 
-              className="object-cover transition-transform duration-700 group-hover:scale-110" 
-              priority 
+            <Image
+              src="/assets/omar.jpg"
+              alt={t.hero.portraitAlt}
+              fill
+              sizes="(max-width: 768px) 192px, 256px"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
           </div>

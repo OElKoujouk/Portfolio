@@ -1,34 +1,33 @@
-import type { Metadata } from "next";
+"use client";
+
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
 import { Code, Zap, Rocket } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Accueil",
-  description: "Développeur Full-Stack spécialisé Next.js / Salesforce : projets web, mobiles et intégrations sur mesure."
-};
+import { useLanguage } from "@/lib/i18n";
 
 const skillBadges = ["Next.js", "React", "Salesforce", "Tailwind CSS", "TypeScript", "Prisma + MySQL"];
 
-const offerings = [
-  {
-    title: "Développement Web",
-    icon: Code,
-    description: "Applications Next.js optimisées pour la performance, le SEO et la scalabilité, du design system à la mise en production."
-  },
-  {
-    title: "Intégrations Salesforce",
-    icon: Zap,
-    description: "Connecteurs sur mesure, automatisations Apex et synchronisations temps réel entre Salesforce et vos outils existants."
-  },
-  {
-    title: "Applications mobiles",
-    icon: Rocket,
-    description: "Expériences mobiles réactives avec React Native, packaging stores et pipeline de déploiement automatisé."
-  }
-];
-
 export default function HomePage() {
+  const { t } = useLanguage();
+
+  const offerings = [
+    {
+      title: t.home.offerings[0].title,
+      icon: Code,
+      description: t.home.offerings[0].description
+    },
+    {
+      title: t.home.offerings[1].title,
+      icon: Zap,
+      description: t.home.offerings[1].description
+    },
+    {
+      title: t.home.offerings[2].title,
+      icon: Rocket,
+      description: t.home.offerings[2].description
+    }
+  ];
+
   return (
     <div className="space-y-12 md:space-y-16">
       <Hero />
@@ -36,10 +35,10 @@ export default function HomePage() {
       <section className="card animate-fade-in">
         <div className="flex items-center gap-3 mb-4">
           <div className="h-1 w-12 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full" />
-          <h2 className="text-2xl font-bold text-white">Compétences clés</h2>
+          <h2 className="text-2xl font-bold text-white">{t.home.skillsTitle}</h2>
         </div>
         <p className="mt-2 text-sm text-gray-400 leading-relaxed">
-          Les briques techniques avec lesquelles je conçois des produits fiables et maintenables.
+          {t.home.skillsSubtitle}
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           {skillBadges.map((skill, index) => (
@@ -58,10 +57,10 @@ export default function HomePage() {
         <div className="flex flex-col gap-3">
           <div className="flex items-center gap-3">
             <div className="h-1 w-12 bg-gradient-to-r from-accent-purple to-accent-pink rounded-full" />
-            <h2 className="text-2xl font-bold text-white">Ce que je fais</h2>
+            <h2 className="text-2xl font-bold text-white">{t.home.whatIDoTitle}</h2>
           </div>
           <p className="text-sm text-gray-400 leading-relaxed">
-            J&apos;accompagne les équipes produit en combinant design system, architecture logicielle et automatisation.
+            {t.home.whatIDoSubtitle}
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
@@ -88,15 +87,14 @@ export default function HomePage() {
 
       <section className="card space-y-10 lg:p-10 animate-fade-in">
         <header className="w-full text-center space-y-4">
-          <p className="text-xs uppercase tracking-[0.45em] text-accent-blue font-semibold">Profil</p>
+          <p className="text-xs uppercase tracking-[0.45em] text-accent-blue font-semibold">{t.home.profileLabel}</p>
           <h2 className="text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-            <span className="text-gradient">Développeur Full-Stack</span>
+            <span className="text-gradient">{t.home.profileTitle1}</span>
             <br />
-            <span className="text-white">& Salesforce</span>
+            <span className="text-white">{t.home.profileTitle2}</span>
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-base leading-relaxed text-gray-300">
-            J&apos;aide les équipes produit à assembler architectures web/mobile et écosystème Salesforce, en priorisant la
-            lisibilité du code, l&apos;automatisation et la fiabilité des mises en production.
+            {t.home.profileDescription}
           </p>
         </header>
         <div className="mx-auto max-w-6xl">

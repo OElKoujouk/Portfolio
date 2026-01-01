@@ -3,16 +3,25 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import Image from "next/image";
 import { ImageIcon, PlayCircle } from "lucide-react";
-import type { DemoMedia } from "@/data/projects";
+import { useLanguage } from "@/lib/i18n";
+
+// Type pour les médias déjà résolus dans une langue
+interface ResolvedDemoMedia {
+  type: "image" | "video";
+  src: string;
+  title?: string;
+  description?: string;
+}
 
 interface ProjectMediaGalleryProps {
-  items: DemoMedia[];
+  items: ResolvedDemoMedia[];
   projectTitle: string;
 }
 
 export default function ProjectMediaGallery({ items, projectTitle }: ProjectMediaGalleryProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { locale } = useLanguage();
 
   const activeItem = useMemo(() => items[activeIndex], [items, activeIndex]);
   const isImageMedia = activeItem?.type === "image";
@@ -47,19 +56,30 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
     return () => window.removeEventListener("keydown", handler);
   }, [isOpen, closeGallery, showNext, showPrev]);
 
+  // Traductions inline
+  const t = {
+    gallery: locale === "fr" ? "Galerie média" : "Media Gallery",
+    galleryDesc: locale === "fr" ? "Parcourez les captures et walkthroughs en mode plein écran." : "Browse captures and walkthroughs in fullscreen mode.",
+    openGallery: locale === "fr" ? "Ouvrir la galerie complète" : "Open full gallery",
+    video: locale === "fr" ? "Vidéo" : "Video",
+    image: "Image",
+    viewFullscreen: locale === "fr" ? "Voir en plein écran" : "View fullscreen",
+    close: locale === "fr" ? "Fermer" : "Close"
+  };
+
   return (
     <>
       <div className="flex flex-col gap-4 rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 via-transparent to-white/5 p-5 text-sm text-gray-200 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-accent-blue">Galerie média</p>
-          <p className="mt-1 text-sm text-gray-300">Parcourez les captures et walkthroughs en mode plein écran.</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-accent-blue">{t.gallery}</p>
+          <p className="mt-1 text-sm text-gray-300">{t.galleryDesc}</p>
         </div>
         <button
           type="button"
           onClick={() => openGallery(0)}
           className="inline-flex items-center justify-center rounded-full border border-accent-blue/70 px-5 py-2 text-xs font-semibold uppercase tracking-widest text-accent-blue transition hover:border-accent-blue hover:bg-accent-blue/10"
         >
-          Ouvrir la galerie complète
+          {t.openGallery}
         </button>
       </div>
 
@@ -98,9 +118,9 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
             <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-gray-400">
               <span className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1 text-[0.65rem] text-white">
                 {media.type === "video" ? <PlayCircle className="h-3.5 w-3.5" /> : <ImageIcon className="h-3.5 w-3.5" />}
-                {media.type === "video" ? "Vidéo" : "Image"}
+                {media.type === "video" ? t.video : t.image}
               </span>
-              <span className="text-accent-blue opacity-0 transition group-hover:opacity-100">Voir en plein écran</span>
+              <span className="text-accent-blue opacity-0 transition group-hover:opacity-100">{t.viewFullscreen}</span>
             </div>
             {media.title && <h3 className="text-base font-semibold text-white">{media.title}</h3>}
             {media.description && <p className="text-sm text-gray-300">{media.description}</p>}
@@ -119,15 +139,15 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
         >
           <button
             type="button"
-            aria-label="Fermer la galerie"
+            aria-label={t.close}
             onClick={closeGallery}
             className="absolute right-6 top-6 rounded-full border border-white/30 bg-white/10 px-3 py-1 text-sm text-white transition hover:border-white hover:bg-white/20"
           >
-            Fermer
+            {t.close}
           </button>
           <button
             type="button"
-            aria-label="Média précédent"
+            aria-label="Previous"
             onClick={showPrev}
             className="absolute left-10 top-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-white/10 px-4 py-3 text-white transition hover:border-white hover:bg-white/20"
           >
@@ -135,7 +155,7 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
           </button>
           <button
             type="button"
-            aria-label="Média suivant"
+            aria-label="Next"
             onClick={showNext}
             className="absolute right-10 top-1/2 -translate-y-1/2 rounded-full border border-white/30 bg-white/10 px-4 py-3 text-white transition hover:border-white hover:bg-white/20"
           >

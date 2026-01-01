@@ -1,32 +1,30 @@
-﻿import type { Metadata } from "next";
+﻿"use client";
+
 import { FaLinkedin, FaCode, FaMobileAlt, FaCogs } from "react-icons/fa";
 import { Mail, Clock, Phone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
-
-export const metadata: Metadata = {
-  title: "Contact",
-  description: "Discutons de vos projets web, mobiles ou intégrations Salesforce. Réponse sous 24h."
-};
-
-const availability = [
-  { icon: FaCode, label: "Projets web", color: "text-accent-blue", gradient: "from-accent-blue/20 to-accent-blue/5" },
-  { icon: FaMobileAlt, label: "Applications mobiles", color: "text-accent-purple", gradient: "from-accent-purple/20 to-accent-purple/5" },
-  { icon: FaCogs, label: "Intégrations Salesforce", color: "text-accent-pink", gradient: "from-accent-pink/20 to-accent-pink/5" }
-];
+import { useLanguage } from "@/lib/i18n";
 
 export default function ContactPage() {
+  const { t } = useLanguage();
+
+  const availability = [
+    { icon: FaCode, label: t.contact.webProjects, color: "text-accent-blue", gradient: "from-accent-blue/20 to-accent-blue/5" },
+    { icon: FaMobileAlt, label: t.contact.mobileApps, color: "text-accent-purple", gradient: "from-accent-purple/20 to-accent-purple/5" },
+    { icon: FaCogs, label: t.contact.salesforceIntegrations, color: "text-accent-pink", gradient: "from-accent-pink/20 to-accent-pink/5" }
+  ];
+
   return (
     <section className="space-y-12 md:space-y-16">
       <header className="w-full space-y-4 animate-fade-in">
-        <p className="text-xs uppercase tracking-[0.4em] text-accent-blue font-semibold">Contact</p>
+        <p className="text-xs uppercase tracking-[0.4em] text-accent-blue font-semibold">{t.contact.label}</p>
         <h1 className="text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-          <span className="text-gradient">Parlons de votre</span>
-          <br />
-          <span className="text-white">prochain projet</span>
+          <span className="text-gradient">{t.contact.title1}</span>{" "}
+          <span className="text-white">{t.contact.title2}</span>
         </h1>
         <div className="flex items-center gap-3 mt-4">
           <Clock className="h-5 w-5 text-accent-blue" />
-          <p className="text-base leading-relaxed text-gray-300">Réponse sous 24h. Je suis disponible pour des missions à distance.</p>
+          <p className="text-base leading-relaxed text-gray-300">{t.contact.responseTime}</p>
         </div>
         <div className="h-1 w-24 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full mt-6" />
       </header>
@@ -39,7 +37,7 @@ export default function ContactPage() {
           <div className="card group">
             <div className="flex items-center gap-2 mb-4">
               <Mail className="h-4 w-4 text-accent-blue" />
-              <p className="text-sm uppercase tracking-[0.4em] text-accent-blue font-semibold">Contact</p>
+              <p className="text-sm uppercase tracking-[0.4em] text-accent-blue font-semibold">{t.contact.label}</p>
             </div>
             <div className="mt-4 space-y-3">
               <a
@@ -71,7 +69,7 @@ export default function ContactPage() {
           <div className="card">
             <div className="flex items-center gap-2 mb-4">
               <div className="h-4 w-4 rounded-full bg-gradient-to-br from-accent-blue to-accent-purple animate-pulse-slow" />
-              <p className="text-sm uppercase tracking-[0.4em] text-accent-blue font-semibold">Disponible pour</p>
+              <p className="text-sm uppercase tracking-[0.4em] text-accent-blue font-semibold">{t.contact.availableFor}</p>
             </div>
             <ul className="mt-4 space-y-4">
               {availability.map(({ icon: Icon, label, color, gradient }, index) => (

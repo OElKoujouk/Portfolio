@@ -1,14 +1,19 @@
-﻿import Image from "next/image";
+﻿"use client";
+
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { Project } from "@/data/projects";
+import { useLanguage } from "@/lib/i18n";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const { t } = useLanguage();
+
   return (
     <Link
       href={`/projets/${project.slug}`}
       className="card group flex h-full flex-col no-underline outline-none transition-all duration-500 focus-visible:ring-2 focus-visible:ring-accent-blue/70"
-      aria-label={`Découvrir ${project.title}`}
+      aria-label={`${t.projectDetail.projectLabel}: ${project.title}`}
     >
       <div className="relative mb-4 h-40 w-full overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-white/5 to-transparent">
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -44,7 +49,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-blue transition-all duration-300 group-hover:gap-3">
-        Voir les détails
+        {t.projectDetail.viewDetails}
         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
       </span>
     </Link>

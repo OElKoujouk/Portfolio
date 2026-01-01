@@ -1,17 +1,22 @@
+"use client";
+
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
 import { Mail, Phone } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="relative mt-auto border-t border-white/5 bg-gradient-to-b from-primary via-primary to-secondary/50 py-8">
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
       <div className="container relative mx-auto flex flex-col items-center justify-between gap-4 px-6 text-center text-sm text-gray-400 md:flex-row md:text-left">
         <div className="flex flex-col gap-1">
           <p className="text-white font-medium">
-            © {new Date().getFullYear()} <span className="text-gradient">Portfolio</span> — Développeur Full-Stack & Salesforce.
+            © {new Date().getFullYear()} <span className="text-gradient">Portfolio</span> — {t.footer.tagline}
           </p>
-          <p className="text-gray-500 text-xs">Basé en Ile-de-France · Disponible en présentiel et distanciel.</p>
+          <p className="text-gray-500 text-xs">{t.footer.location}</p>
         </div>
         <div className="flex flex-col items-center gap-2 md:items-end">
           <div className="flex items-center gap-3 flex-wrap justify-center md:justify-end">

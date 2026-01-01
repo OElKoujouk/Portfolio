@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { LanguageProvider } from "@/lib/i18n";
 // import ChatBubble from "@/components/ChatBubble";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -56,24 +57,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className={`${inter.variable} bg-primary text-white`}>
-        <div className="grain" aria-hidden="true" />
-        <a href="#content" className="skip-link">
-          Aller au contenu principal
-        </a>
-        <div className="relative flex min-h-screen flex-col">
-          <Header />
-          <main id="content" className="relative z-10 flex-1 pb-16 pt-12">
-            <div className="container mx-auto px-6">{children}</div>
-          </main>
-          <Footer />
-          <Analytics />
-          <SpeedInsights />
-          {/*
-            ChatBubble rendu inutilisé pour l'instant.
-            Remettre l'import et le JSX ci-dessous quand le chatbot sera réactivé.
-          */}
-          {/* <ChatBubble /> */}
-        </div>
+        <LanguageProvider>
+          <div className="grain" aria-hidden="true" />
+          <a href="#content" className="skip-link">
+            Aller au contenu principal
+          </a>
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main id="content" className="relative z-10 flex-1 pb-16 pt-12">
+              <div className="container mx-auto px-6">{children}</div>
+            </main>
+            <Footer />
+            <Analytics />
+            <SpeedInsights />
+            {/*
+              ChatBubble rendu inutilisé pour l'instant.
+              Remettre l'import et le JSX ci-dessous quand le chatbot sera réactivé.
+            */}
+            {/* <ChatBubble /> */}
+          </div>
+        </LanguageProvider>
       </body>
     </html>
   );
