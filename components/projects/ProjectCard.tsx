@@ -15,16 +15,16 @@ export default function ProjectCard({ project }: { project: Project }) {
       className="card group flex h-full flex-col no-underline outline-none transition-all duration-500 focus-visible:ring-2 focus-visible:ring-accent-blue/70"
       aria-label={`${t.projectDetail.projectLabel}: ${project.title}`}
     >
-      <div className="relative mb-4 h-40 w-full overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-white/5 to-transparent">
+      <div className="relative mb-4 h-48 w-full overflow-hidden rounded-2xl border border-white/5 bg-gradient-to-br from-slate-900/80 to-slate-800/60">
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
         <Image
           src={project.image}
           alt={project.title}
           fill
           sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          className="object-contain p-4 scale-150 transition-transform duration-700 group-hover:scale-[1.55]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent z-0" />
       </div>
 
       <h3 className="text-lg font-bold text-white transition-colors duration-300 group-hover:text-accent-blue">

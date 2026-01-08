@@ -51,17 +51,17 @@ export default function ProjectDetailClient({ slug }: ProjectDetailClientProps) 
                 </div>
             </header>
 
-            <div className="group overflow-hidden rounded-3xl border border-white/5 bg-white/5 shadow-2xl transition-all duration-500 hover:border-accent-blue/30 animate-fade-in">
-                <div className="relative h-[400px] md:h-[500px] w-full">
+            <div className="group overflow-hidden rounded-3xl border border-white/5 bg-gradient-to-br from-slate-900/90 to-slate-800/70 shadow-2xl transition-all duration-500 hover:border-accent-blue/30 animate-fade-in">
+                <div className="relative h-[350px] md:h-[450px] lg:h-[500px] w-full flex items-center justify-center">
                     <Image
                         src={project.image}
                         alt={project.title}
                         fill
                         sizes="100vw"
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="object-contain p-4 transition-transform duration-700 group-hover:scale-[1.02]"
                         priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                 </div>
             </div>
 
