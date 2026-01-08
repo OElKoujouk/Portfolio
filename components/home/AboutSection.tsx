@@ -3,25 +3,7 @@
 import Link from "next/link";
 import { Activity, Flame } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
-
-const skillGroups = [
-  {
-    label: "Salesforce",
-    items: ["Lightning Web Components", "APEX", "Salesforce DX (SFDX)"]
-  },
-  {
-    label: "Automatisation",
-    items: ["CI/CD", "Intégrations API", "Scripts SFDX"]
-  },
-  {
-    label: "Back-end",
-    items: ["Node.js / Express", "Symfony & PHP", "APIs REST", "Prisma + MySQL"]
-  },
-  {
-    label: "Front-end",
-    items: ["JavaScript / TypeScript", "React", "React Native", "Tailwind CSS"]
-  }
-];
+import { SKILL_GROUPS } from "@/lib/constants";
 
 export default function AboutSection() {
   const { t } = useLanguage();
@@ -49,8 +31,8 @@ export default function AboutSection() {
                   {title}
                 </h2>
               </div>
-              {paragraphs.map((text) => (
-                <p key={text} className="max-w-3xl text-base leading-relaxed text-gray-200">
+              {paragraphs.map((text, idx) => (
+                <p key={`${title}-para-${idx}`} className="max-w-3xl text-base leading-relaxed text-gray-200">
                   {text}
                 </p>
               ))}
@@ -72,7 +54,7 @@ export default function AboutSection() {
           </div>
         </div>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
-          {skillGroups.map((group) => (
+          {SKILL_GROUPS.map((group) => (
             <div
               key={group.label}
               className="group rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-black/20 p-5 transition-all duration-300 hover:border-accent-blue/30 hover:bg-gradient-to-br hover:from-accent-blue/10 hover:to-black/30"
@@ -108,8 +90,8 @@ export default function AboutSection() {
                 <h3 className="mt-2 text-xl font-semibold text-white">{role}</h3>
                 <p className="text-sm text-gray-400">{company}</p>
                 <ul className="mt-4 space-y-2 text-sm text-gray-300">
-                  {highlights.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
+                  {highlights.map((item, idx) => (
+                    <li key={`${role}-highlight-${idx}`} className="flex items-start gap-2">
                       <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400" />
                       <span>{item}</span>
                     </li>
@@ -146,8 +128,8 @@ export default function AboutSection() {
               <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400" />
               <span>{t.about.navZenProject.highlightIntro}</span>
             </p>
-            {t.about.navZenProject.highlights.map((item) => (
-              <p key={item} className="flex items-start gap-2">
+            {t.about.navZenProject.highlights.map((item, idx) => (
+              <p key={`navzen-highlight-${idx}`} className="flex items-start gap-2">
                 <span className="mt-1 h-1.5 w-1.5 rounded-full bg-cyan-400" />
                 <span>{item}</span>
               </p>

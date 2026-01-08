@@ -32,7 +32,11 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
 
   // Reset playing state when slide changes
   useEffect(() => {
-    setIsPlaying(false);
+    // Only reset if currently playing to avoid cascading renders
+    if (isPlaying) {
+      setIsPlaying(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeIndex]);
 
   // Helper pour extraire l'ID YouTube (supporte embed, watch, youtu.be)
@@ -168,7 +172,6 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
                     className="object-contain transition duration-500 group-hover:scale-105"
-                    unoptimized
                   />
                 </div>
               ) : (
@@ -277,7 +280,6 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
                     className="select-none object-contain md:p-8"
                     draggable={false}
                     priority
-                    unoptimized
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center p-0 md:p-4">

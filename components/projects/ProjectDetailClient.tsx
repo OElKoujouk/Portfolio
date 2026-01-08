@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowLeft, ExternalLink } from "lucide-react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import ProjectMediaGallery from "@/components/projects/ProjectMediaGallery";
 import { getProjectBySlug } from "@/data/projects";
@@ -22,8 +21,10 @@ export default function ProjectDetailClient({ slug }: ProjectDetailClientProps) 
     const { t, locale } = useLanguage();
     const project = getProjectBySlug(slug, locale);
 
+    // Le projet a été validé côté serveur, mais on garde une vérification
+    // pour TypeScript (narrowing) - ne devrait jamais se produire
     if (!project) {
-        notFound();
+        return null;
     }
 
     const descriptionParagraphs = splitIntoParagraphs(project.longDescription);

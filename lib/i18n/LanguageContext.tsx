@@ -13,26 +13,19 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [locale, setLocaleState] = useState<Locale>("fr");
-
-    useEffect(() => {
-        // Récupérer la langue sauvegardée ou utiliser la préférence du navigateur
-        const saved = localStorage.getItem("portfolio-locale") as Locale | null;
-        if (saved && (saved === "fr" || saved === "en")) {
-            setLocaleState(saved);
-        } else {
-            // Détecter la langue du navigateur
-            const browserLang = navigator.language.toLowerCase();
-            if (browserLang.startsWith("en")) {
-                setLocaleState("en");
-            }
-        }
-    }, []);
+export function LanguageProvider({
+    children,
+    initialLocale = "fr"
+}: {
+    children: ReactNode;
+    initialLocale?: Locale;
+}) {
+    const [locale, setLocaleState] = useState<Locale>(initialLocale);
 
     const setLocale = (newLocale: Locale) => {
         setLocaleState(newLocale);
-        localStorage.setItem("portfolio-locale", newLocale);
+        // Le middleware lira ce cookie pour les prochaines requêtes serveur
+        document.cookie = `portfolio-locale=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
     };
 
     const t = translations[locale];

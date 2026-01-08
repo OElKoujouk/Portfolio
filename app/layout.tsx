@@ -1,4 +1,5 @@
 ﻿import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -48,16 +49,16 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className="bg-primary">
-      <head>
-        <Script id="jsonld-person" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify(personJsonLd)}
-        </Script>
-      </head>
+      <head />
       <body className={`${inter.variable} bg-primary text-white`}>
-        <LanguageProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <LanguageProvider initialLocale={(await cookies()).get("portfolio-locale")?.value as "fr" | "en" | undefined}>
           <div className="grain" aria-hidden="true" />
           <a href="#content" className="skip-link">
             Aller au contenu principal

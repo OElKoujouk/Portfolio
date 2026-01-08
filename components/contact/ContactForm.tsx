@@ -2,8 +2,8 @@
 
 import clsx from "clsx";
 import Script from "next/script";
-import { useEffect, useRef } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState, useEffect, useRef } from "react";
+import { useFormStatus } from "react-dom";
 import type { ContactFormState } from "@/app/contact/actions";
 import { sendContact } from "@/app/contact/actions";
 import { useLanguage } from "@/lib/i18n";
@@ -39,7 +39,7 @@ function SubmitButton() {
 }
 
 export default function ContactForm() {
-  const [state, formAction] = useFormState(sendContact, initialState);
+  const [state, formAction] = useActionState(sendContact, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const isSuccess = state.status === "success";
   const { t } = useLanguage();

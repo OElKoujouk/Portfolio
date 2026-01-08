@@ -1,15 +1,13 @@
 ﻿"use client";
 
 import Link from "next/link";
-import type { Route } from "next";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/i18n";
+import { NAV_HREFS } from "@/lib/constants";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
-
-const navHrefs = ["/", "/projets", "/contact"] as const satisfies Route[];
 
 export default function Header() {
   const pathname = usePathname();
@@ -18,13 +16,17 @@ export default function Header() {
   const { t } = useLanguage();
 
   const navLinks = [
-    { label: t.nav.home, href: navHrefs[0] },
-    { label: t.nav.projects, href: navHrefs[1] },
-    { label: t.nav.contact, href: navHrefs[2] },
+    { label: t.nav.home, href: NAV_HREFS[0] },
+    { label: t.nav.projects, href: NAV_HREFS[1] },
+    { label: t.nav.contact, href: NAV_HREFS[2] },
   ];
 
   useEffect(() => {
-    setIsOpen(false);
+    // Close mobile menu on navigation - only if currently open
+    if (isOpen) {
+      setIsOpen(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   useEffect(() => {
