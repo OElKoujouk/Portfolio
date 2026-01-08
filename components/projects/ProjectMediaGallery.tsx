@@ -168,6 +168,7 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
                     fill
                     sizes="(min-width: 1024px) 40vw, 100vw"
                     className="object-contain transition duration-500 group-hover:scale-105"
+                    unoptimized
                   />
                 </div>
               ) : (
@@ -276,6 +277,7 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
                     className="select-none object-contain md:p-8"
                     draggable={false}
                     priority
+                    unoptimized
                   />
                 ) : (
                   <div className="flex h-full w-full items-center justify-center p-0 md:p-4">
