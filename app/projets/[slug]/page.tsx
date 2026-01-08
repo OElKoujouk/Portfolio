@@ -62,7 +62,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": projectFr?.title,
-    "description": projectFr?.shortDescription,
+    "description": projectFr?.description,
     "applicationCategory": "WebApplication",
     "operatingSystem": "Web, Browser",
     "author": {
