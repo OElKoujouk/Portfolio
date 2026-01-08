@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
 import { Mail, Phone } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
+import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -21,25 +21,25 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-2 md:items-end">
           <div className="flex items-center gap-3 flex-wrap justify-center md:justify-end">
             <a
-              href="mailto:omar.lbn@outlook.com"
+              href={`mailto:${CONTACT_INFO.email}`}
               className="group flex items-center gap-2 text-gray-400 transition-all duration-300 hover:text-accent-blue"
               aria-label="Email"
             >
               <Mail className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-xs">omar.lbn@outlook.com</span>
+              <span className="text-xs">{CONTACT_INFO.email}</span>
             </a>
             <span className="text-gray-600 hidden sm:inline">·</span>
             <a
-              href="tel:+33783115973"
+              href={`tel:${CONTACT_INFO.phoneRaw}`}
               className="group flex items-center gap-2 text-gray-400 transition-all duration-300 hover:text-accent-blue"
               aria-label="Téléphone"
             >
               <Phone className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
-              <span className="text-xs">+33 7 83 11 59 73</span>
+              <span className="text-xs">{CONTACT_INFO.phone}</span>
             </a>
             <span className="text-gray-600 hidden sm:inline">·</span>
             <a
-              href="https://www.linkedin.com/in/omar-el-koujouk-2580371a7/"
+              href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noreferrer"
               className="group flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 transition-all duration-300 hover:border-accent-blue/60 hover:bg-accent-blue/10 hover:text-accent-blue hover:shadow-lg hover:shadow-accent-blue/20"

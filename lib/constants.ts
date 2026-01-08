@@ -21,6 +21,15 @@ export const SOCIAL_LINKS = {
     portfolio: "https://omar-elkoujouk.fr",
 } as const;
 
+/**
+ * Informations de contact centralisées
+ */
+export const CONTACT_INFO = {
+    email: "omar.lbn@outlook.com",
+    phone: "+33 7 83 11 59 73",
+    phoneRaw: "+33783115973",
+} as const;
+
 // ============================================
 // SEO & Metadata
 // ============================================
@@ -35,6 +44,22 @@ export const SEO_CONFIG = {
     url: "https://omar-elkoujouk.fr",
     image: "https://omar-elkoujouk.fr/assets/omar.jpg",
     jobTitle: "Développeur Full-Stack & Salesforce",
+    siteName: "Portfolio Omar El Koujouk",
+    locale: "fr_FR",
+    keywords: [
+        "Développeur Web",
+        "Full Stack",
+        "Salesforce",
+        "React",
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "Freelance",
+        "Paris",
+        "Omar El Koujouk",
+        "Développeur Front-end",
+        "Développeur Back-end"
+    ]
 } as const;
 
 // ============================================

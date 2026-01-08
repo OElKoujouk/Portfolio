@@ -2,6 +2,7 @@ export type Locale = "fr" | "en";
 
 export const translations = {
   fr: {
+    skipToContent: "Aller au contenu principal",
     // Header
     nav: {
       home: "Accueil",
@@ -154,6 +155,7 @@ export const translations = {
     },
   },
   en: {
+    skipToContent: "Skip to main content",
     // Header
     nav: {
       home: "Home",

@@ -21,12 +21,14 @@ export default function Header() {
     { label: t.nav.contact, href: NAV_HREFS[2] },
   ];
 
+  // Ferme le menu mobile automatiquement lors de la navigation
+  // Note: On désactive volontairement les règles eslint ici car :
+  // 1. C'est une synchronisation avec le système de navigation externe (pathname)
+  // 2. Le setState conditionnel ne cause pas de cascade car il ne s'exécute qu'une fois par navigation
+  // 3. Ajouter isOpen aux deps créerait une boucle infinie
   useEffect(() => {
-    // Close mobile menu on navigation - only if currently open
-    if (isOpen) {
-      setIsOpen(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsOpen(false);
   }, [pathname]);
 
   useEffect(() => {

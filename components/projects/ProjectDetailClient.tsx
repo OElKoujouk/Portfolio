@@ -58,7 +58,7 @@ export default function ProjectDetailClient({ slug }: ProjectDetailClientProps) 
                         src={project.image}
                         alt={project.title}
                         fill
-                        sizes="100vw"
+                        sizes="(min-width: 1280px) 1200px, (min-width: 768px) 90vw, 100vw"
                         className="object-contain p-4 transition-transform duration-700 group-hover:scale-[1.02]"
                         priority
                     />

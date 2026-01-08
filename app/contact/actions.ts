@@ -1,11 +1,23 @@
 "use server";
 
+import { z } from "zod";
 import { Resend } from "resend";
 
 export type ContactFormState = {
   status: "idle" | "success" | "error";
   message?: string;
+  fieldErrors?: Record<string, string[]>;
 };
+
+// Schéma de validation Zod
+const ContactSchema = z.object({
+  firstName: z.string().min(1, "Le prénom est requis"),
+  lastName: z.string().min(1, "Le nom est requis"),
+  phone: z.string().min(1, "Le téléphone est requis"),
+  email: z.string().email("Adresse email invalide"),
+  message: z.string().min(1, "Le message est requis"),
+  "g-recaptcha-response": z.string().min(1, "Merci de valider le reCAPTCHA"),
+});
 
 const resend =
   process.env.RESEND_API_KEY && process.env.RESEND_API_KEY.length > 0
@@ -21,39 +33,35 @@ export async function sendContact(
   _prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
-  const firstName = (formData.get("firstName") ?? "").toString().trim();
-  const lastName = (formData.get("lastName") ?? "").toString().trim();
-  const phone = (formData.get("phone") ?? "").toString().trim();
-  const email = (formData.get("email") ?? "").toString().trim();
-  const message = (formData.get("message") ?? "").toString().trim();
-  const recaptchaToken = (formData.get("g-recaptcha-response") ?? "").toString().trim();
+  // Validation avec Zod
+  const validatedFields = ContactSchema.safeParse({
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    phone: formData.get("phone"),
+    email: formData.get("email"),
+    message: formData.get("message"),
+    "g-recaptcha-response": formData.get("g-recaptcha-response"),
+  });
 
-  if (!firstName || !lastName || !email || !message || !phone) {
+  if (!validatedFields.success) {
+    const fieldErrors = validatedFields.error.flatten().fieldErrors;
+    // Retourne le premier message d'erreur trouvé
+    const firstError = Object.values(fieldErrors).flat()[0] || "Données invalides";
     return {
       status: "error",
-      message: "Merci de remplir tous les champs requis."
+      message: firstError,
+      fieldErrors: fieldErrors as Record<string, string[]>,
     };
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return {
-      status: "error",
-      message: "Adresse email invalide."
-    };
-  }
-
-  if (!recaptchaToken) {
-    return {
-      status: "error",
-      message: "Merci de valider le reCAPTCHA."
-    };
-  }
+  const { firstName, lastName, phone, email, message } = validatedFields.data;
+  const recaptchaToken = validatedFields.data["g-recaptcha-response"];
 
   if (!RECAPTCHA_SECRET_KEY) {
     console.error("RECAPTCHA_SECRET_KEY manquant.");
     return {
       status: "error",
-      message: "Verification anti-spam indisponible."
+      message: "Verification anti-spam indisponible.",
     };
   }
 
@@ -61,13 +69,13 @@ export async function sendContact(
     const verifyResponse = await fetch(RECAPTCHA_VERIFY_URL, {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
       },
       body: new URLSearchParams({
         secret: RECAPTCHA_SECRET_KEY,
-        response: recaptchaToken
+        response: recaptchaToken,
       }),
-      cache: "no-store"
+      cache: "no-store",
     });
 
     const verificationResult = (await verifyResponse.json()) as { success: boolean; score?: number };
@@ -75,14 +83,14 @@ export async function sendContact(
       console.warn("Verification reCAPTCHA echouee", verificationResult);
       return {
         status: "error",
-        message: "La verification reCAPTCHA a echoue. Merci de reessayer."
+        message: "La verification reCAPTCHA a echoue. Merci de reessayer.",
       };
     }
   } catch (error) {
     console.error("Impossible de verifier reCAPTCHA", error);
     return {
       status: "error",
-      message: "Erreur lors de la verification reCAPTCHA."
+      message: "Erreur lors de la verification reCAPTCHA.",
     };
   }
 
@@ -90,7 +98,7 @@ export async function sendContact(
     console.error("Resend ou les adresses CONTACT_* ne sont pas configurees.");
     return {
       status: "error",
-      message: "Configuration email manquante. Verifiez RESEND_API_KEY/EMAIL."
+      message: "Configuration email manquante. Verifiez RESEND_API_KEY/EMAIL.",
     };
   }
 
@@ -103,9 +111,9 @@ export async function sendContact(
       month: "long",
       day: "numeric",
       hour: "2-digit",
-      minute: "2-digit"
+      minute: "2-digit",
     });
-    
+
     // Échapper le HTML pour éviter les injections XSS
     const escapeHtml = (text: string) => {
       return text
@@ -293,7 +301,7 @@ export async function sendContact(
       "",
       "Vous pouvez répondre directement à cet email pour poursuivre la conversation.",
       "",
-      "Portfolio Omar El Koujouk"
+      "Portfolio Omar El Koujouk",
     ].join("\n");
 
     await resend.emails.send({
@@ -302,18 +310,18 @@ export async function sendContact(
       subject,
       replyTo: replyToHeader,
       text: textVersion,
-      html
+      html,
     });
 
     return {
       status: "success",
-      message: "Merci ! Votre message a bien ete envoye."
+      message: "Merci ! Votre message a bien ete envoye.",
     };
   } catch (error) {
     console.error("Erreur lors de l'envoi du message :", error);
     return {
       status: "error",
-      message: "Impossible d'envoyer le message pour le moment."
+      message: "Impossible d'envoyer le message pour le moment.",
     };
   }
 }

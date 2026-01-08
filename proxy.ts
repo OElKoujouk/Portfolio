@@ -5,6 +5,24 @@ const COOKIE_NAME = "portfolio-locale";
 const DEFAULT_LOCALE = "fr";
 const SUPPORTED_LOCALES = ["fr", "en"] as const;
 
+/**
+ * Content Security Policy pour la sécurité du site
+ * Permet les scripts inline pour les composants React et les ressources tierces nécessaires
+ */
+const CSP_HEADER = `
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google.com https://www.gstatic.com;
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    img-src 'self' data: blob: https://picsum.photos https://images.unsplash.com https://img.youtube.com;
+    font-src 'self' https://fonts.gstatic.com;
+    connect-src 'self' https://www.google.com https://vitals.vercel-insights.com;
+    frame-src https://www.google.com https://www.youtube.com;
+    object-src 'none';
+    base-uri 'self';
+    form-action 'self';
+    upgrade-insecure-requests;
+`.replace(/\s{2,}/g, " ").trim();
+
 export function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
@@ -20,9 +38,14 @@ export function proxy(request: NextRequest) {
     // 1. Lire le cookie existant
     const cookieLocale = request.cookies.get(COOKIE_NAME)?.value;
 
-    // Si on a déjà un cookie valide, on continue (le serveur l'utilisera)
-    if (cookieLocale && SUPPORTED_LOCALES.includes(cookieLocale as any)) {
-        return NextResponse.next();
+    // Si on a déjà un cookie valide, on ajoute juste les headers de sécurité
+    if (cookieLocale && SUPPORTED_LOCALES.includes(cookieLocale as "fr" | "en")) {
+        const response = NextResponse.next();
+        response.headers.set("Content-Security-Policy", CSP_HEADER);
+        response.headers.set("X-Content-Type-Options", "nosniff");
+        response.headers.set("X-Frame-Options", "DENY");
+        response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
+        return response;
     }
 
     // 2. Sinon, on détecte la langue du navigateur
@@ -33,13 +56,17 @@ export function proxy(request: NextRequest) {
         detectedLocale = "en";
     }
 
-    // 3. On définit le cookie pour les prochaines requêtes
+    // 3. On définit le cookie pour les prochaines requêtes + headers de sécurité
     const response = NextResponse.next();
     response.cookies.set(COOKIE_NAME, detectedLocale, {
         path: "/",
         maxAge: 60 * 60 * 24 * 365, // 1 an
         sameSite: "lax",
     });
+    response.headers.set("Content-Security-Policy", CSP_HEADER);
+    response.headers.set("X-Content-Type-Options", "nosniff");
+    response.headers.set("X-Frame-Options", "DENY");
+    response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
 
     return response;
 }

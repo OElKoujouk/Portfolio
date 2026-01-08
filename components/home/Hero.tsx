@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import omarImage from "@/public/assets/omar.jpg";
 import Link from "next/link";
 import { Download } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
@@ -52,9 +53,10 @@ export default function Hero() {
           <div className="relative h-48 w-48 overflow-hidden rounded-3xl border-2 border-white/10 bg-gradient-to-br from-white/10 to-white/5 shadow-2xl transition-all duration-500 md:h-64 md:w-64 group-hover:border-accent-blue/40 group-hover:shadow-[0_0_30px_rgba(0,217,255,0.3)]">
             <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 via-transparent to-accent-purple/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             <Image
-              src="/assets/omar.jpg"
+              src={omarImage}
               alt={t.hero.portraitAlt}
               fill
+              placeholder="blur"
               sizes="(max-width: 768px) 192px, 256px"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
               priority

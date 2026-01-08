@@ -1,6 +1,5 @@
 ﻿import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -8,6 +7,8 @@ import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LanguageProvider } from "@/lib/i18n";
+import { SEO_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
+import SkipLink from "@/components/ui/SkipLink";
 // import ChatBubble from "@/components/chat/ChatBubble";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -15,41 +16,75 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Omar El Koujouk",
-  url: "https://omar-elkoujouk.fr",
-  jobTitle: "Développeur Full-Stack & Salesforce",
-  image: "https://omar-elkoujouk.fr/assets/omar.jpg",
-  description:
-    "Omar El Koujouk. Développeur Full-Stack & Salesforce. Spécialisé en Next.js, React et intégrations Salesforce.",
-  sameAs: ["https://www.linkedin.com/in/omar-el-koujouk-2580371a7/", "https://omar-elkoujouk.fr"]
+  name: SEO_CONFIG.name,
+  url: SEO_CONFIG.url,
+  jobTitle: SEO_CONFIG.jobTitle,
+  image: SEO_CONFIG.image,
+  description: SEO_CONFIG.description,
+  sameAs: [SOCIAL_LINKS.linkedin, SEO_CONFIG.url]
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://omar-elkoujouk.fr"),
+  metadataBase: new URL(SEO_CONFIG.url),
   title: {
-    default: "Omar El Koujouk | Développeur Full-Stack & Salesforce",
-    template: "%s | Omar El Koujouk"
+    default: SEO_CONFIG.title,
+    template: `%s | ${SEO_CONFIG.name}`
   },
-  description:
-    "Omar El Koujouk. Développeur Full-Stack & Salesforce. Spécialisé en Next.js, React et intégrations Salesforce.",
+  description: SEO_CONFIG.description,
+  keywords: [...SEO_CONFIG.keywords],
+  authors: [{ name: SEO_CONFIG.name, url: SEO_CONFIG.url }],
+  creator: SEO_CONFIG.name,
+  publisher: SEO_CONFIG.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Omar El Koujouk | Développeur Full-Stack & Salesforce",
-    description:
-      "Développeur Full-Stack & Salesforce. Omar El Koujouk. Spécialisé en Next.js, React et intégrations Salesforce.",
-    type: "website"
+    title: SEO_CONFIG.title,
+    description: SEO_CONFIG.description,
+    url: SEO_CONFIG.url,
+    siteName: SEO_CONFIG.siteName,
+    locale: SEO_CONFIG.locale,
+    type: "website",
+    images: [
+      {
+        url: SEO_CONFIG.image,
+        width: 1200,
+        height: 630,
+        alt: SEO_CONFIG.title,
+      },
+    ],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: {
     icon: [
-      { url: "https://omar-elkoujouk.fr/favicon.ico", sizes: "any" },
-      { url: "https://omar-elkoujouk.fr/assets/logo.png", type: "image/png", sizes: "32x32" },
-      { url: "https://omar-elkoujouk.fr/assets/logo.png", type: "image/png", sizes: "192x192" }
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/assets/logo.png", type: "image/png", sizes: "32x32" },
+      { url: "/assets/logo.png", type: "image/png", sizes: "192x192" }
     ],
-    shortcut: "https://omar-elkoujouk.fr/favicon.ico",
-    apple: "https://omar-elkoujouk.fr/assets/logo.png"
+    shortcut: "/favicon.ico",
+    apple: "/assets/logo.png"
   }
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const cookieStore = await cookies();
+  const initialLocale = cookieStore.get("portfolio-locale")?.value as "fr" | "en" | undefined;
+
   return (
     <html lang="fr" className="bg-primary">
       <head />
@@ -58,11 +93,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
-        <LanguageProvider initialLocale={(await cookies()).get("portfolio-locale")?.value as "fr" | "en" | undefined}>
+        <LanguageProvider initialLocale={initialLocale}>
           <div className="grain" aria-hidden="true" />
-          <a href="#content" className="skip-link">
-            Aller au contenu principal
-          </a>
+          <SkipLink />
           <div className="relative flex min-h-screen flex-col">
             <Header />
             <main id="content" className="relative z-10 flex-1 pb-16 pt-12">
@@ -82,7 +115,3 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     </html>
   );
 }
-
-
-
-

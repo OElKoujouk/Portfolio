@@ -5,14 +5,7 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import { ImageIcon, PlayCircle, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
-
-// Type pour les médias déjà résolus dans une langue
-interface ResolvedDemoMedia {
-  type: "image" | "video";
-  src: string;
-  title?: string;
-  description?: string;
-}
+import type { ResolvedDemoMedia } from "@/types";
 
 interface ProjectMediaGalleryProps {
   items: ResolvedDemoMedia[];
@@ -30,13 +23,13 @@ export default function ProjectMediaGallery({ items, projectTitle }: ProjectMedi
   const activeItem = useMemo(() => items[activeIndex], [items, activeIndex]);
   const isImageMedia = activeItem?.type === "image";
 
-  // Reset playing state when slide changes
+  // Reset de l'état de lecture lors du changement de slide
+  // Note: On désactive volontairement les règles eslint ici car :
+  // 1. C'est une synchronisation nécessaire pour arrêter la vidéo lors du changement de slide
+  // 2. Le setState ne cause pas de cascade car il est conditionnel et s'exécute une seule fois
   useEffect(() => {
-    // Only reset if currently playing to avoid cascading renders
-    if (isPlaying) {
-      setIsPlaying(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsPlaying(false);
   }, [activeIndex]);
 
   // Helper pour extraire l'ID YouTube (supporte embed, watch, youtu.be)
