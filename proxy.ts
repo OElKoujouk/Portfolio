@@ -5,7 +5,7 @@ const COOKIE_NAME = "portfolio-locale";
 const DEFAULT_LOCALE = "fr";
 const SUPPORTED_LOCALES = ["fr", "en"] as const;
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
     // Ignorer les assets et appels API
