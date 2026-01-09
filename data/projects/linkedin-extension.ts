@@ -15,7 +15,7 @@ export const linkedinExtensionProject: ProjectBase = {
         en: "Design of a Chrome extension (MV3) for DevFirst sales teams: button injection into LinkedIn UI, robust scraping (spinner, retries) and dynamic mapping to Salesforce. The background agent orchestrates screen capture, email parsing and Lead/Contact creation via defaultFieldValues, all configurable from an Options page (Salesforce instance, field mapping)."
     },
     stack: ["Chrome Extension", "JavaScript", "Salesforce", "HTML/CSS", "chrome.scripting", "Fetch API"],
-    image: "/assets/extension/extension.png",
+    image: "/assets/projects/extension/extension.png",
     problem: {
         fr: "Les SDR passaient plusieurs minutes à copier/coller les infos LinkedIn dans Salesforce et perdaient souvent des champs (email, localisation, civilité).",
         en: "SDRs spent several minutes copying/pasting LinkedIn info into Salesforce and often lost fields (email, location, salutation)."
@@ -25,6 +25,6 @@ export const linkedinExtensionProject: ProjectBase = {
         en: "Inject a LinkedIn -> Salesforce button, scrape the DOM and contact-info overlays, guess salutation via Genderize.io then open Salesforce with auto-filled fields. An Options page allows mapping SF fields, setting the instance and quickly re-executing Lead/Contact creation."
     },
     demoMedia: [
-        { type: "image", src: "/assets/extension/capture.png", title: { fr: "Bouton capture LinkedIn", en: "LinkedIn Capture Button" }, description: { fr: "CTA inséré dans la top-card LinkedIn pour lancer la création Salesforce.", en: "CTA inserted in LinkedIn top-card to launch Salesforce creation." } }
+        { type: "image", src: "/assets/projects/extension/capture.png", title: { fr: "Bouton capture LinkedIn", en: "LinkedIn Capture Button" }, description: { fr: "CTA inséré dans la top-card LinkedIn pour lancer la création Salesforce.", en: "CTA inserted in LinkedIn top-card to launch Salesforce creation." } }
     ]
 };

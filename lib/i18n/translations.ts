@@ -7,6 +7,7 @@ export const translations = {
     nav: {
       home: "Accueil",
       projects: "Projets",
+      blog: "Blog",
       contact: "Contact",
     },
     // Hero
@@ -139,6 +140,16 @@ export const translations = {
       title: "Projets sélectionnés",
       description: "Chaque projet est conçu avec une obsession pour la qualité et la maintenabilité. Voici un aperçu des derniers produits livrés.",
     },
+    // Blog page
+    blog: {
+      label: "Articles",
+      title: "Blog & Ressources",
+      description: "Retours d'expérience, analyses techniques et tutoriels sur l'écosystème Next.js et Salesforce.",
+      readMore: "Lire l'article",
+      backToBlog: "Retour au blog",
+      publishedOn: "Publié le",
+      minRead: "min de lecture",
+    },
     // Project detail page
     projectDetail: {
       backToProjects: "Retour aux projets",
@@ -160,6 +171,7 @@ export const translations = {
     nav: {
       home: "Home",
       projects: "Projects",
+      blog: "Blog",
       contact: "Contact",
     },
     // Hero
@@ -291,6 +303,16 @@ export const translations = {
       label: "Work",
       title: "Selected Projects",
       description: "Each project is crafted with an obsession for quality and maintainability. Here's a glimpse of the latest products delivered.",
+    },
+    // Blog page
+    blog: {
+      label: "Articles",
+      title: "Blog & Resources",
+      description: "Feedback, technical analysis and tutorials on the Next.js and Salesforce ecosystem.",
+      readMore: "Read article",
+      backToBlog: "Back to blog",
+      publishedOn: "Published on",
+      minRead: "min read",
     },
     // Project detail page
     projectDetail: {

@@ -11,7 +11,7 @@ import type { Route } from "next";
 /**
  * Routes de navigation principales
  */
-export const NAV_HREFS = ["/", "/projets", "/contact"] as const satisfies Route[];
+export const NAV_HREFS = ["/", "/projets", "/blog", "/contact"] as const satisfies Route[];
 
 /**
  * Liens externes et réseaux sociaux

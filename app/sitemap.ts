@@ -1,14 +1,16 @@
 import type { MetadataRoute } from "next";
 import { getProjectSlugs } from "@/data/projects";
+import { getAllPosts } from "@/data/blog";
 import { SEO_CONFIG } from "@/lib/constants";
 
 /**
  * Sitemap dynamique Next.js
- * Génère automatiquement toutes les URLs du site incluant les pages de projets
+ * Génère automatiquement toutes les URLs du site incluant les pages de projets et de blog
  */
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = SEO_CONFIG.url;
     const projectSlugs = getProjectSlugs();
+    const blogPosts = getAllPosts();
 
     const staticPages: MetadataRoute.Sitemap = [
         {
@@ -29,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "yearly",
             priority: 0.7,
         },
+        {
+            url: `${baseUrl}/blog`,
+            lastModified: new Date(),
+            changeFrequency: "weekly",
+            priority: 0.9, // Le blog est important pour le SEO
+        },
     ];
 
     const projectPages: MetadataRoute.Sitemap = projectSlugs.map((slug) => ({
@@ -38,5 +46,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
     }));
 
-    return [...staticPages, ...projectPages];
+    const blogPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
+        lastModified: new Date(post.date),
+        changeFrequency: "monthly",
+        priority: 0.8,
+    }));
+
+    return [...staticPages, ...projectPages, ...blogPages];
 }

@@ -18,7 +18,8 @@ export default function Header() {
   const navLinks = [
     { label: t.nav.home, href: NAV_HREFS[0] },
     { label: t.nav.projects, href: NAV_HREFS[1] },
-    { label: t.nav.contact, href: NAV_HREFS[2] },
+    { label: t.nav.blog, href: NAV_HREFS[2] },
+    { label: t.nav.contact, href: NAV_HREFS[3] },
   ];
 
   // Ferme le menu mobile automatiquement lors de la navigation

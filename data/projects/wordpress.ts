@@ -15,7 +15,7 @@ export const wordpressProject: ProjectBase = {
         en: "Complete redesign of dev-first.com using WordPress + Elementor then integration of an Agentforce conversational agent connected to Salesforce. The bot retrieves the Trailhead/FAQ knowledge base, respects branding (logo, colors, avatar) and exposes custom topics/actions (appointment booking, lead pushing). The goal is to transform a classic showcase into a business generation tool traceable in Salesforce with conversation tracking."
     },
     stack: ["WordPress", "Elementor", "Salesforce", "Agentforce", "JavaScript"],
-    image: "/assets/wordpress/devfirst.png",
+    image: "/assets/projects/wordpress/devfirst.png",
     link: "https://www.dev-first.com/",
     problem: {
         fr: "Dev First disposait d'un site vitrine peu interactif et aucune capture conversationnelle des prospects malgré son écosystème Salesforce.",
@@ -26,7 +26,7 @@ export const wordpressProject: ProjectBase = {
         en: "Creation of SEO-optimized Elementor pages + addition of an Agentforce widget connected to Salesforce (topics, custom actions, complete branding). The agent responds instantly, can create leads, book appointments or push contextualized documentation, while logging every conversation on the CRM side."
     },
     demoMedia: [
-        { type: "image", src: "/assets/wordpress/site.png", title: { fr: "Agentforce intégré", en: "Integrated Agentforce" }, description: { fr: "Site WordPress Dev First avec l'agent Agentforce en bas à droite.", en: "Dev First WordPress site with Agentforce agent in bottom right." } },
-        { type: "image", src: "/assets/wordpress/agentforce.png", title: { fr: "Interface Agentforce", en: "Agentforce Interface" }, description: { fr: "Vue agrandie de l'agent Agentforce avec branding Dev First et options de conversation.", en: "Enlarged view of Agentforce agent with Dev First branding and conversation options." } }
+        { type: "image", src: "/assets/projects/wordpress/site.png", title: { fr: "Agentforce intégré", en: "Integrated Agentforce" }, description: { fr: "Site WordPress Dev First avec l'agent Agentforce en bas à droite.", en: "Dev First WordPress site with Agentforce agent in bottom right." } },
+        { type: "image", src: "/assets/projects/wordpress/agentforce.png", title: { fr: "Interface Agentforce", en: "Agentforce Interface" }, description: { fr: "Vue agrandie de l'agent Agentforce avec branding Dev First et options de conversation.", en: "Enlarged view of Agentforce agent with Dev First branding and conversation options." } }
     ]
 };

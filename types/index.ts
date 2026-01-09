@@ -12,3 +12,6 @@ export type {
     ResolvedDemoMedia,
     ResolvedWorkflow,
 } from "./project";
+
+// Types liés au blog
+export type { BlogPost, BlogPostBase } from "./blog";
