@@ -1,163 +1,114 @@
-﻿# "description": "Site personnel Next.js 14 - Omar El Koujouk",
-# Site Personnel Next.js - Omar El Koujouk
+﻿# Portfolio - Omar El Koujouk
 
-Site personnel multi-page construit avec **Next.js 14**, **Tailwind CSS**, et **Framer Motion**. Ce projet présente mes compétences, mes projets, et permet de me contacter.
+**Plateforme web personnelle "Full Stack & SEO-First"** construite avec **Next.js 16**, **Tailwind CSS** et une architecture hybride (Server Components + Client interactif).  
+Ce projet démontre une maîtrise avancée du développement web moderne, de l'optimisation technique (Core Web Vitals) à l'expérience utilisateur (UX/UI).
 
-## Fonctionnalités
+🌐 **Live Demo :** [omar-elkoujouk.fr](https://omar-elkoujouk.fr)
 
-- ⚡ **Next.js 14** (App Router)
-- 🎨 **Tailwind CSS** pour le styling
-- 🎭 **Animations fluides** (CSS, Framer Motion)
-- 🌍 **Internationalisation (i18n)** FR/EN
-- 📱 **Responsive Design** (Mobile First)
-- 📧 **Formulaire de contact** fonctionnel (Resend)
-- 🔍 **SEO Optimisé** (Metadata, JSON-LD)
-- ♿ **Accessibilité** (SkipLink, Aria labels)
+---
 
-## Configuration Recommandée (VS Code)uton de changement de langue, tous les textes traduits
-- 🎨 **Thème néon/glass** - Design moderne avec effets glassmorphism et animations
-- 📱 **Responsive** - Adapté mobile, tablette et desktop
-- ⚡ **Optimisé** - Images Next.js, performances Vercel, ESLint 9
-- ♿ **Accessible** - Skip-link, ARIA labels, focus states
-- 🔄 **Proxy i18n** - Détection automatique de la langue via cookies
+## 🔥 Fonctionnalités & Points Forts Technique
 
-## 📄 Pages principales
+### ⚡ Core & Performance
+- **Next.js 16 (App Router) :** Utilisation intensive des React Server Components (RSC) pour un chargement instantané.
+- **PWA (Progressive Web App) :** Manifest généré dynamiquement (`app/manifest.ts`) pour installation sur mobile.
+- **Optimisation Images :** `next/image` avec gestion automatique du format WebP/AVIF.
+- **Vercel Analytics & Speed Insights :** Monitoring en temps réel intégré (`app/layout.tsx`).
 
-- **`/` Accueil** : hero compact (portrait, CTA Projets/Contact/CV), badges de compétences, cartes "Ce que je fais", bandeau "Projet primé" et section À propos complète.
-- **`/projets`** : grille responsive avec cartes cliquables (image, description, stack) - contenu traduit.
-- **`/projets/[slug]`** : fiche détaillée auto-générée avec problématique, stack, workflows, solution et galerie médias.
-- **`/contact`** : formulaire avec server action Resend + reCAPTCHA, liens sociaux et disponibilités.
+### 🌍 Internationalisation (i18n) Native
+Une approche sans librairie lourde, basée sur les standards du Web :
+- **Proxy Middleware (`proxy.ts`) :** Intercepte les requêtes pour détecter la locale (`fr`/`en`) via cookie/header.
+- **Context API :** `LanguageProvider` pour le changement de langue fluide côté client sans rechargement.
+- **Data Hydration :** Contenu dynamique (Blog/Projets) servi dans la bonne langue dès le serveur.
 
-## 🛠️ Stack technique
+### 📈 Stratégie SEO (Search Engine Optimization)
+- **Architecture Sémantique :** HTML5 strict (`<article>`, `<nav>`, `<aside>`).
+- **Données Structurées (JSON-LD) :** Injection automatique de schémas `Person`, `BlogPosting`, et `WebSite`.
+- **Sitemap Dynamique (`sitemap.ts`) :** Indexation automatique des nouvelles routes Blog et Projets.
+- **Métadonnées Dynamiques :** Titres, descriptions et OpenGraph générés pour chaque slug.
 
-| Catégorie | Technologies |
-|-----------|-------------|
-| **Framework** | Next.js 16, React 19, TypeScript |
-| **Styling** | Tailwind CSS, `tailwind-merge`, `clsx`, helper `cn` |
-| **Icônes** | `lucide-react`, `react-icons` |
-| **Email** | `resend` (formulaire contact) |
-| **AI** | `@ai-sdk/react`, `@ai-sdk/openai` (ChatBubble, désactivé) |
-| **Linting** | ESLint 9 (flat config) |
-| **Runtime** | Node >= 20.9.0 |
+### 📝 Blog & Contenu (Headless-like)
+Pas de CMS externe, tout est géré via le système de fichiers pour une performance maximale :
+- **Architecture Data :** Articles stockés en TypeScript (`data/blog/*.ts`) pour un typage fort.
+- **Rendu Hybride :** Contenu HTML sécurisé (`dangerouslySetInnerHTML`) servi via des composants serveurs.
+- **7 Articles Piliers :** Contenu technique rédigé pour démontrer l'expertise (React 19, DevOps, IA...).
 
-## 📂 Structure du projet
+---
 
-```
-├── app/
-│   ├── layout.tsx            # metadata globale, Header/Footer, LanguageProvider
-│   ├── globals.css           # theming, classes utilitaires card/badge
-│   ├── page.tsx              # Accueil
-│   ├── projets/
-│   │   ├── page.tsx          # grille projets
-│   │   └── [slug]/page.tsx   # page détail projet
-│   ├── contact/
-│   │   ├── page.tsx          # page contact
-│   │   └── actions.ts        # server action Resend + reCAPTCHA
-│   └── api/chat/route.ts     # API ChatBubble (désactivé)
-│
-├── components/
-│   ├── layout/               # Header.tsx, Footer.tsx
-│   ├── home/                 # Hero.tsx, AboutSection.tsx, HomePageClient.tsx
-│   ├── projects/             # ProjectCard, ProjectsGrid, ProjectDetailClient, ProjectMediaGallery
-│   ├── contact/              # ContactForm.tsx
-│   ├── ui/                   # LanguageSwitcher.tsx
-│   └── chat/                 # ChatBubble.tsx (désactivé)
-│
-├── data/
-│   ├── projects.ts           # Index + helpers (getProjects, getProjectBySlug)
-│   └── projects/             # Fichiers séparés par projet
-│       ├── navzen.ts
-│       ├── quickgpt.ts
-│       ├── wordpress.ts
-│       ├── rivalytics.ts
-│       ├── linkedin-extension.ts
-│       ├── n8n.ts
-│       └── gestion-stock.ts
-│
-├── types/
-│   ├── index.ts              # Réexporte tous les types
-│   └── project.ts            # Project, DemoMedia, Workflow, TranslatedText
-│
-├── lib/
-│   ├── constants.ts          # NAV_HREFS, SKILL_GROUPS, SEO_CONFIG
-│   ├── utils.ts              # helper cn
-│   └── i18n/                 # LanguageContext, translations
-│
-├── proxy.ts                  # Détection langue (anciennement middleware.ts)
-│
-└── public/assets/            # omar.jpg, CV-Omar.pdf, logo.png, images projets
-```
-
-## 🌐 Internationalisation (i18n)
-
-Le site supporte le français et l'anglais :
-
-- **Bouton FR/EN** dans le header
-- **React Context** (`LanguageProvider`) pour gérer l'état
-- **Proxy** (`proxy.ts`) détecte la langue du navigateur et set un cookie
-- **Traductions centralisées** dans `lib/i18n/translations.ts`
-- **Projets traduits** inline dans `data/projects/*.ts`
-- **Préférence sauvegardée** en cookie (1 an)
-
-## 🔐 Variables d'environnement
-
-Configurer Resend et reCAPTCHA pour activer le formulaire de contact :
-
-| Variable | Description |
-| --- | --- |
-| `RESEND_API_KEY` | Clé privée Resend |
-| `RESEND_FROM_EMAIL` | Expéditeur (ex: "Site Web - Omar <sender@example.com>") |
-| `CONTACT_RECIPIENT_EMAIL` | Adresse de réception des messages |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Clé publique Google reCAPTCHA (widget v2) |
-| `RECAPTCHA_SECRET_KEY` | Clé serveur pour vérifier les tokens reCAPTCHA |
-
-Un exemple `.env` est fourni. Sans ces variables, `sendContact` renvoie une erreur contrôlée.
-
-## 📜 Scripts npm
-
-| Script | Description |
-| --- | --- |
-| `npm run dev` | Lance Next.js en mode développement (http://localhost:3000) |
-| `npm run build` | Compile l'application pour la production |
-| `npm start` | Lance le serveur Next.js en mode production |
-| `npm run lint` | Lint avec ESLint 9 (flat config) |
-
-## 🚀 Mise en route
+## 📂 Structure du Code (Audit Janvier 2026)
 
 ```bash
-# 1. Installer les dépendances
-npm install
-
-# 2. Configurer l'environnement
-cp .env.example .env.local
-# Éditer .env.local avec vos clés Resend + reCAPTCHA
-
-# 3. Lancer le serveur de développement
-npm run dev
-
-# 4. Ouvrir http://localhost:3000
+├── app/
+│   ├── api/chat/             # Route API pour le chatbot (expérimental)
+│   ├── blog/                 # Routes dynamiques du Blog (SEO-first)
+│   ├── contact/              # Formulaire avec Server Actions (Resend)
+│   ├── projets/              # Galerie et détails des projets
+│   ├── manifest.ts           # Configuration PWA
+│   ├── sitemap.ts            # Générateur Sitemap XML
+│   └── layout.tsx            # Shell global (Analytics, i18n, Fonts)
+│
+├── components/
+│   ├── blog/                 # BlogList (Grid), BlogPostClient (Article)
+│   ├── chat/                 # ChatBubble (Interface IA flottante)
+│   ├── home/                 # Hero, Stack, AboutSection
+│   ├── projects/             # Cards, Modal, MediaGallery
+│   └── ui/                   # LanguageSwitcher, Boutons génériques
+│
+├── data/
+│   ├── blog/                 # 7 Articles techniques (Contenu + Metadata)
+│   ├── projects/             # 6 Projets (NavZen, Logifly, QuickGPT...)
+│   └── blog.ts / projects.ts # Agrégateurs & Helpers d'accès aux données
+│
+├── lib/
+│   ├── i18n/                 # Logique de traduction & Dictionnaire
+│   └── utils.ts              # Helpers (cn, date formatting)
+│
+├── public/assets/            # Images optimisées, CV PDF, Logos
+│
+├── types/                    # Définitions TypeScript partagées (BlogPost, Project)
+│
+└── proxy.ts                  # Middleware custom pour la réécriture d'URL i18n
 ```
 
-## ☁️ Déploiement Vercel
+---
 
-1. Connecter le repo sur Vercel
-2. Build command : `npm run build` (détectée automatiquement)
-3. Output : `.next`
-4. Ajouter les variables d'environnement dans Project Settings > Environment Variables
+## 🛠️ Stack Technique
 
-## ✏️ Personnalisation
+| Catégorie | Outils |
+|-----------|--------|
+| **Framework** | Next.js 16.1 (Turbopack), React 19 |
+| **Langage** | TypeScript 5.5 (Strict Mode) |
+| **Style** | Tailwind CSS 3.4, `clsx`, `tailwind-merge` |
+| **Animation** | Framer Motion (Transitions, Scroll Reveal) |
+| **Backend** | Server Actions, Resend (Email), NodeJS 20+ |
+| **DevOps** | Vercel (Hosting), ESLint 9, Git |
 
-| Élément | Fichier(s) |
-| --- | --- |
-| **Projets** | `data/projects/*.ts` (textes FR/EN, workflows, médias, stack, liens) |
-| **Traductions UI** | `lib/i18n/translations.ts` |
-| **Constantes** | `lib/constants.ts` (navigation, compétences, SEO) |
-| **Types** | `types/project.ts` |
-| **Portrait/CV** | `public/assets/` |
-| **Thème** | `tailwind.config.js` et `app/globals.css` |
+---
 
-## 📧 Contact
+## 🚀 Installation
 
-- **Email**: omar.lbn@outlook.com
-- **LinkedIn**: [Omar El Koujouk](https://www.linkedin.com/in/omar-el-koujouk-2580371a7/)
-- **Site Web**: [omar-elkoujouk.fr](https://omar-elkoujouk.fr)
+```bash
+# 1. Cloner le dépôt
+git clone https://github.com/OElKoujouk/Portfolio.git
+
+# 2. Installer les dépendances
+npm install
+
+# 3. Configurer les variables d'environnement (.env.local)
+# RESEND_API_KEY=...
+# NEXT_PUBLIC_RECAPTCHA_SITE_KEY=...
+
+# 4. Lancer le serveur de développement
+npm run dev
+# Accès : http://localhost:3000
+```
+
+---
+
+## 🤝 Droits & Licence
+
+**Auteur :** Omar El Koujouk.
+**Code Source :** Open-Source (MIT). Vous pouvez vous en inspirer pour votre propre portfolio.
+**Contenu (Textes/Images) :** Tous droits réservés.
+
+*Projet audité et validé conforme aux standards Web modernes (2026).*
