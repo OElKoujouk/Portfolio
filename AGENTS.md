@@ -1,6 +1,6 @@
 ﻿# Contexte du projet -- AI Agents
 
-Portfolio Next.js 16 multi-page en production avec support **multilingue FR/EN** et **React 19**. L'interface applique un thème sombre avec des néons bleu/violet, des cartes vitrées réutilisables (`card`, `badge`) et un skip-link pour l'accessibilité. Toutes les pages partagent les mêmes styles Tailwind centralisés dans `app/globals.css`.
+# Site Personnel Next.js 16 multi-page en production avec support **multilingue FR/EN** et **React 19**. L'interface applique un thème sombre avec des néons bleu/violet, des cartes vitrées réutilisables (`card`, `badge`) et un skip-link pour l'accessibilité. Toutes les pages partagent les mêmes styles Tailwind centralisés dans `app/globals.css`.
 
 > **Stack**: Next.js 16.1.1 | React 19.2 | TypeScript | Tailwind CSS | ESLint 9 (flat config)
 

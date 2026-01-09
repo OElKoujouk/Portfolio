@@ -51,7 +51,7 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
         <div className="fixed bottom-24 right-6 z-40 w-[360px] max-w-[90vw] overflow-hidden rounded-3xl border border-white/10 bg-primary/95 shadow-2xl shadow-black/40 backdrop-blur">
           <header className="flex items-center justify-between border-b border-white/5 px-4 py-3 text-sm font-semibold text-white">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-accent-blue">Chat portfolio</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-accent-blue">Assistant OEK</p>
               <p className="text-sm text-gray-200">Parlez avec Omar El Koujouk</p>
             </div>
             <button
@@ -67,7 +67,7 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
           <div ref={scrollRef} className="flex max-h-[420px] flex-col gap-3 overflow-y-auto px-4 py-3 text-sm">
             {messages.length === 0 && (
               <div className="rounded-2xl border border-white/5 bg-white/5 px-3 py-2 text-gray-300">
-                Posez vos questions sur mon parcours, mes projets, ma stack ou mes choix techniques. Je réponds en streaming.
+                Posez vos questions sur mon parcours, mes projets, ma stack ou mes choix techniques. Je rÃ©ponds en streaming.
               </div>
             )}
 
@@ -86,7 +86,7 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
 
             {error && (
               <div className="rounded-2xl border border-red-500/40 bg-red-500/10 px-3 py-2 text-red-200">
-                Une erreur est survenue. Réessaie dans un instant.
+                Une erreur est survenue. RÃ©essaie dans un instant.
               </div>
             )}
           </div>
@@ -126,5 +126,5 @@ export default function ChatBubble({ defaultOpen = false }: ChatBubbleProps) {
 }
 */
 
-// Chatbot momentanément désactivé
-export {};
+// Chatbot momentanÃ©ment dÃ©sactivÃ©
+export { };

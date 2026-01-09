@@ -4,7 +4,7 @@ import ContactPageClient from "@/components/contact/ContactPageClient";
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();
-  const locale = (cookieStore.get("portfolio-locale")?.value as "fr" | "en") || "fr";
+  const locale = (cookieStore.get("app-locale")?.value as "fr" | "en") || "fr";
 
   const titles = {
     fr: "Contact",

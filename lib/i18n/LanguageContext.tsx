@@ -25,7 +25,7 @@ export function LanguageProvider({
     const setLocale = (newLocale: Locale) => {
         setLocaleState(newLocale);
         // Le middleware lira ce cookie pour les prochaines requêtes serveur
-        document.cookie = `portfolio-locale=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+        document.cookie = `app-locale=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
     };
 
     const t = translations[locale];

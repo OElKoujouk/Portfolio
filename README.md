@@ -1,10 +1,20 @@
-﻿# Portfolio Next.js - Omar El Koujouk
+﻿# "description": "Site personnel Next.js 14 - Omar El Koujouk",
+# Site Personnel Next.js - Omar El Koujouk
 
-Portfolio multi-page construit avec **Next.js 16** (App Router) et **React 19**, utilisant Tailwind CSS. Le site adopte un thème sombre néon bleu/violet et se compose de pages autonomes : Accueil, Projets, fiches détaillées et Contact. Le portfolio est **entièrement bilingue FR/EN** avec un bouton de changement de langue dans le header.
+Site personnel multi-page construit avec **Next.js 14**, **Tailwind CSS**, et **Framer Motion**. Ce projet présente mes compétences, mes projets, et permet de me contacter.
 
-## 🚀 Fonctionnalités principales
+## Fonctionnalités
 
-- 🌍 **Multilingue FR/EN** - Bouton de changement de langue, tous les textes traduits
+- ⚡ **Next.js 14** (App Router)
+- 🎨 **Tailwind CSS** pour le styling
+- 🎭 **Animations fluides** (CSS, Framer Motion)
+- 🌍 **Internationalisation (i18n)** FR/EN
+- 📱 **Responsive Design** (Mobile First)
+- 📧 **Formulaire de contact** fonctionnel (Resend)
+- 🔍 **SEO Optimisé** (Metadata, JSON-LD)
+- ♿ **Accessibilité** (SkipLink, Aria labels)
+
+## Configuration Recommandée (VS Code)uton de changement de langue, tous les textes traduits
 - 🎨 **Thème néon/glass** - Design moderne avec effets glassmorphism et animations
 - 📱 **Responsive** - Adapté mobile, tablette et desktop
 - ⚡ **Optimisé** - Images Next.js, performances Vercel, ESLint 9
@@ -96,7 +106,7 @@ Configurer Resend et reCAPTCHA pour activer le formulaire de contact :
 | Variable | Description |
 | --- | --- |
 | `RESEND_API_KEY` | Clé privée Resend |
-| `RESEND_FROM_EMAIL` | Expéditeur (ex: "Portfolio - Omar <sender@example.com>") |
+| `RESEND_FROM_EMAIL` | Expéditeur (ex: "Site Web - Omar <sender@example.com>") |
 | `CONTACT_RECIPIENT_EMAIL` | Adresse de réception des messages |
 | `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Clé publique Google reCAPTCHA (widget v2) |
 | `RECAPTCHA_SECRET_KEY` | Clé serveur pour vérifier les tokens reCAPTCHA |
@@ -150,4 +160,4 @@ npm run dev
 
 - **Email**: omar.lbn@outlook.com
 - **LinkedIn**: [Omar El Koujouk](https://www.linkedin.com/in/omar-el-koujouk-2580371a7/)
-- **Portfolio**: [omar-elkoujouk.fr](https://omar-elkoujouk.fr)
+- **Site Web**: [omar-elkoujouk.fr](https://omar-elkoujouk.fr)

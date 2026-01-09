@@ -22,8 +22,8 @@ export const translations = {
     home: {
       skillsTitle: "Compétences clés",
       skillsSubtitle: "Les briques techniques avec lesquelles je conçois des produits fiables et maintenables.",
-      whatIDoTitle: "Ce que je fais",
-      whatIDoSubtitle: "J'accompagne les équipes produit en combinant design system, architecture logicielle et automatisation.",
+      whatIDoTitle: "Services",
+      whatIDoSubtitle: "Des solutions techniques adaptées à vos enjeux, du design system à la mise en production.",
       profileLabel: "Profil",
       profileTitle1: "Développeur Full-Stack",
       profileTitle2: "& Salesforce",
@@ -47,16 +47,16 @@ export const translations = {
     about: {
       introSections: [
         {
-          title: "Ce que je fais",
+          title: "Mon expertise",
           paragraphs: [
-            "Formé à l'ETNA Paris et à EPITECH, je construis des architectures fiables en Next.js, React Native et Salesforce. J'aime connecter produit, métier et automatisation pour fluidifier les roadmaps.",
-            "Je pilote les workflows : intégrations API, scripts SFDX, CI/CD et monitoring pour garder la maîtrise jusqu'au déploiement.",
+            "Je conçois des architectures fiables en Next.js, React Native et Salesforce, avec un focus sur la maintenabilité et la scalabilité. Mon approche : connecter produit, métier et automatisation pour fluidifier les roadmaps.",
+            "Je pilote les workflows de bout en bout : intégrations API, scripts SFDX, CI/CD et monitoring — jusqu'au déploiement en production. Diplômé de l'ETNA Paris et EPITECH.",
           ],
         },
         {
-          title: "Ce qui m'inspire",
+          title: "Approche technique",
           paragraphs: [
-            "Passionné de moto et de mécanique, j'aime comprendre le fonctionnement des systèmes, optimiser les performances et résoudre des problèmes techniques. Cette approche méthodique se retrouve dans ma façon de développer.",
+            "Allier la précision technique à une curiosité constante. J'aime disséquer les problèmes complexes pour bâtir des solutions simples, performantes et durables. Une rigueur acquise par l'expérience et appliquée à chaque projet.",
           ],
         },
       ],
@@ -66,39 +66,39 @@ export const translations = {
       experienceTitle: "Expériences professionnelles",
       experiences: [
         {
-          role: "Développeur Salesforce (CDD)",
+          role: "Développeur Salesforce",
           company: "Dev First",
           period: "Avril 2024 - Novembre 2025",
           highlights: [
-            "Features Apex & LWC sur mesure pour les équipes sales.",
-            "Extension Chrome LinkedIn ↔ Salesforce pour synchroniser les leads.",
-            "Refonte de dev-first.com avec branchements services Salesforce.",
-            "Configuration Agentforce (Topics, Actions, Web To Lead) + automatisations SFDX.",
-            "Intégration d'API externes (OpenAI) et mentoring Trailhead.",
+            "Développement de features Apex & LWC sur mesure pour les équipes commerciales.",
+            "Conception d'une extension Chrome LinkedIn ↔ Salesforce pour la synchronisation des leads.",
+            "Refonte complète de dev-first.com avec intégration des services Salesforce.",
+            "Mise en place d'Agentforce (Topics, Actions, Web To Lead) et automatisations SFDX.",
+            "Intégration d'APIs tierces (OpenAI) et accompagnement technique Trailhead.",
           ],
         },
         {
-          role: "Administrateur infrastructures sécurisées (CDD)",
+          role: "Ingénieur Infrastructure & Automatisation",
           company: "KeopsConcept",
           period: "Mars 2023 - Janvier 2024",
           highlights: [
-            "Interface PHP avec les machines de production.",
-            "Génération automatique de fichiers DXF depuis les données métier.",
-            "Optimisation du code pour réduire les erreurs et accélérer les procédés.",
+            "Développement d'interfaces PHP pour le pilotage des machines de production.",
+            "Automatisation de la génération de fichiers DXF depuis les données métier.",
+            "Optimisation des performances et réduction du taux d'erreur sur les procédés industriels.",
           ],
         },
       ],
-      projectLabel: "Projet d'école",
+      projectLabel: "Projet R&D",
       navZenProject: {
-        title: "🏆Projet NavZen — Fin d'études ETNA",
+        title: "🏆 NavZen — Application de navigation indoor primée",
         awardLabel: "Projet primé - Distinction",
-        awardTitle: 'Lauréat "Meilleure projet de l\'année"',
-        awardDescription: "Prix décerné par un jury professionnel pour l'innovation et l'impact produit.",
+        awardTitle: 'Lauréat "Meilleur projet de l\'année"',
+        awardDescription: "Prix décerné par un jury professionnel pour l'innovation technique et l'impact produit.",
         viewProject: "Voir le projet",
-        highlightIntro: "Développement d'une application mobile de navigation intérieure : React Native, auth, recherche, BLE.",
+        highlightIntro: "Application mobile de navigation intérieure : React Native, authentification, recherche intelligente, BLE.",
         highlights: [
-          "Algorithme de trilatération en Rust et calcul de chemin indoor.",
-          "Backend Symfony/API REST et intégration Unity 3D immersive.",
+          "Moteur de trilatération en Rust pour le calcul de chemin indoor en temps réel.",
+          "Backend Symfony/API REST et intégration Unity 3D pour une expérience immersive.",
         ],
       },
     },
@@ -175,8 +175,8 @@ export const translations = {
     home: {
       skillsTitle: "Key Skills",
       skillsSubtitle: "The technical building blocks I use to create reliable and maintainable products.",
-      whatIDoTitle: "What I do",
-      whatIDoSubtitle: "I support product teams by combining design systems, software architecture, and automation.",
+      whatIDoTitle: "Services",
+      whatIDoSubtitle: "Technical solutions tailored to your challenges, from design system to production deployment.",
       profileLabel: "Profile",
       profileTitle1: "Full-Stack Developer",
       profileTitle2: "& Salesforce",
@@ -200,16 +200,16 @@ export const translations = {
     about: {
       introSections: [
         {
-          title: "What I do",
+          title: "My expertise",
           paragraphs: [
-            "Trained at ETNA Paris and EPITECH, I build reliable architectures with Next.js, React Native and Salesforce. I love connecting product, business and automation to streamline roadmaps.",
-            "I manage workflows: API integrations, SFDX scripts, CI/CD and monitoring to maintain control until deployment.",
+            "I design reliable architectures with Next.js, React Native and Salesforce, focusing on maintainability and scalability. My approach: connecting product, business and automation to streamline roadmaps.",
+            "I manage end-to-end workflows: API integrations, SFDX scripts, CI/CD and monitoring — all the way to production deployment. Graduate of ETNA Paris and EPITECH.",
           ],
         },
         {
-          title: "What inspires me",
+          title: "Technical approach",
           paragraphs: [
-            "Passionate about motorcycles and mechanics, I enjoy understanding how systems work, optimizing performance and solving technical problems. This methodical approach is reflected in my development style.",
+            "Combining technical precision with constant curiosity. I enjoy dissecting complex problems to build simple, high-performing, and sustainable solutions. A rigor acquired through experience and applied to every project.",
           ],
         },
       ],
@@ -219,39 +219,39 @@ export const translations = {
       experienceTitle: "Professional Experience",
       experiences: [
         {
-          role: "Salesforce Developer (Fixed-term)",
+          role: "Salesforce Developer",
           company: "Dev First",
           period: "April 2024 - November 2025",
           highlights: [
-            "Custom Apex & LWC features for sales teams.",
-            "Chrome extension LinkedIn ↔ Salesforce to sync leads.",
-            "Redesign of dev-first.com with Salesforce service connections.",
-            "Agentforce configuration (Topics, Actions, Web To Lead) + SFDX automations.",
-            "External API integration (OpenAI) and Trailhead mentoring.",
+            "Development of custom Apex & LWC features for sales teams.",
+            "Built a Chrome extension for LinkedIn ↔ Salesforce lead synchronization.",
+            "Full redesign of dev-first.com with Salesforce service integrations.",
+            "Agentforce setup (Topics, Actions, Web To Lead) and SFDX automations.",
+            "Third-party API integration (OpenAI) and technical mentoring via Trailhead.",
           ],
         },
         {
-          role: "Secure Infrastructure Administrator (Fixed-term)",
+          role: "Infrastructure & Automation Engineer",
           company: "KeopsConcept",
           period: "March 2023 - January 2024",
           highlights: [
-            "PHP interface with production machines.",
-            "Automatic DXF file generation from business data.",
-            "Code optimization to reduce errors and speed up processes.",
+            "Developed PHP interfaces for production machine control.",
+            "Automated DXF file generation from business data.",
+            "Performance optimization and error rate reduction on industrial processes.",
           ],
         },
       ],
-      projectLabel: "School Project",
+      projectLabel: "R&D Project",
       navZenProject: {
-        title: "🏆NavZen Project — ETNA Final Year",
+        title: "🏆 NavZen — Award-winning indoor navigation app",
         awardLabel: "Award-winning Project - Distinction",
         awardTitle: '"Best Project of the Year" Winner',
-        awardDescription: "Award given by a professional jury for innovation and product impact.",
+        awardDescription: "Award given by a professional jury for technical innovation and product impact.",
         viewProject: "View project",
-        highlightIntro: "Development of an indoor navigation mobile app: React Native, auth, search, BLE.",
+        highlightIntro: "Indoor navigation mobile app: React Native, authentication, smart search, BLE.",
         highlights: [
-          "Trilateration algorithm in Rust and indoor pathfinding.",
-          "Symfony/REST API backend and immersive Unity 3D integration.",
+          "Rust-powered trilateration engine for real-time indoor pathfinding.",
+          "Symfony/REST API backend and Unity 3D integration for immersive experience.",
         ],
       },
     },
@@ -288,7 +288,7 @@ export const translations = {
     },
     // Projects page
     projects: {
-      label: "Portfolio",
+      label: "Work",
       title: "Selected Projects",
       description: "Each project is crafted with an obsession for quality and maintainability. Here's a glimpse of the latest products delivered.",
     },

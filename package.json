@@ -1,8 +1,8 @@
 {
-  "name": "portfolio",
-  "version": "1.0.0",
+  "name": "omar-elkoujouk-website",
+  "version": "0.1.0",
   "private": true,
-  "description": "Portfolio Next.js 14 avec Tailwind CSS",
+  "description": "Site personnel Next.js 14 - Omar El Koujouk",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

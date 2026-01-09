@@ -104,7 +104,7 @@ export async function sendContact(
 
   try {
     const fullName = `${firstName} ${lastName}`.trim();
-    const subject = `Portfolio - Nouveau message de ${fullName}`;
+    const subject = `Site Web - Nouveau message de ${fullName}`;
     const currentDate = new Date().toLocaleString("fr-FR", {
       weekday: "long",
       year: "numeric",
@@ -258,7 +258,7 @@ export async function sendContact(
                             Vous pouvez répondre directement à cet email pour poursuivre la conversation.
                           </p>
                           <p style="margin:0;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(156,196,255,0.6);font-weight:500;">
-                            Portfolio Omar El Koujouk
+                            Site Web Omar El Koujouk
                           </p>
                         </td>
                       </tr>
@@ -278,7 +278,7 @@ export async function sendContact(
 
     const textVersion = [
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
-      "💬 NOUVEAU MESSAGE - Portfolio",
+      "💬 NOUVEAU MESSAGE - Site Web",
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       "",
       `📅 Date: ${currentDate}`,
@@ -301,7 +301,7 @@ export async function sendContact(
       "",
       "Vous pouvez répondre directement à cet email pour poursuivre la conversation.",
       "",
-      "Portfolio Omar El Koujouk",
+      "Site Web Omar El Koujouk",
     ].join("\n");
 
     await resend.emails.send({

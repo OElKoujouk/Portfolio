@@ -3,16 +3,16 @@ import type { ProjectBase } from "@/types";
 export const navzenProject: ProjectBase = {
     slug: "navzen-projet-prime",
     title: {
-        fr: "🏆 NavZen – Projet primé ETNA",
-        en: "🏆 NavZen – ETNA Award-winning Project"
+        fr: "🏆 NavZen — Navigation Indoor",
+        en: "🏆 NavZen — Indoor Navigation"
     },
     description: {
         fr: "Lauréat du prix \"Meilleure idée de l'année\" : appli mobile de navigation intérieure qui mixe React Native, Rust et Unity.",
         en: "\"Best Idea of the Year\" award winner: indoor navigation mobile app combining React Native, Rust and Unity."
     },
     longDescription: {
-        fr: "Projet de fin d'études ETNA récompensé par un jury professionnel pour son approche hybride hardware/software. NavZen combine une appli React Native pour guider les visiteurs, un moteur de calcul Rust pour la trilatération BLE et une carte 3D Unity embarquée. L'ensemble est orchestré via une API Symfony qui centralise bâtiments, points d'intérêt et profils utilisateurs.",
-        en: "ETNA final year project awarded by a professional jury for its hybrid hardware/software approach. NavZen combines a React Native app to guide visitors, a Rust computation engine for BLE trilateration and an embedded Unity 3D map. Everything is orchestrated via a Symfony API that centralizes buildings, points of interest and user profiles."
+        fr: "Projet R&D récompensé par un jury professionnel pour son approche hybride hardware/software. NavZen combine une app React Native pour guider les visiteurs, un moteur de calcul Rust pour la trilatération BLE et une carte 3D Unity embarquée. L'ensemble est orchestré via une API Symfony qui centralise bâtiments, points d'intérêt et profils utilisateurs.",
+        en: "R&D project awarded by a professional jury for its hybrid hardware/software approach. NavZen combines a React Native app to guide visitors, a Rust computation engine for BLE trilateration and an embedded Unity 3D map. Everything is orchestrated via a Symfony API that centralizes buildings, points of interest and user profiles."
     },
     stack: ["Rust", "React Native", "Unity", "Symfony", "BLE", "API REST"],
     image: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1800&q=80",

@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="container relative mx-auto flex flex-col items-center justify-between gap-4 px-6 text-center text-sm text-gray-400 md:flex-row md:text-left">
         <div className="flex flex-col gap-1">
           <p className="text-white font-medium">
-            © {new Date().getFullYear()} <span className="text-gradient">Portfolio</span> — {t.footer.tagline}
+            © {new Date().getFullYear()} <span className="text-gradient">OEK</span> — {t.footer.tagline}
           </p>
           <p className="text-gray-500 text-xs">{t.footer.location}</p>
         </div>

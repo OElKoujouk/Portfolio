@@ -54,9 +54,9 @@ export default function Header() {
           className="group relative text-lg font-bold uppercase tracking-[0.3em] text-white transition-all duration-300 hover:scale-105"
         >
           <span className="relative">
-            <span className="text-gradient">PORTFOLIO</span>
+            <span className="text-gradient">OEK</span>
             <span className="absolute inset-0 text-accent-blue blur-sm opacity-0 transition-opacity duration-300 group-hover:opacity-50">
-              PORTFOLIO
+              OEK
             </span>
           </span>
         </Link>

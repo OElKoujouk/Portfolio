@@ -83,7 +83,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
-  const initialLocale = cookieStore.get("portfolio-locale")?.value as "fr" | "en" | undefined;
+  const initialLocale = cookieStore.get("app-locale")?.value as "fr" | "en" | undefined;
 
   return (
     <html lang="fr" className="bg-primary">

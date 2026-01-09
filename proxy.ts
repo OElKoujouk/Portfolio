@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const COOKIE_NAME = "portfolio-locale";
+const COOKIE_NAME = "app-locale";
 const DEFAULT_LOCALE = "fr";
 const SUPPORTED_LOCALES = ["fr", "en"] as const;
 

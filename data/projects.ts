@@ -1,5 +1,5 @@
 ﻿/**
- * Index des projets du portfolio
+ * Index des projets du site
  * Agrège tous les projets et expose les fonctions d'accès
  */
 

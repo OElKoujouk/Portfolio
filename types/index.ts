@@ -1,5 +1,5 @@
 /**
- * Types centralisés du portfolio
+ * Types centralisés du site/application
  */
 
 // Types liés aux projets

@@ -1,5 +1,5 @@
 /**
- * Constantes globales du portfolio
+ * Constantes globales du site personnel
  */
 
 import type { Route } from "next";
@@ -18,7 +18,7 @@ export const NAV_HREFS = ["/", "/projets", "/contact"] as const satisfies Route[
  */
 export const SOCIAL_LINKS = {
     linkedin: "https://www.linkedin.com/in/omar-el-koujouk-2580371a7/",
-    portfolio: "https://omar-elkoujouk.fr",
+    website: "https://omar-elkoujouk.fr",
 } as const;
 
 /**
@@ -39,26 +39,24 @@ export const CONTACT_INFO = {
  */
 export const SEO_CONFIG = {
     name: "Omar El Koujouk",
-    title: "Omar El Koujouk | Développeur Full-Stack & Salesforce",
-    description: "Omar El Koujouk. Développeur Full-Stack & Salesforce. Spécialisé en Next.js, React et intégrations Salesforce.",
+    title: "Omar El Koujouk | Développeur Full-Stack & Salesforce (Next.js / React)",
+    description: "Expert Salesforce et Développeur Web Full-Stack (React/Next.js) basé à Paris. J'accompagne vos projets de développement web et d'intégration CRM sur-mesure.",
     url: "https://omar-elkoujouk.fr",
     image: "https://omar-elkoujouk.fr/assets/omar.jpg",
     jobTitle: "Développeur Full-Stack & Salesforce",
-    siteName: "Portfolio Omar El Koujouk",
+    siteName: "Omar El Koujouk",
     locale: "fr_FR",
     keywords: [
-        "Développeur Web",
-        "Full Stack",
-        "Salesforce",
-        "React",
-        "Next.js",
+        "Développeur Salesforce Freelance",
+        "Expert React Next.js Paris",
+        "Intégration CRM Salesforce",
+        "Développeur Full Stack Paris",
+        "Création site web Next.js",
+        "Consultant Technique Salesforce",
+        "Développeur Web Freelance",
         "TypeScript",
         "Node.js",
-        "Freelance",
-        "Paris",
-        "Omar El Koujouk",
-        "Développeur Front-end",
-        "Développeur Back-end"
+        "Omar El Koujouk"
     ]
 } as const;
 
