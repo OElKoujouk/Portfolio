@@ -3,7 +3,6 @@
 import Image from "next/image";
 import omarImage from "@/public/assets/omar.jpg";
 import Link from "next/link";
-import { Download } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
 export default function Hero() {
@@ -39,14 +38,7 @@ export default function Hero() {
             >
               {t.hero.contactBtn}
             </Link>
-            <a
-              href="/assets/CV-Omar.pdf"
-              download
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500/90 via-accent-blue to-indigo-500/90 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-primary shadow-xl shadow-cyan-500/30 transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-400/40"
-            >
-              <Download className="h-4 w-4" />
-              {t.hero.downloadCV}
-            </a>
+
           </div>
         </div>
         <div className="justify-self-center animate-slide-left">

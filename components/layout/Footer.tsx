@@ -1,7 +1,7 @@
 "use client";
 
 import { FaLinkedin } from "react-icons/fa";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Download } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
@@ -47,6 +47,16 @@ export default function Footer() {
             >
               <FaLinkedin className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
               <span className="hidden sm:inline">LinkedIn</span>
+            </a>
+            <span className="text-gray-600 hidden sm:inline">·</span>
+            <a
+              href="/assets/CV-Omar.pdf"
+              download
+              className="group flex items-center gap-2 text-gray-400 transition-all duration-300 hover:text-accent-blue"
+              aria-label="Télécharger CV"
+            >
+              <Download className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+              <span className="text-xs">CV</span>
             </a>
           </div>
         </div>
