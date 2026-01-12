@@ -2,7 +2,7 @@
 
 import { FaLinkedin } from "react-icons/fa";
 import { Mail, Phone, Download } from "lucide-react";
-import { useLanguage } from "@/lib/i18n";
+import { useLanguage } from "@/features/i18n";
 import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
 export default function Footer() {

@@ -6,10 +6,10 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { LanguageProvider } from "@/lib/i18n";
+import { LanguageProvider } from "@/features/i18n";
 import { SEO_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
 import SkipLink from "@/components/ui/SkipLink";
-// import ChatBubble from "@/components/chat/ChatBubble";
+// import ChatBubble from "@/features/chat/ChatBubble";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 

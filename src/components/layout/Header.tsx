@@ -5,9 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { cn } from "@/lib/utils";
-import { useLanguage } from "@/lib/i18n";
+import { useLanguage, LanguageSwitcher } from "@/features/i18n";
 import { NAV_HREFS } from "@/lib/constants";
-import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 export default function Header() {
   const pathname = usePathname();

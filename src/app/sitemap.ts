@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
-import { getProjectSlugs } from "@/data/projects";
-import { getAllPosts } from "@/data/blog";
+import { getProjectSlugs } from "@/features/projects";
+import { getAllPosts } from "@/features/blog";
 import { SEO_CONFIG } from "@/lib/constants";
 
 /**

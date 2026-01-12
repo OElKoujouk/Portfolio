@@ -1,6 +1,6 @@
 ﻿import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import ContactPageClient from "@/components/contact/ContactPageClient";
+import { ContactPageClient } from "@/features/contact";
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import BlogList from "@/components/blog/BlogList";
+import { BlogList } from "@/features/blog";
 
 export const metadata: Metadata = {
     title: "Blog | Omar El Koujouk",

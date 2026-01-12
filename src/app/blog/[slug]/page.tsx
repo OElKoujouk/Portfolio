@@ -1,7 +1,6 @@
 // ... imports unchanged
 import type { Metadata } from "next";
-import { getAllPosts, getPostBySlug } from "@/data/blog";
-import BlogPostClient from "@/components/blog/BlogPostClient";
+import { getAllPosts, getPostBySlug, BlogPostClient } from "@/features/blog";
 import { notFound } from "next/navigation";
 
 type BlogPageProps = {

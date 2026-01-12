@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage } from "@/lib/i18n";
+import { useLanguage } from "@/features/i18n";
 
 export default function SkipLink() {
     const { t } = useLanguage();
