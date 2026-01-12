@@ -114,13 +114,12 @@ export async function sendContact(
       minute: "2-digit",
     });
 
-    // Rendu des templates HTML
+    // Rendu du template HTML
     const { render } = await import("@react-email/render");
     const { ContactEmail } = await import("../emails/ContactEmail");
-    const { ClientConfirmationEmail } = await import("../emails/ClientConfirmationEmail");
 
-    // 1. Email Admin (Notification)
-    const adminHtml = await render(
+    // On rend le composant en chaîne HTML
+    const html = await render(
       ContactEmail({
         fullName,
         email,
@@ -132,8 +131,8 @@ export async function sendContact(
 
     const replyToHeader = `${fullName} <${email}>`;
 
-    // Version texte pour Admin
-    const adminText = [
+    // Version texte simple
+    const textVersion = [
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
       "💬 NOUVEAU MESSAGE - Site Web",
       "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━",
@@ -155,36 +154,15 @@ export async function sendContact(
       message,
     ].join("\n");
 
-    // 2. Email Client (Confirmation)
-    const clientHtml = await render(
-      ClientConfirmationEmail({
-        firstName,
-        message,
-      })
-    );
-
-    const clientText = `Bonjour ${firstName},\n\nMerci pour votre message. Je l'ai bien reçu et je reviens vers vous sous 24h.\n\nVotre message :\n${message}\n\nCordialement,\nOmar El Koujouk`;
-
-    // Envoi en parallèle
-    await Promise.all([
-      // Envoi Admin
-      resend.emails.send({
-        from: CONTACT_FROM,
-        to: CONTACT_TO,
-        subject,
-        replyTo: replyToHeader,
-        text: adminText,
-        html: adminHtml,
-      }),
-      // Envoi Client (Confirmation)
-      resend.emails.send({
-        from: CONTACT_FROM,
-        to: email, // L'adresse du client
-        subject: "Message bien reçu ! 🚀 - Omar El Koujouk",
-        text: clientText,
-        html: clientHtml,
-      })
-    ]);
+    // Envoi unique (Admin)
+    await resend.emails.send({
+      from: CONTACT_FROM,
+      to: CONTACT_TO,
+      subject,
+      replyTo: replyToHeader,
+      text: textVersion,
+      html,
+    });
 
     return {
       status: "success",
