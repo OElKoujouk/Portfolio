@@ -7,7 +7,7 @@ import Footer from "@/components/layout/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { LanguageProvider } from "@/features/i18n";
-import { SEO_CONFIG, SOCIAL_LINKS } from "@/lib/constants";
+import { SEO_CONFIG, SOCIAL_LINKS, CONTACT_INFO } from "@/lib/constants";
 import SkipLink from "@/components/ui/SkipLink";
 // import ChatBubble from "@/features/chat/ChatBubble";
 
@@ -24,6 +24,35 @@ const personJsonLd = {
   sameAs: [SOCIAL_LINKS.linkedin, SEO_CONFIG.url]
 };
 
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: SEO_CONFIG.businessName,
+  image: SEO_CONFIG.image,
+  url: SEO_CONFIG.url,
+  telephone: CONTACT_INFO.phone,
+  email: CONTACT_INFO.email,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    "addressLocality": "Paris",
+    "addressCountry": "FR"
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  sameAs: [SOCIAL_LINKS.linkedin, SEO_CONFIG.url]
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(SEO_CONFIG.url),
   title: {
@@ -34,7 +63,7 @@ export const metadata: Metadata = {
   keywords: [...SEO_CONFIG.keywords],
   authors: [{ name: SEO_CONFIG.name, url: SEO_CONFIG.url }],
   creator: SEO_CONFIG.name,
-  publisher: SEO_CONFIG.name,
+  publisher: SEO_CONFIG.businessName,
   formatDetection: {
     email: false,
     address: false,
@@ -92,6 +121,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(businessJsonLd) }}
         />
         <LanguageProvider initialLocale={initialLocale}>
           <div className="grain" aria-hidden="true" />

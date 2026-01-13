@@ -110,6 +110,10 @@ export const translations = {
     },
     // Contact page
     contact: {
+      meta: {
+        title: "Contact",
+        description: "Contactez-moi pour discuter de votre projet web, mobile ou Salesforce. Réponse sous 24h.",
+      },
       label: "Contact",
       title1: "Parlons de votre",
       title2: "prochain projet",
@@ -136,12 +140,20 @@ export const translations = {
     },
     // Projects page
     projects: {
+      meta: {
+        title: "Projets",
+        description: "Découvrez mes réalisations : applications web, intégrations Salesforce et projets mobiles.",
+      },
       label: "Réalisations",
       title: "Projets sélectionnés",
       description: "Chaque projet est conçu avec une obsession pour la qualité et la maintenabilité. Voici un aperçu des derniers produits livrés.",
     },
     // Blog page
     blog: {
+      meta: {
+        title: "Blog",
+        description: "Retours d'expérience et analyses techniques sur Next.js, React et Salesforce.",
+      },
       label: "Articles",
       title: "Blog & Ressources",
       description: "Retours d'expérience, analyses techniques et tutoriels sur l'écosystème Next.js et Salesforce.",
@@ -274,6 +286,10 @@ export const translations = {
     },
     // Contact page
     contact: {
+      meta: {
+        title: "Contact",
+        description: "Contact me to discuss your web, mobile, or Salesforce project. Reply within 24h.",
+      },
       label: "Contact",
       title1: "Let's talk about your",
       title2: "next project",
@@ -300,12 +316,20 @@ export const translations = {
     },
     // Projects page
     projects: {
+      meta: {
+        title: "Projects",
+        description: "Discover my work: web applications, Salesforce integrations, and mobile projects.",
+      },
       label: "Work",
       title: "Selected Projects",
       description: "Each project is crafted with an obsession for quality and maintainability. Here's a glimpse of the latest products delivered.",
     },
     // Blog page
     blog: {
+      meta: {
+        title: "Blog",
+        description: "Feedback, technical analysis and tutorials on the Next.js and Salesforce ecosystem.",
+      },
       label: "Articles",
       title: "Blog & Resources",
       description: "Feedback, technical analysis and tutorials on the Next.js and Salesforce ecosystem.",
