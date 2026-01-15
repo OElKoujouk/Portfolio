@@ -40,7 +40,7 @@ export const CONTACT_INFO = {
 export const SEO_CONFIG = {
     name: "Omar El Koujouk",
     businessName: "OEK Dev",
-    title: "Omar El Koujouk (OEK Dev) | Développeur Full-Stack & Salesforce",
+    title: "Omar El Koujouk",
     description: "Omar El Koujouk (OEK Dev) - Expert Salesforce et Développeur Web Full-Stack (React/Next.js) basé à Paris. J'accompagne vos projets de développement web et d'intégration CRM sur-mesure.",
     url: "https://omar-elkoujouk.fr",
     image: "https://omar-elkoujouk.fr/assets/omar.jpg",

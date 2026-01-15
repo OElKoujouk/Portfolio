@@ -2,7 +2,7 @@
   "name": "omar-elkoujouk-website",
   "version": "0.1.0",
   "private": true,
-  "description": "Site personnel Next.js 14 - Omar El Koujouk",
+  "description": "Site personnel Next.js 16 (OEK Dev) - Omar El Koujouk",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -40,7 +40,7 @@
   "engines": {
     "node": ">=20.9.0"
   },
-  "license": "MIT",
+  "license": "UNLICENSED",
   "overrides": {
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3"
