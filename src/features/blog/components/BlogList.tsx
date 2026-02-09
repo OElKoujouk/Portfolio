@@ -37,7 +37,6 @@ export default function BlogList() {
                                 {post.coverImage ? (
                                     <div className="absolute inset-0">
                                         <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 to-transparent z-10" />
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <Image
                                             src={post.coverImage}
                                             alt={post.title}

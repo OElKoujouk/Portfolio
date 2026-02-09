@@ -17,6 +17,52 @@ export const mobileFirstUx: BlogPostBase = {
     },
     tags: ["UX/UI", "Mobile First", "PWA", "Conversion"],
     coverImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80",
+    faqs: {
+        fr: [
+            {
+                question: "Combien de temps faut-il pour transformer mon site actuel en version Mobile Native ?",
+                answer: "Pour un site vitrine standard, la transformation prend 3-5 semaines. Cela inclut l'audit mobile, la refonte des interfaces tactiles, l'intégration des gestes swipe, et l'optimisation des animations à 60fps. Pour un e-commerce, comptez 6-8 semaines selon la complexité du catalogue et du tunnel d'achat."
+            },
+            {
+                question: "Quelle est la différence entre une PWA et une application native (App Store) ?",
+                answer: "Une PWA coûte 3 à 5 fois moins cher qu'une app native car elle utilise une seule base de code pour iOS et Android. Elle évite les 30% de commission Apple/Google et ne nécessite pas de validation App Store (délai de 2-7 jours). Cependant, les apps natives restent supérieures pour des usages très complexes (gaming, réalité augmentée intensive)."
+            },
+            {
+                question: "Mon taux de conversion mobile est à 1.2%, est-ce normal ?",
+                answer: "C'est malheureusement courant pour les sites 'responsive' classiques. Un site Mobile Native bien conçu atteint généralement 2.5% à 4% de taux de conversion mobile. Avec 10 000 visiteurs mobile/mois, passer de 1.2% à 3% représente 180 conversions supplémentaires par mois, soit un gain potentiel de plusieurs milliers d'euros selon votre panier moyen."
+            },
+            {
+                question: "Les PWA fonctionnent-elles vraiment hors-ligne ?",
+                answer: "Oui, grâce aux Service Workers. Une fois installée, votre PWA peut afficher les pages consultées, le catalogue produits, voire permettre d'ajouter des articles au panier même sans connexion. Dès que l'utilisateur retrouve le réseau (WiFi, 4G), les données sont synchronisées automatiquement. Idéal pour les zones à faible couverture ou les transports."
+            },
+            {
+                question: "Quel budget prévoir pour une PWA avec design Mobile Native ?",
+                answer: "Pour un site vitrine premium avec PWA, comptez 8 000€ à 15 000€. Un e-commerce PWA complet démarre à 18 000€. C'est 60% moins cher qu'une double application native (iOS + Android) et sans coûts récurrents de publication. De plus, les économies sur les commissions App Store peuvent représenter 5 000€ à 20 000€/an selon votre chiffre d'affaires."
+            }
+        ],
+        en: [
+            {
+                question: "How long does it take to transform my current site into a Mobile Native version?",
+                answer: "For a standard showcase site, the transformation takes 3-5 weeks. This includes mobile audit, touch interface redesign, swipe gesture integration, and 60fps animation optimization. For e-commerce, allow 6-8 weeks depending on catalog complexity and checkout flow."
+            },
+            {
+                question: "What's the difference between a PWA and a native app (App Store)?",
+                answer: "A PWA costs 3 to 5 times less than a native app because it uses a single codebase for iOS and Android. It avoids the 30% Apple/Google commission and doesn't require App Store validation (2-7 day delay). However, native apps remain superior for very complex uses (gaming, intensive augmented reality)."
+            },
+            {
+                question: "My mobile conversion rate is 1.2%, is that normal?",
+                answer: "Unfortunately, that's common for classic 'responsive' sites. A well-designed Mobile Native site typically achieves 2.5% to 4% mobile conversion rates. With 10,000 mobile visitors/month, going from 1.2% to 3% represents 180 additional conversions per month, potentially worth several thousand euros depending on your average cart value."
+            },
+            {
+                question: "Do PWAs really work offline?",
+                answer: "Yes, thanks to Service Workers. Once installed, your PWA can display visited pages, product catalog, and even allow adding items to cart without connection. As soon as the user regains network access (WiFi, 4G), data syncs automatically. Ideal for low-coverage areas or public transport."
+            },
+            {
+                question: "What budget should I plan for a PWA with Mobile Native design?",
+                answer: "For a premium showcase site with PWA, expect 8,000€ to 15,000€. A complete e-commerce PWA starts at 18,000€. This is 60% cheaper than dual native apps (iOS + Android) with no recurring publication costs. Plus, App Store commission savings can represent 5,000€ to 20,000€/year depending on your revenue."
+            }
+        ]
+    },
     seoKeywords: {
         fr: [
             "Optimisation site mobile",

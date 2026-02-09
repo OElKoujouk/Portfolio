@@ -21,7 +21,30 @@ const personJsonLd = {
   jobTitle: SEO_CONFIG.jobTitle,
   image: SEO_CONFIG.image,
   description: SEO_CONFIG.description,
-  sameAs: [SOCIAL_LINKS.linkedin, SEO_CONFIG.url]
+  sameAs: [SOCIAL_LINKS.linkedin, SEO_CONFIG.url],
+  knowsAbout: [
+    "Salesforce Development",
+    "Lightning Web Components",
+    "APEX Programming",
+    "React Development",
+    "Next.js Framework",
+    "TypeScript",
+    "Node.js",
+    "API Integration",
+    "CI/CD",
+    "Web Development",
+    "Full-Stack Development"
+  ],
+  worksFor: {
+    "@type": "Organization",
+    "name": SEO_CONFIG.businessName
+  },
+  address: {
+    "@type": "PostalAddress",
+    "addressLocality": "Paris",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  }
 };
 
 const businessJsonLd = {
@@ -36,7 +59,13 @@ const businessJsonLd = {
   address: {
     "@type": "PostalAddress",
     "addressLocality": "Paris",
+    "addressRegion": "Île-de-France",
     "addressCountry": "FR"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    "latitude": "48.8566",
+    "longitude": "2.3522"
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
@@ -71,6 +100,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    languages: {
+      'fr': 'https://omar-elkoujouk.fr',
+      'en': 'https://omar-elkoujouk.fr/en',
+    }
   },
   openGraph: {
     title: SEO_CONFIG.title,
@@ -107,7 +140,8 @@ export const metadata: Metadata = {
     ],
     shortcut: "/favicon.ico",
     apple: "/assets/logo.png"
-  }
+  },
+  manifest: "/manifest.json"
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

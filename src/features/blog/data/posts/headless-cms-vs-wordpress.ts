@@ -17,6 +17,52 @@ export const headlessVsWordpress: BlogPostBase = {
     },
     tags: ["CMS", "Architecture", "WordPress", "Headless"],
     coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=80",
+    faqs: {
+        fr: [
+            {
+                question: "WordPress est-il vraiment dépassé en 2026 ?",
+                answer: "Non, WordPress reste pertinent pour les blogs simples et petits sites vitrines (budget <5000€). Cependant, pour les sites à fort trafic, les applications nécessitant de la performance ou des intégrations complexes, le Headless CMS est 3-5x plus rapide et 10x plus sécurisé. WordPress représente 43% des sites piratés selon Sucuri en 2025."
+            },
+            {
+                question: "Qu'est-ce qu'un Headless CMS exactement ?",
+                answer: "Un Headless CMS sépare le back-office (où vous gérez le contenu) du front-end (ce que voient vos visiteurs). Concrètement : vous éditez dans Sanity/Contentful/Strapi, et votre site Next.js récupère le contenu via API. Avantages : sécurité maximale (pas de base de données exposée), performance (Next.js), flexibilité totale du design."
+            },
+            {
+                question: "Puis-je garder mon contenu WordPress existant ?",
+                answer: "Oui ! La migration se fait en 2 étapes : 1) Export de votre contenu WordPress (articles, pages, médias) via API ou plugins. 2) Import dans le nouveau CMS (Sanity, Contentful). La migration d'un site moyen (50-100 pages) prend 3-5 jours. Vos URLs peuvent être préservées pour garder votre SEO intact."
+            },
+            {
+                question: "Combien coûte un site Headless CMS vs WordPress ?",
+                answer: "WordPress : 2000-8000€ initial + 500-2000€/an (hébergement, sécurité, mises à jour). Headless : 8000-20000€ initial + 200-800€/an (hébergement Vercel + CMS). Le Headless est plus cher au départ mais 3x moins coûteux en maintenance. ROI atteint en 2-3 ans, plus tôt si vous avez beaucoup de trafic (économies d'infrastructure)."
+            },
+            {
+                question: "Quels CMS Headless recommandez-vous ?",
+                answer: "Pour éditeurs non-techniques : Sanity (interface intuitive, preview en temps réel). Pour développeurs : Strapi (open-source, self-hosted). Pour entreprises : Contentful (robuste, scalable). Je recommande Sanity + Next.js pour 80% des projets : bon équilibre coût/features/DX. Strapi si vous voulez héberger vous-même."
+            }
+        ],
+        en: [
+            {
+                question: "Is WordPress really outdated in 2026?",
+                answer: "No, WordPress remains relevant for simple blogs and small showcase sites (budget <€5000). However, for high-traffic sites, applications requiring performance or complex integrations, Headless CMS is 3-5x faster and 10x more secure. WordPress represents 43% of hacked sites according to Sucuri in 2025."
+            },
+            {
+                question: "What exactly is a Headless CMS?",
+                answer: "A Headless CMS separates the back-office (where you manage content) from the front-end (what your visitors see). Concretely: you edit in Sanity/Contentful/Strapi, and your Next.js site retrieves content via API. Advantages: maximum security (no exposed database), performance (Next.js), total design flexibility."
+            },
+            {
+                question: "Can I keep my existing WordPress content?",
+                answer: "Yes! Migration happens in 2 steps: 1) Export your WordPress content (posts, pages, media) via API or plugins. 2) Import into the new CMS (Sanity, Contentful). Migrating an average site (50-100 pages) takes 3-5 days. Your URLs can be preserved to keep your SEO intact."
+            },
+            {
+                question: "How much does a Headless CMS site cost vs WordPress?",
+                answer: "WordPress: €2000-8000 initial + €500-2000/year (hosting, security, updates). Headless: €8000-20000 initial + €200-800/year (Vercel hosting + CMS). Headless is more expensive upfront but 3x less costly in maintenance. ROI reached in 2-3 years, sooner if you have high traffic (infrastructure savings)."
+            },
+            {
+                question: "Which Headless CMS do you recommend?",
+                answer: "For non-technical editors: Sanity (intuitive interface, real-time preview). For developers: Strapi (open-source, self-hosted). For enterprises: Contentful (robust, scalable). I recommend Sanity + Next.js for 80% of projects: good cost/features/DX balance. Strapi if you want to self-host."
+            }
+        ]
+    },
     seoKeywords: {
         fr: [
             "WordPress vs Headless CMS",

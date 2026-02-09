@@ -17,6 +17,52 @@ export const iaDevWeb: BlogPostBase = {
     },
     tags: ["Intelligence Artificielle", "Productivité", "Workflow", "Innovation"],
     coverImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+    faqs: {
+        fr: [
+            {
+                question: "L'IA va-t-elle vraiment accélérer le développement de mon projet ?",
+                answer: "Oui, de manière mesurable. Les tâches répétitives (génération de formulaires, tests unitaires, documentation) sont réduites de 60-70%. Sur un projet de 8 semaines, cela représente 2-3 semaines gagnées. Cependant, ce temps est réinvesti dans la qualité : UX/UI plus poussée, optimisations de performance, et sécurité renforcée."
+            },
+            {
+                question: "Mes données sont-elles en sécurité si vous utilisez l'IA ?",
+                answer: "Absolument. J'utilise des modèles LLM en local ou via des APIs sécurisées avec chiffrement end-to-end. Vos données sensibles (clés API, informations clients, code métier) ne sont jamais envoyées à des services tiers. L'IA assiste uniquement sur du code générique et des patterns architecturaux, pas sur vos secrets d'affaires."
+            },
+            {
+                question: "Pourquoi payer un développeur si l'IA fait le travail ?",
+                answer: "L'IA génère du code générique, mais ne comprend pas votre business. Un développeur expérimenté utilise l'IA pour gagner 40-50% de temps sur les tâches mécaniques, puis investit ce temps dans ce qui compte vraiment : architecture scalable, sécurité, expérience utilisateur, et alignement avec vos objectifs business. C'est la différence entre un site fonctionnel et un site rentable."
+            },
+            {
+                question: "Combien d'économies puis-je réaliser avec un développeur qui utilise l'IA ?",
+                answer: "Plutôt que des tarifs réduits, vous obtenez plus de valeur pour votre investissement. Pour un budget de 15 000€, vous aurez un site avec une qualité de code équivalente à un projet à 22 000€ en méthode classique : tests automatisés complets, documentation détaillée, optimisations SEO avancées, et architecture évolutive. Le ROI se mesure en maintenance réduite (-30% de bugs) et en évolutions futures plus rapides."
+            },
+            {
+                question: "Quel est le délai de livraison typique avec votre workflow IA ?",
+                answer: "Un site vitrine premium : 2-3 semaines (vs 4-5 semaines classique). Un e-commerce complet : 5-8 semaines (vs 10-14 semaines). Une application SaaS MVP : 8-12 semaines (vs 16-24 semaines). Important : ces délais incluent des phases de tests approfondis et d'optimisation qui sont souvent sacrifiées dans les développements classiques chronophages."
+            }
+        ],
+        en: [
+            {
+                question: "Will AI really accelerate my project development?",
+                answer: "Yes, measurably. Repetitive tasks (form generation, unit tests, documentation) are reduced by 60-70%. On an 8-week project, that represents 2-3 weeks saved. However, this time is reinvested in quality: advanced UX/UI, performance optimizations, and enhanced security."
+            },
+            {
+                question: "Is my data safe if you use AI?",
+                answer: "Absolutely. I use local LLM models or secure APIs with end-to-end encryption. Your sensitive data (API keys, customer information, business code) is never sent to third-party services. AI only assists with generic code and architectural patterns, not your trade secrets."
+            },
+            {
+                question: "Why pay a developer if AI does the work?",
+                answer: "AI generates generic code but doesn't understand your business. An experienced developer uses AI to save 40-50% time on mechanical tasks, then invests this time in what really matters: scalable architecture, security, user experience, and alignment with your business goals. That's the difference between a functional site and a profitable one."
+            },
+            {
+                question: "How much can I save with an AI-powered developer?",
+                answer: "Rather than reduced rates, you get more value for your investment. For a 15,000€ budget, you'll get a site with code quality equivalent to a 22,000€ traditional project: comprehensive automated tests, detailed documentation, advanced SEO optimizations, and scalable architecture. ROI is measured in reduced maintenance (-30% bugs) and faster future evolutions."
+            },
+            {
+                question: "What's the typical delivery time with your AI workflow?",
+                answer: "A premium showcase site: 2-3 weeks (vs 4-5 weeks traditional). A complete e-commerce: 5-8 weeks (vs 10-14 weeks). A SaaS MVP application: 8-12 weeks (vs 16-24 weeks). Important: these timelines include thorough testing and optimization phases that are often sacrificed in time-consuming traditional developments."
+            }
+        ]
+    },
     seoKeywords: {
         fr: [
             "Développeur Web IA",

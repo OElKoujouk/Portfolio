@@ -1,5 +1,10 @@
 import { TranslatedText } from "@/features/projects/types";
 
+export type FAQItem = {
+    question: string;
+    answer: string;
+};
+
 export type BlogPostBase = {
     slug: string;
     title: TranslatedText;
@@ -10,6 +15,7 @@ export type BlogPostBase = {
     content: TranslatedText;
     seoKeywords: { fr: string[]; en: string[] };
     coverImage?: string;
+    faqs?: { fr: FAQItem[]; en: FAQItem[] };
 };
 
 export type BlogPost = {
@@ -22,4 +28,5 @@ export type BlogPost = {
     content: string;
     seoKeywords: string[];
     coverImage?: string;
+    faqs?: FAQItem[];
 };

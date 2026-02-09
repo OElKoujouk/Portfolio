@@ -1,0 +1,112 @@
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Portfolio de Projets - Omar El Koujouk",
+  "description": "Collection de projets web et applications développés par Omar El Koujouk, expert Salesforce et développeur Full-Stack.",
+  "url": "https://omar-elkoujouk.fr/projets",
+  "numberOfItems": 7,
+  "itemListElement": [
+    {
+      "@type": "SoftwareApplication",
+      "position": 1,
+      "name": "NavZen",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "description": "Application mobile de navigation automatisée avec intelligence artificielle",
+      "author": {
+        "@type": "Person",
+        "name": "Omar El Koujouk"
+      },
+      "url": "https://omar-elkoujouk.fr/projets/navzen",
+      "programmingLanguage": ["React Native", "TypeScript", "Express.js"],
+      "screenshot": "https://omar-elkoujouk.fr/assets/projects/navzen/hero.png"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "position": 2,
+      "name": "QuickGPT",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "macOS",
+      "description": "Extension macOS pour accès rapide à ChatGPT avec raccourcis clavier",
+      "author": {
+        "@type": "Person",
+        "name": "Omar El Koujouk"
+      },
+      "url": "https://omar-elkoujouk.fr/projets/quickgpt",
+      "programmingLanguage": ["React", "Electron", "TypeScript"],
+      "screenshot": "https://omar-elkoujouk.fr/assets/projects/quickgpt/modal.png"
+    },
+    {
+      "@type": "WebSite",
+      "position": 3,
+      "name": "Sites WordPress Personnalisés",
+      "description": "Développement de sites WordPress sur-mesure avec thèmes et plugins personnalisés",
+      "author": {
+        "@type": "Person",
+        "name": "Omar El Koujouk"
+      },
+      "url": "https://omar-elkoujouk.fr/projets/wordpress",
+      "programmingLanguage": ["PHP", "WordPress", "JavaScript"]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "position": 4,
+      "name": "Rivalytics",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Outil d'analyse concurrentielle pour e-commerce et marketing digital",
+      "author": {
+        "@type": "Person",
+        "name": "Omar El Koujouk"
+      },
+      "url": "https://omar-elkoujouk.fr/projets/rivalytics",
+      "programmingLanguage": ["React", "Node.js", "TypeScript"],
+      "screenshot": "https://omar-elkoujouk.fr/assets/projects/rivalytics/dashboard.png"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "position": 5,
+      "name": "Extension LinkedIn",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Extension Chrome pour automatisation de la prospection LinkedIn",
+      "author": {
+        "@type": "Person",
+        "name": "Omar El Koujouk"
+      },
+      "url": "https://omar-elkoujouk.fr/projets/linkedin-extension",
+      "programmingLanguage": ["JavaScript", "Chrome Extensions API"],
+      "screenshot": "https://omar-elkoujouk.fr/assets/projects/linkedin/popup.png"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "position": 6,
+      "name": "Workflows N8N",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Automatisations complexes avec N8N pour entreprises et SaaS",
+      "author": {
+        "@type": "Person",
+        "name": "Omar El Koujouk"
+      },
+      "url": "https://omar-elkoujouk.fr/projets/n8n",
+      "programmingLanguage": ["N8N", "API", "JavaScript"],
+      "screenshot": "https://omar-elkoujouk.fr/assets/projects/n8n/workflow.png"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "position": 7,
+      "name": "Logifly - Gestion de Stock",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Application de gestion de stock multi-établissements avec workflows d'approbation",
+      "author": {
+        "@type": "Person",
+        "name": "Omar El Koujouk"
+      },
+      "url": "https://omar-elkoujouk.fr/projets/gestion-stock",
+      "programmingLanguage": ["React", "Prisma", "PostgreSQL", "TypeScript"],
+      "screenshot": "https://omar-elkoujouk.fr/assets/projects/gestion-stock/dashboard.png"
+    }
+  ]
+}

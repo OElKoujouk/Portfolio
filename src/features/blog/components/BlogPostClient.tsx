@@ -3,7 +3,12 @@
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import { useLanguage } from "@/features/i18n";
-import { getPostBySlug } from "../data/blog";
+import { getPostBySlug, getAllPosts } from "../data/blog";
+import { FAQSection } from "./FAQSection";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { AuthorBio } from "@/components/blog/AuthorBio";
+import { RelatedPosts } from "./RelatedPosts";
+import { getRelatedPosts } from "../utils/relatedPosts";
 
 export default function BlogPostClient({ slug }: { slug: string }) {
     const { t, locale } = useLanguage();
@@ -13,10 +18,19 @@ export default function BlogPostClient({ slug }: { slug: string }) {
         return null;
     }
 
+    // Calculer les articles similaires
+    const allPosts = getAllPosts(locale);
+    const relatedPosts = getRelatedPosts(post, allPosts, 3);
+
     return (
         <article className="min-h-screen pt-24 pb-20">
             {/* Article Header */}
             <div className="container mx-auto px-6 max-w-4xl">
+                <Breadcrumbs
+                    items={[{ name: "Blog", href: "/blog" }]}
+                    currentPage={post.title}
+                />
+
                 <Link
                     href="/blog"
                     className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-accent-blue transition-colors mb-8 group"
@@ -76,6 +90,21 @@ export default function BlogPostClient({ slug }: { slug: string }) {
           "
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
+
+                {/* FAQ Section */}
+                {post.faqs && post.faqs.length > 0 && (
+                    <FAQSection items={post.faqs} />
+                )}
+
+                {/* Author Bio */}
+                <div className="mt-12">
+                    <AuthorBio locale={locale} />
+                </div>
+
+                {/* Related Posts */}
+                {relatedPosts.length > 0 && (
+                    <RelatedPosts posts={relatedPosts} locale={locale} />
+                )}
 
                 {/* Article Footer */}
                 <div className="mt-16 pt-8 border-t border-white/10 text-center">

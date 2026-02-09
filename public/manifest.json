@@ -1,0 +1,41 @@
+{
+  "name": "Omar El Koujouk - Développeur Full-Stack & Salesforce",
+  "short_name": "OEK Dev",
+  "description": "Portfolio professionnel d'Omar El Koujouk - Expert Salesforce et Développeur Web Full-Stack spécialisé en React, Next.js et intégrations CRM.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00d9ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "business",
+    "productivity",
+    "education"
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/omar.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
+  ],
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}

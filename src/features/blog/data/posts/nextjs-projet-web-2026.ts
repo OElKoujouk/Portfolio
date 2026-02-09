@@ -17,6 +17,52 @@ export const nextjsProjetWeb2026: BlogPostBase = {
   },
   tags: ["Tech for Business", "SEO", "Performance", "Stratégie Web"],
   coverImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+  faqs: {
+    fr: [
+      {
+        question: "Pourquoi choisir Next.js plutôt que WordPress pour mon site web ?",
+        answer: "Next.js offre des performances supérieures avec des temps de chargement ultra-rapides grâce au Server-Side Rendering. Contrairement à WordPress, il n'y a pas de base de données exposée, ce qui renforce la sécurité. De plus, Next.js est entièrement personnalisable et évolutif, permettant d'intégrer facilement des API, des applications mobiles ou des fonctionnalités SaaS."
+      },
+      {
+        question: "Quel est l'impact de Next.js sur le référencement Google (SEO) ?",
+        answer: "Next.js génère le contenu HTML côté serveur, ce qui permet aux robots Google d'indexer instantanément 100% de votre contenu. Les optimisations automatiques d'images et de code vous permettent d'atteindre systématiquement des scores Core Web Vitals dans la zone verte (90+/100), un facteur de classement important pour Google."
+      },
+      {
+        question: "Combien coûte la création d'un site Next.js comparé à une solution classique ?",
+        answer: "L'investissement initial peut être légèrement plus élevé qu'un template WordPress, mais les économies à long terme sont significatives : pas de licence de thème premium, hébergement moins coûteux, maintenance simplifiée, et évolutivité sans limite. De plus, les performances supérieures augmentent le taux de conversion, rentabilisant rapidement l'investissement."
+      },
+      {
+        question: "Next.js est-il adapté pour un site vitrine ou e-commerce ?",
+        answer: "Absolument ! Next.js est idéal pour les sites vitrines premium, les boutiques en ligne, et même les SaaS. Des entreprises comme Nike, Netflix et Twitch utilisent Next.js pour sa capacité à gérer des millions de visiteurs tout en offrant une expérience utilisateur fluide. Pour un e-commerce, il permet d'intégrer facilement Stripe, Shopify ou des solutions personnalisées."
+      },
+      {
+        question: "Combien de temps faut-il pour développer un site Next.js ?",
+        answer: "Le délai dépend de la complexité du projet. Un site vitrine moderne peut être livré en 2-4 semaines, tandis qu'une boutique e-commerce complète prend 6-12 semaines. L'architecture React Server Components de Next.js 14+ accélère considérablement le développement tout en garantissant une qualité optimale."
+      }
+    ],
+    en: [
+      {
+        question: "Why choose Next.js over WordPress for my website?",
+        answer: "Next.js offers superior performance with ultra-fast loading times through Server-Side Rendering. Unlike WordPress, there's no exposed database, which strengthens security. Additionally, Next.js is fully customizable and scalable, allowing easy integration with APIs, mobile apps, or SaaS features."
+      },
+      {
+        question: "What is Next.js's impact on Google SEO?",
+        answer: "Next.js generates HTML content server-side, allowing Google robots to instantly index 100% of your content. Automatic image and code optimizations help you consistently achieve Core Web Vitals scores in the green zone (90+/100), an important ranking factor for Google."
+      },
+      {
+        question: "How much does creating a Next.js site cost compared to classic solutions?",
+        answer: "The initial investment may be slightly higher than a WordPress template, but long-term savings are significant: no premium theme license, lower hosting costs, simplified maintenance, and unlimited scalability. Plus, superior performance increases conversion rates, quickly paying back the investment."
+      },
+      {
+        question: "Is Next.js suitable for showcase or e-commerce sites?",
+        answer: "Absolutely! Next.js is ideal for premium showcase sites, online shops, and even SaaS. Companies like Nike, Netflix, and Twitch use Next.js for its ability to handle millions of visitors while providing a smooth user experience. For e-commerce, it easily integrates with Stripe, Shopify, or custom solutions."
+      },
+      {
+        question: "How long does it take to develop a Next.js site?",
+        answer: "The timeline depends on project complexity. A modern showcase site can be delivered in 2-4 weeks, while a complete e-commerce store takes 6-12 weeks. Next.js 14+'s React Server Components architecture significantly accelerates development while ensuring optimal quality."
+      }
+    ]
+  },
   seoKeywords: {
     fr: [
       "Création site web performant",

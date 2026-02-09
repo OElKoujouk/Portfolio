@@ -28,11 +28,20 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
             publishedTime: post.date,
             authors: ["Omar El Koujouk"],
             tags: post.tags,
+            images: post.coverImage ? [
+                {
+                    url: post.coverImage,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                }
+            ] : undefined,
         },
         twitter: {
             card: "summary_large_image",
             title: post.title,
             description: post.excerpt,
+            images: post.coverImage ? [post.coverImage] : undefined,
         }
     };
 }
@@ -57,6 +66,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
         "@type": "BlogPosting",
         "headline": post.title,
         "description": post.excerpt,
+        "image": post.coverImage,
         "author": {
             "@type": "Person",
             "name": "Omar El Koujouk",

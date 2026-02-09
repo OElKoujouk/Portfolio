@@ -6,6 +6,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/features/i18n";
 import ProjectMediaGallery from "./ProjectMediaGallery";
 import { getProjectBySlug } from "../data/projects";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 
 type ProjectDetailClientProps = {
     slug: string;
@@ -32,6 +33,11 @@ export default function ProjectDetailClient({ slug }: ProjectDetailClientProps) 
 
     return (
         <article className="space-y-10 md:space-y-12">
+            <Breadcrumbs
+                items={[{ name: "Projets", href: "/projets" }]}
+                currentPage={project.title}
+            />
+
             <Link
                 href="/projets"
                 className="group inline-flex items-center gap-2 text-sm font-medium text-gray-400 transition-colors duration-300 hover:text-accent-blue animate-fade-in"

@@ -31,6 +31,7 @@ function resolveBlogPost(post: BlogPostBase, locale: string): BlogPost {
     content: post.content[lang],
     seoKeywords: post.seoKeywords[lang],
     coverImage: post.coverImage,
+    faqs: post.faqs ? post.faqs[lang] : undefined,
   };
 }
 

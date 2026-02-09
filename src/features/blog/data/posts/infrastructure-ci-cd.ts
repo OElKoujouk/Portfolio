@@ -17,6 +17,52 @@ export const infrastructureCiCd: BlogPostBase = {
     },
     tags: ["DevOps", "Docker", "CI/CD", "Fiabilité"],
     coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+    faqs: {
+        fr: [
+            {
+                question: "Qu'est-ce qu'un déploiement 'Zero-Downtime' et pourquoi est-ce important ?",
+                answer: "Un déploiement Zero-Downtime signifie que votre site reste accessible 24/7, même pendant les mises à jour. La nouvelle version est chargée en parallèle, testée, puis le trafic bascule instantanément. Résultat : 0 seconde d'interruption, 0€ de perte de CA. Pour un e-commerce à 50 000€/mois, une coupure de 2h un samedi peut coûter 4 000€ à 6 000€ de ventes perdues."
+            },
+            {
+                question: "Combien coûte la mise en place d'une infrastructure CI/CD professionnelle ?",
+                answer: "L'installation initiale d'un pipeline CI/CD avec Docker et tests automatisés représente 3 000€ à 5 000€ pour un projet standard. Cet investissement est amorti en 6-12 mois grâce à la réduction drastique des bugs en production (-70%), la rapidité des correctifs (minutes vs heures), et l'élimination des interventions manuelles coûteuses."
+            },
+            {
+                question: "Mon site actuel n'a pas de CI/CD, puis-je l'ajouter après coup ?",
+                answer: "Oui, c'est une migration progressive. Étape 1 : Conteneurisation Docker (1-2 semaines). Étape 2 : Tests automatisés (2-3 semaines). Étape 3 : Pipeline CI/CD complet (1 semaine). Total : 4-6 semaines pour sécuriser un projet existant. Le ROI est immédiat : dès la première mise à jour, vous évitez le stress et les risques d'une manipulation manuelle."
+            },
+            {
+                question: "Quelle est la disponibilité garantie avec votre architecture ?",
+                answer: "Avec une infrastructure moderne (Vercel, AWS avec load balancer, ou Kubernetes), je vise 99.9% de disponibilité, soit moins de 9 heures d'indisponibilité par AN (incluant maintenance serveurs). Pour les sites critiques, une architecture multi-régions peut atteindre 99.99% (52 minutes/an), moyennant un coût supplémentaire de 200€ à 500€/mois selon le trafic."
+            },
+            {
+                question: "Combien de fois peut-on déployer en production par mois ?",
+                answer: "Avec une CI/CD mature, vous pouvez déployer en toute sécurité plusieurs fois par jour si nécessaire. Concrètement, la plupart de mes clients déploient 8-15 fois par mois : correctifs urgents en 10 minutes, nouvelles fonctionnalités hebdomadaires, optimisations continues. Chaque déploiement passe par 50+ tests automatiques, garantissant qu'aucun bug ne passe en production."
+            }
+        ],
+        en: [
+            {
+                question: "What is 'Zero-Downtime' deployment and why is it important?",
+                answer: "Zero-Downtime deployment means your site stays accessible 24/7, even during updates. The new version is loaded in parallel, tested, then traffic switches instantly. Result: 0 seconds of interruption, 0€ lost revenue. For an e-commerce at 50,000€/month, a 2-hour outage on Saturday can cost 4,000€ to 6,000€ in lost sales."
+            },
+            {
+                question: "How much does setting up professional CI/CD infrastructure cost?",
+                answer: "Initial setup of a CI/CD pipeline with Docker and automated tests represents 3,000€ to 5,000€ for a standard project. This investment pays off in 6-12 months through drastically reduced production bugs (-70%), rapid fixes (minutes vs hours), and elimination of costly manual interventions."
+            },
+            {
+                question: "My current site doesn't have CI/CD, can I add it later?",
+                answer: "Yes, it's a progressive migration. Step 1: Docker containerization (1-2 weeks). Step 2: Automated tests (2-3 weeks). Step 3: Complete CI/CD pipeline (1 week). Total: 4-6 weeks to secure an existing project. ROI is immediate: from the first update, you avoid the stress and risks of manual manipulation."
+            },
+            {
+                question: "What's the guaranteed availability with your architecture?",
+                answer: "With modern infrastructure (Vercel, AWS with load balancer, or Kubernetes), I target 99.9% availability, meaning less than 9 hours downtime per YEAR (including server maintenance). For critical sites, multi-region architecture can achieve 99.99% (52 minutes/year), with additional cost of 200€ to 500€/month depending on traffic."
+            },
+            {
+                question: "How many times can we deploy to production per month?",
+                answer: "With mature CI/CD, you can safely deploy multiple times daily if needed. Concretely, most of my clients deploy 8-15 times per month: urgent fixes in 10 minutes, weekly new features, continuous optimizations. Each deployment goes through 50+ automated tests, ensuring no bugs reach production."
+            }
+        ]
+    },
     seoKeywords: {
         fr: [
             "Expert DevOps Freelance",
